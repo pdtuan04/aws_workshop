@@ -1,4 +1,4 @@
-baseURL = "https://workshop-sample.fcjuni.com/"
+baseURL = "https://pdtuan04.github.io/aws_workshop/"
 relativeURLs = false
 canonifyURLs = false
 defaultContentLanguage = "en"
