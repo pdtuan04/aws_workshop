@@ -1,59 +1,41 @@
 ---
 title: "Worklog Tuần 2"
-date: 2024-01-01
-weight: 1
+date: 2026-04-30
+weight: 2
 chapter: false
 pre: " <b> 1.2. </b> "
 ---
-{{% notice warning %}}
-⚠️ **Lưu ý:** Các thông tin dưới đây chỉ nhằm mục đích tham khảo, vui lòng **không sao chép nguyên văn** cho bài báo cáo của bạn kể cả warning này.
-{{% /notice %}}
 
 
 ### Mục tiêu tuần 2:
 
-* Kết nối, làm quen với các thành viên trong First Cloud Journey.
-* Hiểu dịch vụ AWS cơ bản, cách dùng console & CLI.
+* Triển khai thành công ứng dụng web mẫu (Node.js) kết nối với cơ sở dữ liệu quan hệ (RDS) trên AWS.
+* Xây dựng kiến trúc hệ thống có tính sẵn sàng cao (High Availability) và khả năng tự động mở rộng (Auto Scaling).
+* Đảm bảo an toàn dữ liệu và tối ưu hóa luồng công việc vận hành với AWS CLI và AWS Backup.
 
 ### Các công việc cần triển khai trong tuần này:
-| Thứ | Công việc                                                                                                                                                                                   | Ngày bắt đầu | Ngày hoàn thành | Nguồn tài liệu                            |
-| --- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | ------------ | --------------- | ----------------------------------------- |
-| 2   | - Làm quen với các thành viên FCJ <br> - Đọc và lưu ý các nội quy, quy định tại đơn vị thực tập                                                                                             | 11/08/2025   | 11/08/2025      |
-| 3   | - Tìm hiểu AWS và các loại dịch vụ <br>&emsp; + Compute <br>&emsp; + Storage <br>&emsp; + Networking <br>&emsp; + Database <br>&emsp; + ... <br>                                            | 12/08/2025   | 12/08/2025      | <https://cloudjourney.awsstudygroup.com/> |
-| 4   | - Tạo AWS Free Tier account <br> - Tìm hiểu AWS Console & AWS CLI <br> - **Thực hành:** <br>&emsp; + Tạo AWS account <br>&emsp; + Cài AWS CLI & cấu hình <br> &emsp; + Cách sử dụng AWS CLI | 13/08/2025   | 13/08/2025      | <https://cloudjourney.awsstudygroup.com/> |
-| 5   | - Tìm hiểu EC2 cơ bản: <br>&emsp; + Instance types <br>&emsp; + AMI <br>&emsp; + EBS <br>&emsp; + ... <br> - Các cách remote SSH vào EC2 <br> - Tìm hiểu Elastic IP   <br>                  | 14/08/2025   | 15/08/2025      | <https://cloudjourney.awsstudygroup.com/> |
-| 6   | - **Thực hành:** <br>&emsp; + Tạo EC2 instance <br>&emsp; + Kết nối SSH <br>&emsp; + Gắn EBS volume                                                                                         | 15/08/2025   | 15/08/2025      | <https://cloudjourney.awsstudygroup.com/> |
+| Thứ | Công việc | Ngày bắt đầu | Ngày hoàn thành | Nguồn tài liệu |
+| --- | --- | --- | --- | --- |
+| 6 | - **Vận hành & Quản lý:** <br> - Nghiên cứu sâu và sử dụng AWS CLI để tương tác, truy xuất thông tin và quản lý các dịch vụ AWS thay vì chỉ dùng Console. | 24/04/2026 | 24/04/2026 | Nội bộ/AWS Docs |
+| 7 | - **Thực hành Compute:** <br> - Thiết lập EC2 instance sử dụng hệ điều hành Amazon Linux. <br> - Triển khai ứng dụng Node.js cơ bản lên máy chủ EC2 và kiểm tra hoạt động. | 25/04/2026 | 25/04/2026 | Nội bộ/AWS Docs |
+| CN | - **Thực hành Database:** <br> - Thiết lập RDS Database instance cho ứng dụng. <br> - Cấu hình Security Group để cho phép EC2 kết nối an toàn vào RDS. | 26/04/2026 | 26/04/2026 | Nội bộ/AWS Docs |
+| 2 | - **Chuẩn bị mở rộng:** <br> - Thiết lập Launch Templates: Đóng gói cấu hình của EC2 instance (AMI có sẵn Node.js app, Instance type, Key pair, Security Group) để chuẩn bị cho Auto Scaling. | 27/04/2026 | 27/04/2026 | Nội bộ/AWS Docs |
+| 3 | - **Thực hành Load Balancing:** <br> - Thiết lập Elastic Load Balancing (ELB/ALB). <br> - Cấu hình Target Group và Routing để tự động phân phối lưu lượng truy cập từ người dùng đến nhiều EC2 targets. | 28/04/2026 | 28/04/2026 | Nội bộ/AWS Docs |
+| 4 | - **Thực hành Auto Scaling & Notification:** <br> - Thiết lập Auto Scaling Group (ASG) để tự động điều chỉnh số lượng EC2 instance (Scale in/Scale out) theo nhu cầu thực tế (CPU/Memory utilization). <br> - Tích hợp Amazon SNS để gửi thông báo (email) mỗi khi ASG thực hiện hành động mở rộng hoặc thu hẹp. | 29/04/2026 | 29/04/2026 | Nội bộ/AWS Docs |
+| 5 | - **Bảo vệ dữ liệu:** <br> - Nghiên cứu AWS Backup. <br> - Thiết lập Backup Plan để tạo ra một kế hoạch sao lưu định kỳ (chụp Snapshot tự động) cho các tài nguyên đang hoạt động (EC2, RDS). | 30/04/2026 | 30/04/2026 | Nội bộ/AWS Docs |
 
 
 ### Kết quả đạt được tuần 2:
 
-* Hiểu AWS là gì và nắm được các nhóm dịch vụ cơ bản: 
-  * Compute
-  * Storage
-  * Networking 
-  * Database
-  * ...
+**1. Triển khai Ứng dụng & Dữ liệu:**
+* Khởi tạo thành công máy chủ Amazon Linux và cấu hình môi trường chạy ứng dụng Node.js ổn định.
+* Thiết lập và kết nối thành công cơ sở dữ liệu quan hệ (RDS), đảm bảo các quy tắc bảo mật (Security Group) giữa App Server và Database Server.
 
-* Đã tạo và cấu hình AWS Free Tier account thành công.
+**2. Khả năng mở rộng & Cân bằng tải (Scalability & HA):**
+* Tạo thành công Launch Templates để tiêu chuẩn hóa cấu hình máy chủ, giúp việc nhân bản EC2 trở nên tự động và nhất quán.
+* Triển khai Elastic Load Balancing (ELB) giúp phân phối đều traffic người dùng, tránh tình trạng quá tải cục bộ trên một máy chủ.
+* Thiết lập Auto Scaling Group (ASG) hoạt động trơn tru, giúp hệ thống tự động tăng/giảm số lượng node dựa trên tải thực tế, đồng thời cấu hình SNS để nhận cảnh báo theo thời gian thực về trạng thái mở rộng.
 
-* Làm quen với AWS Management Console và biết cách tìm, truy cập, sử dụng dịch vụ từ giao diện web.
-
-* Cài đặt và cấu hình AWS CLI trên máy tính bao gồm:
-  * Access Key
-  * Secret Key
-  * Region mặc định
-  * ...
-
-* Sử dụng AWS CLI để thực hiện các thao tác cơ bản như:
-
-  * Kiểm tra thông tin tài khoản & cấu hình
-  * Lấy danh sách region
-  * Xem dịch vụ EC2
-  * Tạo và quản lý key pair
-  * Kiểm tra thông tin dịch vụ đang chạy
-  * ...
-
-* Có khả năng kết nối giữa giao diện web và CLI để quản lý tài nguyên AWS song song.
-* ...
-
-
+**3. Vận hành & Bảo vệ hệ thống:**
+* Làm quen và ứng dụng hiệu quả AWS CLI vào việc tương tác với các tài nguyên AWS, tăng tốc độ quản trị.
+* Hoàn thiện cơ chế an toàn dữ liệu thông qua việc tạo Backup Plan, tự động sao lưu dự phòng cho hệ thống theo lịch trình cụ thể.

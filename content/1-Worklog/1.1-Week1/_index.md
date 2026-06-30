@@ -1,57 +1,37 @@
 ---
 title: "Week 1 Worklog"
-date: 2024-01-01
+date: 2026-04-23
 weight: 1
 chapter: false
 pre: " <b> 1.1. </b> "
 ---
-{{% notice warning %}} 
-⚠️ **Note:** The following information is for reference purposes only. Please **do not copy verbatim** for your own report, including this warning.
-{{% /notice %}}
 
 
 ### Week 1 Objectives:
 
-* Connect and get acquainted with members of First Cloud Journey.
-* Understand basic AWS services, how to use the console & CLI.
+* Connect and get acquainted with new members in the First Cloud Journey.
+* Understand fundamental AWS services and how to use them.
 
-### Tasks to be carried out this week:
-| Day | Task                                                                                                                                                                                                   | Start Date | Completion Date | Reference Material                        |
-| --- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ | ---------- | --------------- | ----------------------------------------- |
-| 2   | - Get acquainted with FCJ members <br> - Read and take note of internship unit rules and regulations                                                                                                   | 08/11/2025 | 08/11/2025      |
-| 3   | - Learn about AWS and its types of services <br>&emsp; + Compute <br>&emsp; + Storage <br>&emsp; + Networking <br>&emsp; + Database <br>&emsp; + ... <br>                                              | 08/12/2025 | 08/12/2025      | <https://cloudjourney.awsstudygroup.com/> |
-| 4   | - Create AWS Free Tier account <br> - Learn about AWS Console & AWS CLI <br> - **Practice:** <br>&emsp; + Create AWS account <br>&emsp; + Install & configure AWS CLI <br> &emsp; + How to use AWS CLI | 08/13/2025 | 08/13/2025      | <https://cloudjourney.awsstudygroup.com/> |
-| 5   | - Learn basic EC2: <br>&emsp; + Instance types <br>&emsp; + AMI <br>&emsp; + EBS <br>&emsp; + ... <br> - SSH connection methods to EC2 <br> - Learn about Elastic IP   <br>                            | 08/14/2025 | 08/15/2025      | <https://cloudjourney.awsstudygroup.com/> |
-| 6   | - **Practice:** <br>&emsp; + Launch an EC2 instance <br>&emsp; + Connect via SSH <br>&emsp; + Attach an EBS volume                                                                                     | 08/15/2025 | 08/15/2025      | <https://cloudjourney.awsstudygroup.com/> |
+### Tasks to be implemented this week:
+| Day | Task | Start Date | End Date | Resources |
+| --- | --- | --- | --- | --- |
+| Fri | - Get to know FCJ members and find team members. <br> - Read and note the rules and regulations at the internship unit. <br> - Create an AWS Free Tier account. <br> - Learn about AWS Console. <br>- Prepare necessary resources to perform labs for the task to receive $200 credit. <br> - Learn how to draw AWS architecture diagrams with draw.io. | 17/04/2026 | 17/04/2026 | <https://000001.awsstudygroup.com/> <br> <https://youtu.be/l8isyDe-GwY> |
+| Sat | - Practice: Set up basic Billing Alerts to control the number of credits in the account.<br>&emsp; + Send daily and monthly bill emails. <br>&emsp; + Send alert emails when exceeding the predefined limit. | 18/04/2026 | 18/04/2026 | <https://000007.awsstudygroup.com/> <br> <https://docs.aws.amazon.com/awsaccountbilling/latest/aboutv2/billing-what-is.html> |
+| Sun | - Practice: Manage access with AWS Identity and Access Management (IAM)<br>&emsp; + Create IAM Group and IAM User.<br>&emsp; + Create IAM Role and IAM User. | 19/04/2026 | 19/04/2026 | <https://000002.awsstudygroup.com/> |
+| Mon | - Research theory on basic AWS network infrastructure <br>&emsp; + Region <br>&emsp; + VPC <br>&emsp; + Subnet <br>&emsp; + Internet Gateway <br>&emsp; + Route Table <br>&emsp; + Security Group | 20/04/2026 | 20/04/2026 | <https://000003.awsstudygroup.com/> |
+| Tue | - **Practice:** Configure network components <br>&emsp; + VPC <br>&emsp; + Subnet <br>&emsp; + Internet Gateway <br>&emsp; + Route Table <br>&emsp; + Security Group<br> - Learn about NAT Gateway | 21/04/2026 | 21/04/2026 | <https://000003.awsstudygroup.com/> |
+| Wed | - Learn basic EC2: <br>&emsp; + Instance types <br>&emsp; + AMI <br>&emsp; + Launch Instance | 22/04/2026 | 22/04/2026 | <https://000003.awsstudygroup.com/> |
+| Thu | - **Practice:** <br>&emsp; + Create EC2 instances inside public and private subnets. <br>&emsp;+ SSH into the EC2 inside the public subnet to check the connection. <br>&emsp; + Configure NAT Gateway for the Private EC2 instance in the private subnet to access the internet. <br>&emsp; + Indirectly SSH from the EC2 in the public subnet to the EC2 in the private subnet using a .pem file to check the outbound internet connection. | 23/04/2026 | 23/04/2026 | <https://000003.awsstudygroup.com/> |
 
 
 ### Week 1 Achievements:
 
-* Understood what AWS is and mastered the basic service groups: 
-  * Compute
-  * Storage
-  * Networking 
-  * Database
-  * ...
+* Set up the practice environment: Successfully created an AWS account (with $200 credit), got familiar with the AWS Console, draw.io, and formed a working team.
 
-* Successfully created and configured an AWS Free Tier account.
+* Optimized cost risk management by configuring a detailed Billing Alerts system (sending daily/monthly reports and over-limit alerts).
 
-* Became familiar with the AWS Management Console and learned how to find, access, and use services via the web interface.
+* Ensured the Principle of Least Privilege in authorization by setting up and managing AWS IAM resources (Group, User, Role).
 
-* Installed and configured AWS CLI on the computer, including:
-  * Access Key
-  * Secret Key
-  * Default Region
-  * ...
+* Successfully built the core AWS VPC network infrastructure, including planning Public/Private Subnets, and configuring Route Tables, Internet Gateways, and Security Groups.
 
-* Used AWS CLI to perform basic operations such as:
-
-  * Check account & configuration information
-  * Retrieve the list of regions
-  * View EC2 service
-  * Create and manage key pairs
-  * Check information about running services
-  * ...
-
-* Acquired the ability to connect between the web interface and CLI to manage AWS resources in parallel.
-* ...
+* Deployed a secure server model: Created EC2 instances on both Subnets, set up a NAT Gateway to grant Internet access for the Private subnet, and successfully tested the indirect SSH flow from Public to Private using a .pem file.
