@@ -1,57 +1,36 @@
 ---
 title: "Week 4 Worklog"
-date: 2024-01-01
-weight: 1
+date: 2026-05-14
+weight: 4
 chapter: false
 pre: " <b> 1.4. </b> "
 ---
-{{% notice warning %}} 
-⚠️ **Note:** The following information is for reference purposes only. Please **do not copy verbatim** for your own report, including this warning.
-{{% /notice %}}
-
 
 ### Week 4 Objectives:
 
-* Connect and get acquainted with members of First Cloud Journey.
-* Understand basic AWS services, how to use the console & CLI.
+* Design the database for the system.
+* Create the User Interface (UI) for the system.
+* Research and apply advanced architecture (CQRS Pattern) in developing core APIs.
+* Implement a secure user authentication system using OAuth2 with Google.
+* Optimize application performance using Redis Cache, resolving the data consistency problem.
+* Take initial steps in approaching the basic CI/CD pipeline.
 
-### Tasks to be carried out this week:
-| Day | Task                                                                                                                                                                                                   | Start Date | Completion Date | Reference Material                        |
-| --- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ | ---------- | --------------- | ----------------------------------------- |
-| 2   | - Get acquainted with FCJ members <br> - Read and take note of internship unit rules and regulations                                                                                                   | 08/11/2025 | 08/11/2025      |
-| 3   | - Learn about AWS and its types of services <br>&emsp; + Compute <br>&emsp; + Storage <br>&emsp; + Networking <br>&emsp; + Database <br>&emsp; + ... <br>                                              | 08/12/2025 | 08/12/2025      | <https://cloudjourney.awsstudygroup.com/> |
-| 4   | - Create AWS Free Tier account <br> - Learn about AWS Console & AWS CLI <br> - **Practice:** <br>&emsp; + Create AWS account <br>&emsp; + Install & configure AWS CLI <br> &emsp; + How to use AWS CLI | 08/13/2025 | 08/13/2025      | <https://cloudjourney.awsstudygroup.com/> |
-| 5   | - Learn basic EC2: <br>&emsp; + Instance types <br>&emsp; + AMI <br>&emsp; + EBS <br>&emsp; + ... <br> - SSH connection methods to EC2 <br> - Learn about Elastic IP   <br>                            | 08/14/2025 | 08/15/2025      | <https://cloudjourney.awsstudygroup.com/> |
-| 6   | - **Practice:** <br>&emsp; + Launch an EC2 instance <br>&emsp; + Connect via SSH <br>&emsp; + Attach an EBS volume                                                                                     | 08/15/2025 | 08/15/2025      | <https://cloudjourney.awsstudygroup.com/> |
+### Tasks to be implemented this week:
 
+| Day | Task | Start Date | End Date | Resources |
+| --- | --- | --- | --- | --- |
+| Fri | - **Practice:** Data Design.<br>&emsp;+ Understand potential system requirements. <br>&emsp;+ Design the database for the web server system. <br>&emsp;+ Apply the Code-First approach with Entity Framework Core Migrations to initialize and manage database versions. | 08/05/2026 | 08/05/2026 | Internal |
+| Sat | - Learn basic UI/UX design principles for an examination/practice system.<br> - **Practice:** Interface Design.<br>&emsp;+ Design the UI for system functions.<br>&emsp;+ Ensure user experience for the main operation flows. | 09/05/2026 | 09/05/2026 | Internal |
+| Sun | - Research theory on Grant Types in the OAuth2 standard.<br> - **Practice:** Authentication and Security.<br>&emsp;+ Build user authentication APIs.<br>&emsp;+ Integrate the OAuth2 standard into the system to manage access permissions. | 10/05/2026 | 10/05/2026 | <https://oauth.net/2/> |
+| Mon | - Learn about the CQRS (Command Query Responsibility Segregation) architecture and Read/Write flow separation.<br> - **Practice:** API Development (Part 1).<br>&emsp;+ Apply the CQRS Pattern to design processing flows.<br>&emsp;+ Build APIs for the examination and practice functions. | 11/05/2026 | 11/05/2026 | <https://learn.microsoft.com/en-us/azure/architecture/patterns/cqrs> |
+| Tue | - **Practice:** API Development (Part 2).<br>&emsp;+ Continue applying the CQRS Pattern.<br>&emsp;+ Build APIs for post management and resource CRUD flows. | 12/05/2026 | 12/05/2026 | Internal |
+| Wed | - Research theory on Caching strategies (Cache-Aside), how to validate data when caching, and methods to minimize errors, ensuring Data Consistency.<br> - **Practice:** Performance Optimization.<br>&emsp;+ Install and use Redis to cache frequently accessed data.<br>&emsp;+ Implement an event-driven mechanism to automatically invalidate (delete) cache when data changes. | 13/05/2026 | 13/05/2026 | <https://redis.io/docs/> |
+| Thu | - Research theory on Continuous Integration and Continuous Deployment (CI/CD).<br> - **Practice:** CI/CD Automation.<br>&emsp;+ Learn and configure a trial CI/CD pipeline with GitHub Actions. | 14/05/2026 | 14/05/2026 | <https://docs.github.com/en/actions> |
 
 ### Week 4 Achievements:
 
-* Understood what AWS is and mastered the basic service groups: 
-  * Compute
-  * Storage
-  * Networking 
-  * Database
-  * ...
-
-* Successfully created and configured an AWS Free Tier account.
-
-* Became familiar with the AWS Management Console and learned how to find, access, and use services via the web interface.
-
-* Installed and configured AWS CLI on the computer, including:
-  * Access Key
-  * Secret Key
-  * Default Region
-  * ...
-
-* Used AWS CLI to perform basic operations such as:
-
-  * Check account & configuration information
-  * Retrieve the list of regions
-  * View EC2 service
-  * Create and manage key pairs
-  * Check information about running services
-  * ...
-
-* Acquired the ability to connect between the web interface and CLI to manage AWS resources in parallel.
-* ...
+* Completed the database and UI design, creating a solid foundation for the feature development process.
+* Understood and successfully built a secure user authentication mechanism by integrating OAuth2.
+* Grasped the mindset and applied the CQRS Pattern in API development (examination, practice, resource management), clearly separating read/write flows and increasing system scalability.
+* Understood the nature of Caching and data consistency. Significantly improved API response speed by integrating Redis Cache, while making the utmost effort to thoroughly resolve data discrepancy issues using an event-driven cache invalidation mechanism.
+* Grasped the process of automating code testing and deployment through GitHub Actions.
