@@ -1,59 +1,33 @@
 ---
 title: "Worklog Tuần 10"
-date: 2024-01-01
-weight: 2
+date: 2026-06-25
+weight: 10
 chapter: false
 pre: " <b> 1.10. </b> "
 ---
-{{% notice warning %}}
-⚠️ **Lưu ý:** Các thông tin dưới đây chỉ nhằm mục đích tham khảo, vui lòng **không sao chép nguyên văn** cho bài báo cáo của bạn kể cả warning này.
-{{% /notice %}}
-
 
 ### Mục tiêu tuần 10:
 
-* Kết nối, làm quen với các thành viên trong First Cloud Journey.
-* Hiểu dịch vụ AWS cơ bản, cách dùng console & CLI.
+* Nghiên cứu lý thuyết về AWS WAF và cơ chế tích hợp cùng Amazon CloudFront.
+* Thực hành cấu hình Web ACLs trên AWS WAF để tối ưu bảo mật cho hệ thống.
+* Rà soát, kiểm thử diện rộng và khắc phục triệt để các lỗi phát sinh trên các tính năng đã triển khai.
+* Nghiên cứu tài liệu và hoàn thiện 03 bài blog.
 
 ### Các công việc cần triển khai trong tuần này:
-| Thứ | Công việc                                                                                                                                                                                   | Ngày bắt đầu | Ngày hoàn thành | Nguồn tài liệu                            |
-| --- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | ------------ | --------------- | ----------------------------------------- |
-| 2   | - Làm quen với các thành viên FCJ <br> - Đọc và lưu ý các nội quy, quy định tại đơn vị thực tập                                                                                             | 11/08/2025   | 11/08/2025      |
-| 3   | - Tìm hiểu AWS và các loại dịch vụ <br>&emsp; + Compute <br>&emsp; + Storage <br>&emsp; + Networking <br>&emsp; + Database <br>&emsp; + ... <br>                                            | 12/08/2025   | 12/08/2025      | <https://cloudjourney.awsstudygroup.com/> |
-| 4   | - Tạo AWS Free Tier account <br> - Tìm hiểu AWS Console & AWS CLI <br> - **Thực hành:** <br>&emsp; + Tạo AWS account <br>&emsp; + Cài AWS CLI & cấu hình <br> &emsp; + Cách sử dụng AWS CLI | 13/08/2025   | 13/08/2025      | <https://cloudjourney.awsstudygroup.com/> |
-| 5   | - Tìm hiểu EC2 cơ bản: <br>&emsp; + Instance types <br>&emsp; + AMI <br>&emsp; + EBS <br>&emsp; + ... <br> - Các cách remote SSH vào EC2 <br> - Tìm hiểu Elastic IP   <br>                  | 14/08/2025   | 15/08/2025      | <https://cloudjourney.awsstudygroup.com/> |
-| 6   | - **Thực hành:** <br>&emsp; + Tạo EC2 instance <br>&emsp; + Kết nối SSH <br>&emsp; + Gắn EBS volume                                                                                         | 15/08/2025   | 15/08/2025      | <https://cloudjourney.awsstudygroup.com/> |
 
+| Thứ | Công việc | Ngày bắt đầu | Ngày hoàn thành | Nguồn tài liệu |
+| --- | --- | --- | --- | --- |
+| 6 | - Tìm hiểu lý thuyết cơ bản về AWS WAF (Web Application Firewall).<br> - Nghiên cứu cơ chế hoạt động và cách WAF kết hợp với Amazon CloudFront để bảo vệ ứng dụng ở rìa mạng (Edge Location). | 19/06/2026 | 19/06/2026 | <https://docs.aws.amazon.com/waf/latest/developerguide/cloudfront-features.html> |
+| 7 | - **Thực hành:** Cấu hình Bảo mật WAF.<br>&emsp;+ Khởi tạo Web ACLs trên bộ quản lý AWS WAF.<br>&emsp;+ Cấu hình các rule bảo mật cơ bản và tiến hành liên kết WAF trực tiếp với CloudFront Distribution của dự án. | 20/06/2026 | 20/06/2026 | |
+| CN | - **Thực hành:** Kiểm thử hệ thống (Ngày 1).<br>&emsp;+ Thực hiện kiểm thử lại toàn bộ các chức năng đã triển khai (đề thi, lịch sử thi, flashcard, quản lý tài khoản).<br>&emsp;+ Ghi nhận các lỗi logic và lỗi giao diện phát sinh. | 21/06/2026 | 21/06/2026 | |
+| 2 | - **Thực hành:** Khắc phục lỗi phát sinh (Ngày 2).<br>&emsp;+ Tập trung sửa các bug liên quan đến Backend API và Frontend UI từ kết quả kiểm thử.<br>&emsp;+ Đảm bảo các luồng chức năng chính vận hành ổn định, mượt mà. | 22/06/2026 | 22/06/2026 | |
+| 3 | - **Thực hành:** Soạn thảo Blog (Bài 1).<br>&emsp;+ Nghiên cứu tài liệu và hoàn thành bài viết: **Tối Ưu Hóa Kiến Trúc Mạng Với Amazon VPC Regional NAT Gateway**. | 23/06/2026 | 23/06/2026 | |
+| 4 | - **Thực hành:** Soạn thảo Blog (Bài 2).<br>&emsp;+ Nghiên cứu tài liệu và hoàn thành bài viết: **Thêm HTTP Security Headers Bằng Amazon CloudFront**. | 24/06/2026 | 24/06/2026 | |
+| 5 | - **Thực hành:** Soạn thảo Blog (Bài 3).<br>&emsp;+ Nghiên cứu tài liệu và hoàn thành bài viết: **Lợi Ích Khi Kết Hợp Amazon CloudFront với Application Load Balancer**. | 25/06/2026 | 25/06/2026 | |
 
 ### Kết quả đạt được tuần 10:
 
-* Hiểu AWS là gì và nắm được các nhóm dịch vụ cơ bản: 
-  * Compute
-  * Storage
-  * Networking 
-  * Database
-  * ...
-
-* Đã tạo và cấu hình AWS Free Tier account thành công.
-
-* Làm quen với AWS Management Console và biết cách tìm, truy cập, sử dụng dịch vụ từ giao diện web.
-
-* Cài đặt và cấu hình AWS CLI trên máy tính bao gồm:
-  * Access Key
-  * Secret Key
-  * Region mặc định
-  * ...
-
-* Sử dụng AWS CLI để thực hiện các thao tác cơ bản như:
-
-  * Kiểm tra thông tin tài khoản & cấu hình
-  * Lấy danh sách region
-  * Xem dịch vụ EC2
-  * Tạo và quản lý key pair
-  * Kiểm tra thông tin dịch vụ đang chạy
-  * ...
-
-* Có khả năng kết nối giữa giao diện web và CLI để quản lý tài nguyên AWS song song.
-* ...
-
-
+* Nắm cơ bản khái niệm về AWS WAF và cơ chế bảo mật kết hợp giữa WAF và Amazon CloudFront.
+* Triển khai thành công AWS WAF cho CloudFront, thiết lập được lớp rào chắn bảo mật ban đầu đơn giản để bảo vệ hệ thống trước các truy cập độc hại.
+* Dành 02 ngày để kiểm thử và sửa sạch các lỗi phát sinh.
+* Nghiên cứu tài liệu và hoàn thiện đúng tiến độ 03 bài blog kỹ thuật: "Tối Ưu Hóa Kiến Trúc Mạng Với Amazon VPC Regional NAT Gateway", "Thêm HTTP Security Headers Bằng Amazon CloudFront", và "Lợi Ích Khi Kết Hợp Amazon CloudFront với Application Load Balancer".

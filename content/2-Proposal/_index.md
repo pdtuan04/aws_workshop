@@ -1,115 +1,118 @@
 ---
 title: "Proposal"
-date: 2024-01-01
+date: 2026-07-01
 weight: 2
 chapter: false
 pre: " <b> 2. </b> "
 ---
-{{% notice warning %}}
-⚠️ **Note:** The information below is for reference purposes only. Please **do not copy verbatim** for your report, including this warning.
-{{% /notice %}}
 
-In this section, you need to summarize the contents of the workshop that you **plan** to conduct.
-
-# IoT Weather Platform for Lab Research
-## A Unified AWS Serverless Solution for Real-Time Weather Monitoring
+# English Learning & Exam Platform
+## English Learning System Solution Deployed on AWS High Availability Architecture
 
 ### 1. Executive Summary
-The IoT Weather Platform is designed for the ITea Lab team in Ho Chi Minh City to enhance weather data collection and analysis. It supports up to 5 weather stations, with potential scalability to 10-15, utilizing Raspberry Pi edge devices with ESP32 sensors to transmit data via MQTT. The platform leverages AWS Serverless services to deliver real-time monitoring, predictive analytics, and cost efficiency, with access restricted to 5 lab members via Amazon Cognito.
+The English learning system is designed to provide a learning platform that combines memorization methods and community interaction. Core features include a smart Flashcard system for vocabulary memorization, a diverse English article library, a practice testing function, and a hierarchical comment system to enhance learner interaction. The system leverages the power of AWS cloud services to ensure High Availability, automatic scaling, and fully automated CI/CD integration.
 
 ### 2. Problem Statement
-### What’s the Problem?
-Current weather stations require manual data collection, becoming unmanageable with multiple units. There is no centralized system for real-time data or analytics, and third-party platforms are costly and overly complex.
+*Current problem:*
+Although there are many high-quality English learning platforms on the market today, learners often face fragmentation: they use a separate app for Flashcards (like Quizlet, Anki), and read articles on another website. The lack of a highly cohesive "All-in-one" environment disrupts the learner's focus flow.
 
-### The Solution
-The platform uses AWS IoT Core to ingest MQTT data, AWS Lambda and API Gateway for processing, Amazon S3 for storage (including a data lake), and AWS Glue Crawlers and ETL jobs to extract, transform, and load data from the S3 data lake to another S3 bucket for analysis. AWS Amplify with Next.js provides the web interface, and Amazon Cognito ensures secure access. Similar to Thingsboard and CoreIoT, users can register new devices and manage connections, though this platform operates on a smaller scale and is designed for private use. Key features include real-time dashboards, trend analysis, and low operational costs.
+*Solution:*
+Develop a centralized learning system that fully integrates study features. The system leverages AWS infrastructure with a combination of WAF, CloudFront, and S3 for fast and secure static content delivery. An Application Load Balancer (ALB) combined with an Auto Scaling Group will route traffic to application servers running Docker containers. Data is securely managed within Private Subnets with SQL Server and access is accelerated using ElastiCache (Valkey). The development process is streamlined thanks to a CI/CD pipeline from GitHub Actions to Docker Hub and AWS CodeDeploy.
 
-### Benefits and Return on Investment
-The solution establishes a foundational resource for lab members to develop a larger IoT platform, serving as a study resource, and provides a data foundation for AI enthusiasts for model training or analysis. It reduces manual reporting for each station via a centralized platform, simplifying management and maintenance, and improves data reliability. Monthly costs are $0.66 USD per the AWS Pricing Calculator, with a 12-month total of $7.92 USD. All IoT equipment costs are covered by the existing weather station setup, eliminating additional development expenses. The break-even period of 6-12 months is achieved through significant time savings from reduced manual work.
+*Benefits:*
+The solution provides a smooth, fast-loading, uninterrupted learning experience thanks to the load balancing and fault tolerance mechanisms. Setting up a systematic infrastructure creates a solid foundation for the graduation internship and practical project development, while effectively controlling costs by utilizing free tiers (CloudFront, WAF) and appropriately sized nodes (t3.micro, t4g.micro).
 
-### 3. Solution Architecture
-The platform employs a serverless AWS architecture to manage data from 5 Raspberry Pi-based stations, scalable to 15. Data is ingested via AWS IoT Core, stored in an S3 data lake, and processed by AWS Glue Crawlers and ETL jobs to transform and load it into another S3 bucket for analysis. Lambda and API Gateway handle additional processing, while Amplify with Next.js hosts the dashboard, secured by Cognito. The architecture is detailed below:
+### 3. Solution Architecture  
+The system operates entirely within the secure Amazon VPC network environment spanning multiple Availability Zones to ensure High Availability.
 
-![IoT Weather Station Architecture](/images/2-Proposal/edge_architecture.jpeg)
+![EngExam Cloud & Deployment Architecture](../images/2-proposal/architechture.drawio.png)
 
-![IoT Weather Platform Architecture](/images/2-Proposal/platform_architecture.jpeg)
+*Data interaction flow:*
+1. User sends a request to the system, passing through CloudFront.
+2. Through CloudFront, it checks the first AWS WAF rules defense layer to filter out common web attacks.
+3. Requests for static resources are processed directly by CloudFront and offloaded via an Amazon S3 Bucket.
+4. Dynamic requests (APIs) are routed by CloudFront through the Internet Gateway (IG) to enter the VPC.
+5. The traffic flow goes to the Application Load Balancer (ALB) for load distribution.
+6. The ALB evenly distributes traffic to EC2 servers located within the Auto Scaling Group in the Private Subnets.
+7. The EC2 Instances handle business logic and interact with the Amazon RDS (SQL Server) database configured as a Primary DB and Standby DB cluster for automatic failover during incidents.
+8. Frequently queried data or exam configurations are distributed and cached directly at Amazon ElastiCache (Valkey) Replica Node & Primary Node to reduce the load on the RDS.
+9. When EC2s in the private subnet need to download libraries or connect to the Internet (send emails, connect to Docker Hub), outbound traffic goes through a centralized Regional NAT Gateway to optimize costs.
+10. From the Regional NAT Gateway, traffic goes out through the Internet Gateway.
+11. Amazon CloudWatch continuously monitors performance metrics (CPU, Network) of the EC2 instances.
+12. When the system load exceeds the configured threshold, CloudWatch triggers an Alarm.
+13. The Alarm issues a Trigger Scaling command requesting the Auto Scaling Group to automatically add servers (Scale-out).
+14. Simultaneously, a Send Notifications alert is routed to Amazon SNS to automatically send a warning email to the administrator when a new instance is initialized.
 
-### AWS Services Used
-- **AWS IoT Core**: Ingests MQTT data from 5 stations, scalable to 15.
-- **AWS Lambda**: Processes data and triggers Glue jobs (two functions).
-- **Amazon API Gateway**: Facilitates web app communication.
-- **Amazon S3**: Stores raw data in a data lake and processed outputs (two buckets).
-- **AWS Glue**: Crawlers catalog data, and ETL jobs transform and load it.
-- **AWS Amplify**: Hosts the Next.js web interface.
-- **Amazon Cognito**: Secures access for lab users.
+*CI/CD Automation Flow:*
 
-### Component Design
-- **Edge Devices**: Raspberry Pi collects and filters sensor data, sending it to IoT Core.
-- **Data Ingestion**: AWS IoT Core receives MQTT messages from the edge devices.
-- **Data Storage**: Raw data is stored in an S3 data lake; processed data is stored in another S3 bucket.
-- **Data Processing**: AWS Glue Crawlers catalog the data, and ETL jobs transform it for analysis.
-- **Web Interface**: AWS Amplify hosts a Next.js app for real-time dashboards and analytics.
-- **User Management**: Amazon Cognito manages user access, allowing up to 5 active accounts.
+15. The Developer commits and Pushes Code to the GitHub Repository.
+16. The push code action automatically triggers GitHub Actions Workflows to run the testing process and Build Code To Image.
+17. The successfully built Docker image is Pushed to the Docker Hub repository.
+18. The pipeline compresses the deployment configuration source code into a Publish Deploy Artifact.
+19. This Zip File is directly pushed to a temporary Amazon S3 Bucket for deployment.
+20. GitHub Actions calls the AWS CodeDeploy service to notify it of the new version.
+21. The AWS CodeDeploy Agent on the servers accesses S3 to Get Files containing the artifact.
+22. CodeDeploy executes the deployment script.
+23. Commands all EC2s to pull the latest image from Docker Hub.
 
 ### 4. Technical Implementation
-**Implementation Phases**
-This project has two parts—setting up weather edge stations and building the weather platform—each following 4 phases:
-- Build Theory and Draw Architecture: Research Raspberry Pi setup with ESP32 sensors and design the AWS serverless architecture (1 month pre-internship)
-- Calculate Price and Check Practicality: Use AWS Pricing Calculator to estimate costs and adjust if needed (Month 1).
-- Fix Architecture for Cost or Solution Fit: Tweak the design (e.g., optimize Lambda with Next.js) to stay cost-effective and usable (Month 2).
-- Develop, Test, and Deploy: Code the Raspberry Pi setup, AWS services with CDK/SDK, and Next.js app, then test and release to production (Months 2-3).
 
-**Technical Requirements**
-- Weather Edge Station: Sensors (temperature, humidity, rainfall, wind speed), a microcontroller (ESP32), and a Raspberry Pi as the edge device. Raspberry Pi runs Raspbian, handles Docker for filtering, and sends 1 MB/day per station via MQTT over Wi-Fi.
-- Weather Platform: Practical knowledge of AWS Amplify (hosting Next.js), Lambda (minimal use due to Next.js), AWS Glue (ETL), S3 (two buckets), IoT Core (gateway and rules), and Cognito (5 users). Use AWS CDK/SDK to code interactions (e.g., IoT Core rules to S3). Next.js reduces Lambda workload for the fullstack web app.
+*Deployment Phases*
+The project is carried out throughout the internship, divided into 3 main phases to ensure progress from grasping the technology to system completion:
+1. Research and familiarize with core services (Month 1): Focus on researching theory and practicing basic lab exercises on AWS. The goal of this phase is to get accustomed to the operations and understand the working mechanisms of core infrastructure services (such as VPC, EC2, RDS, S3).
+2. Define architecture and calculate costs (Early Month 2): Sketch and draw the overall system architecture diagram. Create an infrastructure cost estimation table (using AWS Pricing Calculator), thereby making decisions to adjust services and architecture to optimize the operational budget.
+3. Develop and integrate the system (Mid-Month 2 - Early Month 3): Start the actual building process. Program the core features (Backend & Frontend) and gradually integrate and deploy advanced services (Auto Scaling, ALB, ElastiCache, CI/CD, RabbitMQ, WAF) to the Cloud environment.
+4. Test and finalize (Late Month 3): Review the entire project. Conduct functional testing and completely resolve any arising bugs. Package the environment and complete the final report documents.
 
-### 5. Timeline & Milestones
-**Project Timeline**
-- Pre-Internship (Month 0): 1 month for planning and old station review.
-- Internship (Months 1-3): 3 months.
-    - Month 1: Study AWS and upgrade hardware.
-    - Month 2: Design and adjust architecture.
-    - Month 3: Implement, test, and launch.
-- Post-Launch: Up to 1 year for research.
+*Technical Requirements*
+* Cloud Infrastructure (AWS): Requires knowledge of VPC network configuration (Public/Private Subnet, Internet Gateway, Regional NAT Gateway). Ability to set up an EC2 server cluster operating under an Auto Scaling Group and ALB. Use Amazon S3 combined with CloudFront to distribute static content, integrating the AWS WAF security shield. Store data with RDS (SQL Server) and set up the ElastiCache (Valkey) cache.
+* Architecture & Backend (.NET): Use C# ASP.NET Core, Entity Framework Core. Grasp the CQRS architecture design mindset to separate Read/Write flows. Use a Message Broker (installing RabbitMQ and MassTransit) to handle event-driven operations and distributed data synchronization.
+* CI/CD & Automation: Use Container virtualization technology (Docker, Docker Compose). Ability to write automation scripts (Pipelines) using GitHub Actions to build images, push them to Docker Hub, and configure AppSpec for AWS CodeDeploy to perform In-Place Deployment.
+* Frontend: UI development skills using React, ensuring a smooth experience for main operational flows such as taking multiple-choice tests, flipping flashcards, and interacting via comments.
+
+### 5. Roadmap & Milestones
+
+The project is planned for deployment entirely within a 3-month internship with the following milestones:
+
+* Month 1: Kick-off and Platform Familiarization:
+  * Research theory and practice lab exercises for basic AWS services (VPC, EC2, RDS, S3).
+  * Review development technologies (ASP.NET Core, React) and Docker.
+
+* Month 2: Architectural Design and Initial Building
+  * *Early month:* Sketch the overall architectural diagram, calculate, and optimize infrastructure costs.
+  * *Mid - Late month:* Build core features (applying CQRS). Integrate infrastructure into the Cloud environment (ALB, Auto Scaling) and set up basic CI/CD.
+
+* Month 3: Optimization, Testing, and Packaging
+  * Finalize the CI/CD pipeline (AWS CodeDeploy), data synchronization (RabbitMQ), Cache configuration (Valkey), and security (WAF).
+  * Comprehensive testing and load testing evaluation (JMeter).
+  * Thoroughly fix bugs, record a demo video, and complete final report documents.
 
 ### 6. Budget Estimation
-You can find the budget estimation on the [AWS Pricing Calculator](https://calculator.aws/#/estimate?id=621f38b12a1ef026842ba2ddfe46ff936ed4ab01).  
-Or you can download the [Budget Estimation File](../attachments/budget_estimation.pdf).
 
-### Infrastructure Costs
-- AWS Services:
-    - AWS Lambda: $0.00/month (1,000 requests, 512 MB storage).
-    - S3 Standard: $0.15/month (6 GB, 2,100 requests, 1 GB scanned).
-    - Data Transfer: $0.02/month (1 GB inbound, 1 GB outbound).
-    - AWS Amplify: $0.35/month (256 MB, 500 ms requests).
-    - Amazon API Gateway: $0.01/month (2,000 requests).
-    - AWS Glue ETL Jobs: $0.02/month (2 DPUs).
-    - AWS Glue Crawlers: $0.07/month (1 crawler).
-    - MQTT (IoT Core): $0.08/month (5 devices, 45,000 messages).
+*Infrastructure Costs*
+- Amazon EC2: 9.42 USD/month (1 t3.small Instance applying 3-year Compute Savings Plans, No Upfront).
+- Amazon RDS: 22.63 USD/month (1 db.t3.micro Instance, SQL Server Express Edition with free license).
+- Amazon ElastiCache: 14.02 USD/month (1 cache.t4g.micro Node, Valkey engine on On-Demand).
+- Amazon S3 Standard: 0.25 USD/month (Estimated storage of 10 GB of static resources at 0.025 USD/GB).
+- Amazon CloudFront & AWS WAF: 0.00 USD/month (Free Tier package including WAF supporting 5 rules, 1 million requests, 100 GB data).
+- AWS CodeDeploy: 0.00 USD/month (Completely free when deploying source code to EC2/Auto Scaling Group).
+- Amazon CloudWatch: 0.00 USD/month (Basic EC2 performance monitoring included in Free Tier).
+- Amazon SNS: 0.00 USD/month (Automatic warning emails included in Free Tier).
+- Docker Hub: 0.00 USD/month (Free Tier account for Public Repository).
 
-Total: $0.7/month, $8.40/12 months
-
-- Hardware: $265 one-time (Raspberry Pi 5 and sensors).
+*Total*: 46.32 USD/month, 555.84 USD/12 months.
 
 ### 7. Risk Assessment
-#### Risk Matrix
-- Network Outages: Medium impact, medium probability.
-- Sensor Failures: High impact, low probability.
-- Cost Overruns: Medium impact, low probability.
+*Risk Matrix*
+- Security misconfiguration (Security Groups/VPC): High impact, medium probability.
+- Deployment failure (Downtime during updates): High impact.
+- Unexpected costs (Especially NAT Gateway and Data Transfer): Medium impact, medium probability.
 
-#### Mitigation Strategies
-- Network: Local storage on Raspberry Pi with Docker.
-- Sensors: Regular checks and spares.
-- Cost: AWS budget alerts and optimization.
-
-#### Contingency Plans
-- Revert to manual methods if AWS fails.
-- Use CloudFormation for cost-related rollbacks.
+*Mitigation Strategy*
+- Only open necessary ports, place all DBs, ElastiCache, and processing EC2s into Private Subnets.
+- Configure Amazon CloudFront to force all traffic from HTTP to HTTPS (Redirect HTTP to HTTPS).
+- Set up AWS Budgets and CloudWatch Billing Alarms to warn immediately if costs exceed the allowable threshold.
 
 ### 8. Expected Outcomes
-#### Technical Improvements: 
-Real-time data and analytics replace manual processes.  
-Scalable to 10-15 stations.
-#### Long-term Value
-1-year data foundation for AI research.  
-Reusable for future projects.
+- Technical: Successfully build a stable English learning system that is fault-tolerant thanks to Multi-AZ and scales automatically based on traffic. The deployment process is fully automated right from code push.
+- Product: Users have a smooth platform to practice vocabulary via Flashcards, take English tests, read articles, and exchange academic knowledge through a hierarchical comment system.

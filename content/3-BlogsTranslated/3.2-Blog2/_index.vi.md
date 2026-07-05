@@ -5,123 +5,38 @@ weight: 1
 chapter: false
 pre: " <b> 3.2. </b> "
 ---
+# Thêm HTTP Security Headers Bằng Amazon CloudFront
 
-{{% notice warning %}}
-⚠️ **Lưu ý:** Các thông tin dưới đây chỉ nhằm mục đích tham khảo, vui lòng **không sao chép nguyên văn** cho bài báo cáo của bạn kể cả warning này.
-{{% /notice %}}
+Trong bối cảnh an ninh mạng đối mặt với nhiều rủi ro, việc bảo vệ người dùng khỏi các lỗ hổng phổ biến như XSS, clickjacking và man-in-the-middle là vô cùng cấp thiết. Một lớp phòng thủ quan trọng nhưng thường bị bỏ qua là HTTP security headers. Để giải quyết vấn đề này mà không cần những can thiệp phức tạp vào hệ thống gốc, các nhà phát triển và kỹ sư DevOps có thể triển khai Amazon CloudFront nhằm tự động hóa và tối ưu việc thêm các header bảo mật.
 
-# Bắt đầu với healthcare data lakes: Sử dụng microservices
+Một thành phần quan trọng trong giải pháp là các tập header như Strict-Transport-Security, Content-Security-Policy, hay X-Frame-Options. Thay vì phải điều chỉnh tại máy chủ ứng dụng, CloudFront cung cấp 3 phương pháp linh hoạt để áp dụng các chính sách này ngay tại biên mạng (edge).
 
-Các data lake có thể giúp các bệnh viện và cơ sở y tế chuyển dữ liệu thành những thông tin chi tiết về doanh nghiệp và duy trì hoạt động kinh doanh liên tục, đồng thời bảo vệ quyền riêng tư của bệnh nhân. **Data lake** là một kho lưu trữ tập trung, được quản lý và bảo mật để lưu trữ tất cả dữ liệu của bạn, cả ở dạng ban đầu và đã xử lý để phân tích. data lake cho phép bạn chia nhỏ các kho chứa dữ liệu và kết hợp các loại phân tích khác nhau để có được thông tin chi tiết và đưa ra các quyết định kinh doanh tốt hơn.
+## 1. Lợi ích của việc đưa cấu hình bảo mật lên CloudFront
 
-Bài đăng trên blog này là một phần của loạt bài lớn hơn về việc bắt đầu cài đặt data lake dành cho lĩnh vực y tế. Trong bài đăng blog cuối cùng của tôi trong loạt bài, *“Bắt đầu với data lake dành cho lĩnh vực y tế: Đào sâu vào Amazon Cognito”*, tôi tập trung vào các chi tiết cụ thể của việc sử dụng Amazon Cognito và Attribute Based Access Control (ABAC) để xác thực và ủy quyền người dùng trong giải pháp data lake y tế. Trong blog này, tôi trình bày chi tiết cách giải pháp đã phát triển ở cấp độ cơ bản, bao gồm các quyết định thiết kế mà tôi đã đưa ra và các tính năng bổ sung được sử dụng. Bạn có thể truy cập các code samples cho giải pháp tại Git repo này để tham khảo.
+Ban đầu, các hệ thống thường được cấu hình để gắn header bảo mật trực tiếp tại máy chủ gốc (origin server). Tuy nhiên, việc chuyển giao nhiệm vụ này lên CloudFront mang lại nhiều lợi ích rõ rệt.
 
----
+Kiến trúc này giúp giải quyết tình trạng không thể can thiệp vào mã nguồn của máy chủ gốc (đặc biệt khi dùng nền tảng bên thứ ba). Việc offload logic này cho CloudFront giúp máy chủ gốc tiết kiệm tài nguyên tính toán, chỉ tập trung vào việc phục vụ nội dung cốt lõi. Đồng thời, nó giúp tiết kiệm băng thông giữa CloudFront và máy chủ gốc, mang lại sự linh hoạt tối đa khi quản trị viên cần cập nhật nhanh các lớp phòng thủ.
 
-## Hướng dẫn kiến trúc
+## 2. Triển khai nhanh chóng với CloudFront Response Headers Policies
 
-Thay đổi chính kể từ lần trình bày cuối cùng của kiến trúc tổng thể là việc tách dịch vụ đơn lẻ thành một tập hợp các dịch vụ nhỏ để cải thiện khả năng bảo trì và tính linh hoạt. Việc tích hợp một lượng lớn dữ liệu y tế khác nhau thường yêu cầu các trình kết nối chuyên biệt cho từng định dạng; bằng cách giữ chúng được đóng gói riêng biệt với microservices, chúng ta có thể thêm, xóa và sửa đổi từng trình kết nối mà không ảnh hưởng đến những kết nối khác. Các microservices được kết nối rời thông qua tin nhắn publish/subscribe tập trung trong cái mà tôi gọi là “pub/sub hub”.
+Cách đơn giản và tối ưu chi phí nhất (không phát sinh phí, không cần viết code) là sử dụng CloudFront Response Headers Policies.
 
-Giải pháp này đại diện cho những gì tôi sẽ coi là một lần lặp nước rút hợp lý khác từ last post của tôi. Phạm vi vẫn được giới hạn trong việc nhập và phân tích cú pháp đơn giản của các **HL7v2 messages** được định dạng theo **Quy tắc mã hóa 7 (ER7)** thông qua giao diện REST.
+Hệ thống cung cấp sẵn các Managed policies (chính sách được AWS cấu hình mặc định) chứa các bộ header bảo mật chuẩn xác cho các tình huống phổ biến. Bạn chỉ cần đính kèm chính sách này vào Cache Behavior của CloudFront. Nếu ứng dụng có những đặc thù riêng, bạn hoàn toàn có thể tạo các Custom policies để tinh chỉnh chi tiết từng giá trị như X-XSS-Protection hay Referrer-Policy. Toàn bộ lưu lượng trả về cho người dùng sẽ tự động được gán các header này.
 
-**Kiến trúc giải pháp bây giờ như sau:**
+## 3. Tùy biến bảo mật động bằng CloudFront Functions
 
-> *Hình 1. Kiến trúc tổng thể; những ô màu thể hiện những dịch vụ riêng biệt.*
+Đối với những kịch bản yêu cầu hệ thống phải phản ứng linh hoạt, phương pháp cấu hình tĩnh là chưa đủ.
 
----
+Nếu bạn cần thay đổi giá trị header dựa trên các điều kiện cụ thể (ví dụ: chỉ thêm header khi phát hiện một request header, cookie, hoặc query string nhất định), CloudFront Functions là giải pháp phù hợp. Bằng cách thực thi các đoạn mã JavaScript cực kỳ gọn nhẹ ngay tại các edge locations, hệ thống có thể phân tích request và chèn security headers theo thời gian thực mà không làm tăng độ trễ của trang web.
 
-Mặc dù thuật ngữ *microservices* có một số sự mơ hồ cố hữu, một số đặc điểm là chung:  
-- Chúng nhỏ, tự chủ, kết hợp rời rạc  
-- Có thể tái sử dụng, giao tiếp thông qua giao diện được xác định rõ  
-- Chuyên biệt để giải quyết một việc  
-- Thường được triển khai trong **event-driven architecture**
+## 4. Xử lý các kịch bản bảo mật phức tạp với Lambda@Edge
 
-Khi xác định vị trí tạo ranh giới giữa các microservices, cần cân nhắc:  
-- **Nội tại**: công nghệ được sử dụng, hiệu suất, độ tin cậy, khả năng mở rộng  
-- **Bên ngoài**: chức năng phụ thuộc, tần suất thay đổi, khả năng tái sử dụng  
-- **Con người**: quyền sở hữu nhóm, quản lý *cognitive load*
+Khi các yêu cầu kiểm soát trở nên phức tạp hơn mức CloudFront Functions có thể đáp ứng, hệ thống sẽ cần đến sức mạnh của Lambda@Edge (hỗ trợ Node.js và Python).
 
----
+Trong các tình huống cần gọi API ra bên ngoài (network calls), sử dụng các thư viện bảo mật của bên thứ ba, hoặc cần truy cập sâu vào phần nội dung (body) của request để quyết định xem có nên gán header bảo mật hay không, Lambda@Edge cung cấp toàn quyền lập trình. Giải pháp này giúp các hệ thống lớn (như cổng thông tin y tế hay nền tảng thương mại điện tử) đáp ứng được các tiêu chuẩn tuân thủ dữ liệu khắt khe nhất.
 
-## Lựa chọn công nghệ và phạm vi giao tiếp
+## Kết luận
 
-| Phạm vi giao tiếp                        | Các công nghệ / mô hình cần xem xét                                                        |
-| ---------------------------------------- | ------------------------------------------------------------------------------------------ |
-| Trong một microservice                   | Amazon Simple Queue Service (Amazon SQS), AWS Step Functions                               |
-| Giữa các microservices trong một dịch vụ | AWS CloudFormation cross-stack references, Amazon Simple Notification Service (Amazon SNS) |
-| Giữa các dịch vụ                         | Amazon EventBridge, AWS Cloud Map, Amazon API Gateway                                      |
+Thông qua việc tận dụng hệ sinh thái Amazon CloudFront bao gồm Response Headers Policies, CloudFront Functions và Lambda@Edge, các tổ chức có thể xây dựng một giải pháp bảo mật linh hoạt và đa lớp. Giải pháp này không chỉ offload gánh nặng cho máy chủ gốc mà còn giúp dễ dàng áp dụng các tiêu chuẩn an toàn web hiện đại. Bằng cách kết hợp kiểm tra định kỳ với các công cụ như Mozilla Observatory, hệ thống có thể liên tục cải thiện điểm số bảo mật và duy trì tính ổn định cho người dùng hợp lệ.
 
----
-
-## The pub/sub hub
-
-Việc sử dụng kiến trúc **hub-and-spoke** (hay message broker) hoạt động tốt với một số lượng nhỏ các microservices liên quan chặt chẽ.  
-- Mỗi microservice chỉ phụ thuộc vào *hub*  
-- Kết nối giữa các microservice chỉ giới hạn ở nội dung của message được xuất  
-- Giảm số lượng synchronous calls vì pub/sub là *push* không đồng bộ một chiều
-
-Nhược điểm: cần **phối hợp và giám sát** để tránh microservice xử lý nhầm message.
-
----
-
-## Core microservice
-
-Cung cấp dữ liệu nền tảng và lớp truyền thông, gồm:  
-- **Amazon S3** bucket cho dữ liệu  
-- **Amazon DynamoDB** cho danh mục dữ liệu  
-- **AWS Lambda** để ghi message vào data lake và danh mục  
-- **Amazon SNS** topic làm *hub*  
-- **Amazon S3** bucket cho artifacts như mã Lambda
-
-> Chỉ cho phép truy cập ghi gián tiếp vào data lake qua hàm Lambda → đảm bảo nhất quán.
-
----
-
-## Front door microservice
-
-- Cung cấp API Gateway để tương tác REST bên ngoài  
-- Xác thực & ủy quyền dựa trên **OIDC** thông qua **Amazon Cognito**  
-- Cơ chế *deduplication* tự quản lý bằng DynamoDB thay vì SNS FIFO vì:
-  1. SNS deduplication TTL chỉ 5 phút
-  2. SNS FIFO yêu cầu SQS FIFO
-  3. Chủ động báo cho sender biết message là bản sao
-
----
-
-## Staging ER7 microservice
-
-- Lambda “trigger” đăng ký với pub/sub hub, lọc message theo attribute  
-- Step Functions Express Workflow để chuyển ER7 → JSON  
-- Hai Lambda:
-  1. Sửa format ER7 (newline, carriage return)
-  2. Parsing logic  
-- Kết quả hoặc lỗi được đẩy lại vào pub/sub hub
-
----
-
-## Tính năng mới trong giải pháp
-
-### 1. AWS CloudFormation cross-stack references
-Ví dụ *outputs* trong core microservice:
-```yaml
-Outputs:
-  Bucket:
-    Value: !Ref Bucket
-    Export:
-      Name: !Sub ${AWS::StackName}-Bucket
-  ArtifactBucket:
-    Value: !Ref ArtifactBucket
-    Export:
-      Name: !Sub ${AWS::StackName}-ArtifactBucket
-  Topic:
-    Value: !Ref Topic
-    Export:
-      Name: !Sub ${AWS::StackName}-Topic
-  Catalog:
-    Value: !Ref Catalog
-    Export:
-      Name: !Sub ${AWS::StackName}-Catalog
-  CatalogArn:
-    Value: !GetAtt Catalog.Arn
-    Export:
-      Name: !Sub ${AWS::StackName}-CatalogArn
+Nguồn tham khảo: https://aws.amazon.com/blogs/networking-and-content-delivery/adding-http-security-headers-using-amazon-cloudfront/

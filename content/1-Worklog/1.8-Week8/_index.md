@@ -1,57 +1,32 @@
 ---
 title: "Week 8 Worklog"
-date: 2024-01-01
-weight: 1
+date: 2026-06-11
+weight: 8
 chapter: false
 pre: " <b> 1.8. </b> "
 ---
-{{% notice warning %}} 
-⚠️ **Note:** The following information is for reference purposes only. Please **do not copy verbatim** for your own report, including this warning.
-{{% /notice %}}
-
 
 ### Week 8 Objectives:
 
-* Connect and get acquainted with members of First Cloud Journey.
-* Understand basic AWS services, how to use the console & CLI.
+* Complete the overall AWS architecture diagram for the EngExam system.
+* Develop a custom exam creation feature based on the user's history of incorrect answers.
+* Research and upgrade the CI/CD pipeline from using manual SSH to applying AWS CodeDeploy and Docker Hub.
 
-### Tasks to be carried out this week:
-| Day | Task                                                                                                                                                                                                   | Start Date | Completion Date | Reference Material                        |
-| --- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ | ---------- | --------------- | ----------------------------------------- |
-| 2   | - Get acquainted with FCJ members <br> - Read and take note of internship unit rules and regulations                                                                                                   | 08/11/2025 | 08/11/2025      |
-| 3   | - Learn about AWS and its types of services <br>&emsp; + Compute <br>&emsp; + Storage <br>&emsp; + Networking <br>&emsp; + Database <br>&emsp; + ... <br>                                              | 08/12/2025 | 08/12/2025      | <https://cloudjourney.awsstudygroup.com/> |
-| 4   | - Create AWS Free Tier account <br> - Learn about AWS Console & AWS CLI <br> - **Practice:** <br>&emsp; + Create AWS account <br>&emsp; + Install & configure AWS CLI <br> &emsp; + How to use AWS CLI | 08/13/2025 | 08/13/2025      | <https://cloudjourney.awsstudygroup.com/> |
-| 5   | - Learn basic EC2: <br>&emsp; + Instance types <br>&emsp; + AMI <br>&emsp; + EBS <br>&emsp; + ... <br> - SSH connection methods to EC2 <br> - Learn about Elastic IP   <br>                            | 08/14/2025 | 08/15/2025      | <https://cloudjourney.awsstudygroup.com/> |
-| 6   | - **Practice:** <br>&emsp; + Launch an EC2 instance <br>&emsp; + Connect via SSH <br>&emsp; + Attach an EBS volume                                                                                     | 08/15/2025 | 08/15/2025      | <https://cloudjourney.awsstudygroup.com/> |
+### Tasks to be implemented this week:
 
+| Day | Task | Start Date | End Date | Resources |
+| --- | --- | --- | --- | --- |
+| Fri | - **Practice:** AWS Architecture Design.<br>&emsp;+ Design and complete the overall AWS architecture flow for the EngExam system.<br>&emsp;+ Identify components and draw an architecture diagram showing how services interact (VPC, EC2, RDS, S3, ALB, ASG, etc.). | 05/06/2026 | 05/06/2026 | <https://youtu.be/l8isyDe-GwY> |
+| Sat | - Learn the theory of the AWS CodeDeploy service.<br> - Research CodeDeploy's automated application deployment mechanism when a new code version is pushed to the repository. | 06/06/2026 | 06/06/2026 | <https://docs.aws.amazon.com/codedeploy/latest/userguide/welcome.html> |
+| Sun | - **Practice:** Exam Feature (Part 1).<br>&emsp;+ Analyze the logic and retrieve data for questions the user frequently answers incorrectly from their test history. | 07/06/2026 | 07/06/2026 | |
+| Mon | - **Practice:** Exam Feature (Part 2).<br>&emsp;+ Build the complete API to automatically generate review exams based on the user's incorrect/failed questions. | 08/06/2026 | 08/06/2026 | |
+| Tue | - **Practice:** CI/CD Upgrade (Part 1).<br>&emsp;+ Reconfigure the pipeline flow (GitHub Actions) to automatically build the ASP.NET Core application.<br>&emsp;+ Integrate automatic pushing of the Docker image to Docker Hub. | 09/06/2026 | 09/06/2026 | <https://docs.docker.com/build/ci/github-actions/> |
+| Wed | - **Practice:** CI/CD Upgrade (Part 2).<br>&emsp;+ Integrate AWS CodeDeploy into the CI/CD pipeline.<br>&emsp;+ Eliminate the simple SSH method, set up a script (AppSpec) for CodeDeploy to automatically pull the latest image and update the application on EC2. | 10/06/2026 | 10/06/2026 | <https://docs.aws.amazon.com/codedeploy/latest/userguide/reference-appspec-file.html> |
+| Thu | - **Practice:** System Testing.<br>&emsp;+ Test the new CI/CD flow from the code push step to when the application is automatically deployed successfully.<br>&emsp;+ Verify the accuracy of the exam generation function from incorrect questions. | 11/06/2026 | 11/06/2026 |  |
 
 ### Week 8 Achievements:
 
-* Understood what AWS is and mastered the basic service groups: 
-  * Compute
-  * Storage
-  * Networking 
-  * Database
-  * ...
-
-* Successfully created and configured an AWS Free Tier account.
-
-* Became familiar with the AWS Management Console and learned how to find, access, and use services via the web interface.
-
-* Installed and configured AWS CLI on the computer, including:
-  * Access Key
-  * Secret Key
-  * Default Region
-  * ...
-
-* Used AWS CLI to perform basic operations such as:
-
-  * Check account & configuration information
-  * Retrieve the list of regions
-  * View EC2 service
-  * Create and manage key pairs
-  * Check information about running services
-  * ...
-
-* Acquired the ability to connect between the web interface and CLI to manage AWS resources in parallel.
-* ...
+* Completed and systematized the entire AWS infrastructure architecture flow through a clear and visual architecture diagram.
+* Successfully built a smart learning feature: automatically generating review exams from questions users frequently get wrong, helping to optimize the learning experience on the EngExam system.
+* Grasped the operating mechanism of AWS CodeDeploy.
+* Successfully upgraded the CI/CD pipeline: automated the build process, stored images on Docker Hub, and deployed the application smoothly via CodeDeploy, completely replacing the previous manual SSH operation.

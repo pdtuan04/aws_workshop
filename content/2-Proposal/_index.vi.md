@@ -1,108 +1,116 @@
 ---
 title: "Bản đề xuất"
-date: 2024-01-01
+date: 2026-07-01
 weight: 2
 chapter: false
 pre: " <b> 2. </b> "
 ---
-{{% notice warning %}}
-⚠️ **Lưu ý:** Các thông tin dưới đây chỉ nhằm mục đích tham khảo, vui lòng **không sao chép nguyên văn** cho bài báo cáo của bạn kể cả warning này.
-{{% /notice %}}
 
-Tại phần này, bạn cần tóm tắt các nội dung trong workshop mà bạn **dự tính** sẽ làm.
+# English Learning & Exam Platform
+## Giải pháp Hệ thống Ôn luyện Tiếng Anh triển khai trên kiến trúc AWS High Availability
 
-# IoT Weather Platform for Lab Research  
-## Giải pháp AWS Serverless hợp nhất cho giám sát thời tiết thời gian thực  
+### 1. Tóm tắt điều hành
+Hệ thống ôn luyện tiếng Anh được thiết kế nhằm cung cấp một nền tảng học tập, kết hợp các phương pháp ghi nhớ và tương tác cộng đồng. Các tính năng cốt lõi bao gồm hệ thống Flashcard thông minh giúp ghi nhớ từ vựng, thư viện bài viết tiếng Anh đa dạng, chức năng luyện tập thực hành và hệ thống bình luận phân cấp để tăng cường trao đổi giữa người học. Hệ thống tận dụng sức mạnh của các dịch vụ đám mây của AWS đảm bảo tính sẵn sàng cao (High Availability), khả năng mở rộng tự động và tích hợp CI/CD tự động hoá hoàn toàn.
 
-### 1. Tóm tắt điều hành  
-IoT Weather Platform được thiết kế dành cho nhóm *ITea Lab* tại TP. Hồ Chí Minh nhằm nâng cao khả năng thu thập và phân tích dữ liệu thời tiết. Nền tảng hỗ trợ tối đa 5 trạm thời tiết, có khả năng mở rộng lên 10–15 trạm, sử dụng thiết bị biên Raspberry Pi kết hợp cảm biến ESP32 để truyền dữ liệu qua MQTT. Nền tảng tận dụng các dịch vụ AWS Serverless để cung cấp giám sát thời gian thực, phân tích dự đoán và tiết kiệm chi phí, với quyền truy cập giới hạn cho 5 thành viên phòng lab thông qua Amazon Cognito.  
+### 2. Tuyên bố vấn đề
+*Vấn đề hiện tại:*
+Mặc dù thị trường hiện nay có rất nhiều nền tảng học tiếng Anh chất lượng, người học thường phải đối mặt với sự phân mảnh: họ dùng một ứng dụng riêng để học Flashcard (như Quizlet, Anki), đọc bài viết ở một trang web khác. Việc thiếu một môi trường "Tất cả trong một" (All-in-one) có tính gắn kết cao làm gián đoạn luồng tập trung của người học.
 
-### 2. Tuyên bố vấn đề  
-*Vấn đề hiện tại*  
-Các trạm thời tiết hiện tại yêu cầu thu thập dữ liệu thủ công, khó quản lý khi có nhiều trạm. Không có hệ thống tập trung cho dữ liệu hoặc phân tích thời gian thực, và các nền tảng bên thứ ba thường tốn kém và quá phức tạp.  
+*Giải pháp:*
+Phát triển một hệ thống học tập tập trung tích hợp đầy đủ tính năng ôn luyện. Hệ thống tận dụng hạ tầng AWS với sự kết hợp của WAF, CloudFront và S3 để phân phối nội dung tĩnh nhanh chóng và bảo mật. Application Load Balancer (ALB) kết hợp với Auto Scaling Group sẽ điều phối traffic đến các máy chủ ứng dụng chạy Docker container. Dữ liệu được quản lý an toàn trong các Private Subnet với SQL Server và tăng tốc truy xuất bằng ElastiCache (Valkey). Quá trình phát triển được tinh gọn nhờ luồng CI/CD từ GitHub Actions đến DockerHub và AWS CodeDeploy.
 
-*Giải pháp*  
-Nền tảng sử dụng AWS IoT Core để tiếp nhận dữ liệu MQTT, AWS Lambda và API Gateway để xử lý, Amazon S3 để lưu trữ (bao gồm data lake), và AWS Glue Crawlers cùng các tác vụ ETL để trích xuất, chuyển đổi, tải dữ liệu từ S3 data lake sang một S3 bucket khác để phân tích. AWS Amplify với Next.js cung cấp giao diện web, và Amazon Cognito đảm bảo quyền truy cập an toàn. Tương tự như Thingsboard và CoreIoT, người dùng có thể đăng ký thiết bị mới và quản lý kết nối, nhưng nền tảng này hoạt động ở quy mô nhỏ hơn và phục vụ mục đích sử dụng nội bộ. Các tính năng chính bao gồm bảng điều khiển thời gian thực, phân tích xu hướng và chi phí vận hành thấp.  
-
-*Lợi ích và hoàn vốn đầu tư (ROI)*  
-Giải pháp tạo nền tảng cơ bản để các thành viên phòng lab phát triển một nền tảng IoT lớn hơn, đồng thời cung cấp nguồn dữ liệu cho những người nghiên cứu AI phục vụ huấn luyện mô hình hoặc phân tích. Nền tảng giảm bớt báo cáo thủ công cho từng trạm thông qua hệ thống tập trung, đơn giản hóa quản lý và bảo trì, đồng thời cải thiện độ tin cậy dữ liệu. Chi phí hàng tháng ước tính 0,66 USD (theo AWS Pricing Calculator), tổng cộng 7,92 USD cho 12 tháng. Tất cả thiết bị IoT đã được trang bị từ hệ thống trạm thời tiết hiện tại, không phát sinh chi phí phát triển thêm. Thời gian hoàn vốn 6–12 tháng nhờ tiết kiệm đáng kể thời gian thao tác thủ công.  
+*Lợi ích:*
+Giải pháp mang lại trải nghiệm học tập mượt mà, tốc độ tải trang nhanh, không gián đoạn nhờ cơ chế cân bằng tải và chịu lỗi. Việc thiết lập hạ tầng bài bản tạo nền tảng vững chắc cho quá trình thực tập tốt nghiệp và phát triển dự án thực tế, đồng thời kiểm soát chi phí hiệu quả bằng cách sử dụng các tier miễn phí (CloudFront, WAF) và các node có kích thước phù hợp (t3.micro, t4g.micro).
 
 ### 3. Kiến trúc giải pháp  
-Nền tảng áp dụng kiến trúc AWS Serverless để quản lý dữ liệu từ 5 trạm dựa trên Raspberry Pi, có thể mở rộng lên 15 trạm. Dữ liệu được tiếp nhận qua AWS IoT Core, lưu trữ trong S3 data lake và xử lý bởi AWS Glue Crawlers và ETL jobs để chuyển đổi và tải vào một S3 bucket khác cho mục đích phân tích. Lambda và API Gateway xử lý bổ sung, trong khi Amplify với Next.js cung cấp bảng điều khiển được bảo mật bởi Cognito.  
+Hệ thống vận hành hoàn toàn trong môi trường mạng an toàn Amazon VPC trải rộng trên nhiều Availability Zone nhằm đảm bảo tính sẵn sàng cao (High Availability).
 
-![IoT Weather Station Architecture](/images/2-Proposal/edge_architecture.jpeg)
+![EngExam Cloud & Deployment Architecture](../images/2-proposal/architechture.drawio.png)
 
-![IoT Weather Platform Architecture](/images/2-Proposal/platform_architecture.jpeg)
+*Luồng tương tác dữ liệu:*
+1. User gửi request tới hệ thống, đi qua Cloudfont 
+2. Thông qua CloudFont check lớp phòng vệ AWS WAF rules đầu tiên để lọc các cuộc tấn công web phổ biến.
+3. Các request yêu cầu tài nguyên tĩnh được CloudFront xử lý trực tiếp và giảm tải thông qua Amazon S3 Bucket.
+4. Các request động (API) được CloudFront điều hướng qua cổng Internet Gateway (IG) để đi vào VPC.
+5. Luồng traffic đi tới Application Load Balancer (ALB) để phân phối tải.
+6. ALB điều phối đều traffic đến các máy chủ EC2 nằm trong Auto Scaling Group thuộc các Private Subnet.
+7. Các EC2 Instance xử lý logic nghiệp vụ và tương tác với cơ sở dữ liệu Amazon RDS (SQL Server) cấu hình theo cụm Primary DB và Standby DB để tự động chuyển vùng khi có sự cố.
+8. Các dữ liệu truy vấn thường xuyên hoặc cấu hình đề thi được phân phối và lưu cache trực tiếp tại Amazon ElastiCache (Valkey) Replica Node & Primary Node để giảm tải cho RDS.
+9.  Khi các EC2 trong private subnet cần tải thư viện hoặc kết nối Internet (gửi mail, kết nối Docker Hub), luồng outbound sẽ truyền qua Regional NAT Gateway tập trung để tối ưu chi phí.
+10. Từ Regional NAT Gateway, luồng traffic đi ra ngoài qua Internet Gateway.
+11. Amazon CloudWatch liên tục giám sát các chỉ số hiệu năng (CPU, Network) của các EC2 instance.
+12. Khi tải hệ thống vượt ngưỡng thiết lập, CloudWatch kích hoạt Alarm.
+13. Alarm phát lệnh Trigger Scaling yêu cầu Auto Scaling Group tự động thêm máy chủ (Scale-out).
+14. Đồng thời, một thông báo Send Notifications được chuyển tới Amazon SNS để gửi email cảnh báo tự động đến quản trị viên khi một instance mới được khởi tạo.
 
-*Dịch vụ AWS sử dụng*  
-- *AWS IoT Core*: Tiếp nhận dữ liệu MQTT từ 5 trạm, mở rộng lên 15.  
-- *AWS Lambda*: Xử lý dữ liệu và kích hoạt Glue jobs (2 hàm).  
-- *Amazon API Gateway*: Giao tiếp với ứng dụng web.  
-- *Amazon S3*: Lưu trữ dữ liệu thô (data lake) và dữ liệu đã xử lý (2 bucket).  
-- *AWS Glue*: Crawlers lập chỉ mục dữ liệu, ETL jobs chuyển đổi và tải dữ liệu.  
-- *AWS Amplify*: Lưu trữ giao diện web Next.js.  
-- *Amazon Cognito*: Quản lý quyền truy cập cho người dùng phòng lab.  
+*Luồng tự động hóa CI/CD:*
 
-*Thiết kế thành phần*  
-- *Thiết bị biên*: Raspberry Pi thu thập và lọc dữ liệu cảm biến, gửi tới IoT Core.  
-- *Tiếp nhận dữ liệu*: AWS IoT Core nhận tin nhắn MQTT từ thiết bị biên.  
-- *Lưu trữ dữ liệu*: Dữ liệu thô lưu trong S3 data lake; dữ liệu đã xử lý lưu ở một S3 bucket khác.  
-- *Xử lý dữ liệu*: AWS Glue Crawlers lập chỉ mục dữ liệu; ETL jobs chuyển đổi để phân tích.  
-- *Giao diện web*: AWS Amplify lưu trữ ứng dụng Next.js cho bảng điều khiển và phân tích thời gian thực.  
-- *Quản lý người dùng*: Amazon Cognito giới hạn 5 tài khoản hoạt động.  
+15. Developer tiến hành commit và Push Code lên GitHub Repository.
+16. Hành động push code tự động kích hoạt GitHub Actions Workflows để khởi chạy quá trình kiểm thử và Build Code To Image.
+17. Docker image sau khi build thành công sẽ được Push lên kho lưu trữ Docker Hub.
+18. Pipeline tiến hành nén mã nguồn cấu hình triển khai thành một Publish Deploy Artifact.
+19. File nén này Zip File được đẩy trực tiếp lên Amazon S3 Bucket lưu trữ tạm thời dành cho việc triển khai.
+20. GitHub Actions gọi dịch vụ AWS CodeDeploy thông báo có phiên bản mới.
+21. AWS CodeDeploy Agent trên các máy chủ truy cập S3 để Get Files chứa artifact.
+22. CodeDeploy thực hiện kịch bản deployment.
+23. Ra lệnh cho toàn bộ các EC2 kéo image mới nhất từ Docker Hub về.
+### 4. Triển khai kỹ thuật
 
-### 4. Triển khai kỹ thuật  
-*Các giai đoạn triển khai*  
-Dự án gồm 2 phần — thiết lập trạm thời tiết biên và xây dựng nền tảng thời tiết — mỗi phần trải qua 4 giai đoạn:  
-1. *Nghiên cứu và vẽ kiến trúc*: Nghiên cứu Raspberry Pi với cảm biến ESP32 và thiết kế kiến trúc AWS Serverless (1 tháng trước kỳ thực tập).  
-2. *Tính toán chi phí và kiểm tra tính khả thi*: Sử dụng AWS Pricing Calculator để ước tính và điều chỉnh (Tháng 1).  
-3. *Điều chỉnh kiến trúc để tối ưu chi phí/giải pháp*: Tinh chỉnh (ví dụ tối ưu Lambda với Next.js) để đảm bảo hiệu quả (Tháng 2).  
-4. *Phát triển, kiểm thử, triển khai*: Lập trình Raspberry Pi, AWS services với CDK/SDK và ứng dụng Next.js, sau đó kiểm thử và đưa vào vận hành (Tháng 2–3).  
+*Các giai đoạn triển khai*
+Dự án được thực hiện xuyên suốt trong kỳ thực tập, chia thành 3 giai đoạn chính nhằm đảm bảo tiến độ từ việc nắm bắt công nghệ đến khi hoàn thiện hệ thống:
+1. Nghiên cứu và làm quen dịch vụ nền tảng (Tháng 1): Tập trung nghiên cứu lý thuyết và thực hành các bài lab cơ bản trên AWS. Mục tiêu của giai đoạn này là làm quen thao tác và hiểu cơ chế hoạt động của các dịch vụ hạ tầng cốt lõi (như VPC, EC2, RDS, S3).
+2. Định hình kiến trúc và tính toán chi phí (Đầu Tháng 2): Tiến hành phác thảo và vẽ sơ đồ kiến trúc hệ thống tổng thể. Lập bảng ước tính chi phí hạ tầng (sử dụng AWS Pricing Calculator), từ đó đưa ra các quyết định điều chỉnh dịch vụ và kiến trúc nhằm tối ưu hóa ngân sách vận hành.
+3. Phát triển và tích hợp hệ thống (Giữa Tháng 2 - Đầu Tháng 3): Bắt tay vào quá trình xây dựng thực tế. Lập trình các tính năng cốt lõi (Backend & Frontend) và từng bước tích hợp, triển khai các dịch vụ nâng cao (Auto Scaling, ALB, ElastiCache, CI/CD, RabbitMQ, WAF) lên môi trường Cloud.
+4. Kiểm thử và hoàn thiện (Cuối Tháng 3): Rà soát lại toàn bộ dự án. Tiến hành kiểm thử các chức năng và khắc phục dứt điểm các lỗi phát sinh. Đóng gói môi trường và hoàn tất các tài liệu báo cáo cuối kỳ.
 
-*Yêu cầu kỹ thuật*  
-- *Trạm thời tiết biên*: Cảm biến (nhiệt độ, độ ẩm, lượng mưa, tốc độ gió), vi điều khiển ESP32, Raspberry Pi làm thiết bị biên. Raspberry Pi chạy Raspbian, sử dụng Docker để lọc dữ liệu và gửi 1 MB/ngày/trạm qua MQTT qua Wi-Fi.  
-- *Nền tảng thời tiết*: Kiến thức thực tế về AWS Amplify (lưu trữ Next.js), Lambda (giảm thiểu do Next.js xử lý), AWS Glue (ETL), S3 (2 bucket), IoT Core (gateway và rules), và Cognito (5 người dùng). Sử dụng AWS CDK/SDK để lập trình (ví dụ IoT Core rules tới S3). Next.js giúp giảm tải Lambda cho ứng dụng web fullstack.  
+*Yêu cầu kỹ thuật*
+* Hạ tầng Đám mây (AWS): Yêu cầu kiến thức cấu hình mạng VPC (Public/Private Subnet, Internet Gateway, Regional NAT Gateway). Có khả năng thiết lập cụm máy chủ EC2 hoạt động dưới Auto Scaling Group và ALB. Sử dụng Amazon S3 kết hợp CloudFront để phân phối nội dung tĩnh, tích hợp rào chắn bảo mật AWS WAF. Lưu trữ dữ liệu với RDS (SQL Server) và thiết lập bộ nhớ đệm ElastiCache (Valkey).
+* Kiến trúc & Backend (.NET): Sử dụng C# ASP.NET Core, Entity Framework Core. Nắm tư duy thiết kế kiến trúc CQRS để phân tách luồng Đọc/Ghi. Sử dụnng Message Broker (cài đặt RabbitMQ và MassTransit) để xử lý event-driven và đồng bộ dữ liệu phân tán.
+* CI/CD & Tự động hóa: Dùng công nghệ ảo hóa Container (Docker, Docker Compose). Có khả năng viết kịch bản tự động hóa (Pipeline) bằng GitHub Actions để build image, đẩy lên Docker Hub và cấu hình AppSpec cho AWS CodeDeploy thực hiện In-Place Deployment.
+* Frontend: Kỹ năng phát triển giao diện người dùng bằng React, đảm bảo trải nghiệm mượt mà cho các luồng thao tác chính như làm bài thi trắc nghiệm, lật thẻ flashcard và tương tác bình luận.
+### 5. Lộ trình & Mốc triển khai
 
-### 5. Lộ trình & Mốc triển khai  
-- *Trước thực tập (Tháng 0)*: 1 tháng lên kế hoạch và đánh giá trạm cũ.  
-- *Thực tập (Tháng 1–3)*:  
-    - Tháng 1: Học AWS và nâng cấp phần cứng.  
-    - Tháng 2: Thiết kế và điều chỉnh kiến trúc.  
-    - Tháng 3: Triển khai, kiểm thử, đưa vào sử dụng.  
-- *Sau triển khai*: Nghiên cứu thêm trong vòng 1 năm.  
+Dự án được lên kế hoạch triển khai gói gọn trong 3 tháng thực tập với các cột mốc công việc như sau:
 
-### 6. Ước tính ngân sách  
-Có thể xem chi phí trên [AWS Pricing Calculator](https://calculator.aws/#/estimate?id=621f38b12a1ef026842ba2ddfe46ff936ed4ab01)  
-Hoặc tải [tệp ước tính ngân sách](../attachments/budget_estimation.pdf).  
+* Tháng 1: Khởi động và Làm quen nền tảng:
+  * Nghiên cứu lý thuyết và thực hành lab các dịch vụ AWS cơ bản (VPC, EC2, RDS, S3).
+  * Ôn tập công nghệ phát triển (ASP.NET Core, React) và Docker.
 
-*Chi phí hạ tầng*  
-- AWS Lambda: 0,00 USD/tháng (1.000 request, 512 MB lưu trữ).  
-- S3 Standard: 0,15 USD/tháng (6 GB, 2.100 request, 1 GB quét).  
-- Truyền dữ liệu: 0,02 USD/tháng (1 GB vào, 1 GB ra).  
-- AWS Amplify: 0,35 USD/tháng (256 MB, request 500 ms).  
-- Amazon API Gateway: 0,01 USD/tháng (2.000 request).  
-- AWS Glue ETL Jobs: 0,02 USD/tháng (2 DPU).  
-- AWS Glue Crawlers: 0,07 USD/tháng (1 crawler).  
-- MQTT (IoT Core): 0,08 USD/tháng (5 thiết bị, 45.000 tin nhắn).  
+* Tháng 2: Thiết kế kiến trúc và Bắt đầu xây dựng
+  * *Đầu tháng:* Phác thảo sơ đồ kiến trúc tổng thể, tính toán và tối ưu chi phí hạ tầng.
+  * *Giữa - Cuối tháng:* Xây dựng tính năng cốt lõi (áp dụng CQRS). Tích hợp hạ tầng lên môi trường Cloud (ALB, Auto Scaling) và thiết lập CI/CD cơ bản.
 
-*Tổng*: 0,7 USD/tháng, 8,40 USD/12 tháng  
-- *Phần cứng*: 265 USD một lần (Raspberry Pi 5 và cảm biến).  
+* Tháng 3: Tối ưu, Kiểm thử và Đóng gói
+  * Hoàn thiện quy trình CI/CD (AWS CodeDeploy), đồng bộ dữ liệu (RabbitMQ), cấu hình Cache (Valkey) và bảo mật (WAF).
+  * Kiểm thử toàn diện và đánh giá sức chịu tải (JMeter).
+  * Khắc phục dứt điểm lỗi, quay video demo và hoàn tất tài liệu báo cáo cuối kỳ.
 
-### 7. Đánh giá rủi ro  
-*Ma trận rủi ro*  
-- Mất mạng: Ảnh hưởng trung bình, xác suất trung bình.  
-- Hỏng cảm biến: Ảnh hưởng cao, xác suất thấp.  
-- Vượt ngân sách: Ảnh hưởng trung bình, xác suất thấp.  
+### 6. Ước tính ngân sách
 
-*Chiến lược giảm thiểu*  
-- Mạng: Lưu trữ cục bộ trên Raspberry Pi với Docker.  
-- Cảm biến: Kiểm tra định kỳ, dự phòng linh kiện.  
-- Chi phí: Cảnh báo ngân sách AWS, tối ưu dịch vụ.  
+*Chi phí hạ tầng*
+- Amazon EC2: 9,42 USD/tháng (1 Instance t3.small áp dụng Compute Savings Plans 3 năm, No Upfront).
+- Amazon RDS: 22,63 USD/tháng (1 Instance db.t3.micro, SQL Server Express Edition miễn phí bản quyền).
+- Amazon ElastiCache: 14,02 USD/tháng (1 Node cache.t4g.micro, engine Valkey dạng On-Demand).
+- Amazon S3 Standard: 0,25 USD/tháng (Ước lượng lưu trữ 10 GB tài nguyên tĩnh với đơn giá 0,025 USD/GB).
+- Amazon CloudFront & AWS WAF: 0,00 USD/tháng (Gói Free Tier kèm WAF hỗ trợ 5 rule, 1 triệu request, 100 GB data).
+- AWS CodeDeploy: 0,00 USD/tháng (Hoàn toàn miễn phí khi triển khai mã nguồn lên EC2/Auto Scaling Group).
+- Amazon CloudWatch: 0,00 USD/tháng (Giám sát hiệu năng EC2 cơ bản nằm trong Free Tier).
+- Amazon SNS: 0,00 USD/tháng (Gửi email cảnh báo tự động nằm trong Free Tier).
+- Docker Hub: 0,00 USD/tháng (Tài khoản Free Tier cho Public Repository).
 
-*Kế hoạch dự phòng*  
-- Quay lại thu thập thủ công nếu AWS gặp sự cố.  
-- Sử dụng CloudFormation để khôi phục cấu hình liên quan đến chi phí.  
+*Tổng*: 46,32 USD/tháng, 555,84 USD/12 tháng.
 
-### 8. Kết quả kỳ vọng  
-*Cải tiến kỹ thuật*: Dữ liệu và phân tích thời gian thực thay thế quy trình thủ công. Có thể mở rộng tới 10–15 trạm.  
-*Giá trị dài hạn*: Nền tảng dữ liệu 1 năm cho nghiên cứu AI, có thể tái sử dụng cho các dự án tương lai.
+### 7. Đánh giá rủi ro
+*Ma trận rủi ro*
+- Cấu hình sai bảo mật (Security Groups/VPC): Ảnh hưởng cao, xác suất trung bình.
+- Lỗi triển khai (Downtime khi update): Ảnh hưởng cao.
+- Chi phí phát sinh ngoài ý muốn (Đặc biệt là NAT Gateway và Data Transfer): Ảnh hưởng trung bình, xác suất trung bình.
+
+*Chiến lược giảm thiểu*
+- Chỉ mở port cần thiết, đưa toàn bộ DB, Elastic Cache và EC2 xử lý vào Private Subnet.
+- Cấu hình Amazon CloudFront để ép buộc chuyển hướng toàn bộ luồng truy cập từ HTTP sang HTTPS (Redirect HTTP to HTTPS).
+- Cài đặt AWS Budgets và CloudWatch Billing Alarm để cảnh báo ngay lập tức nếu chi phí vượt mức cho phép.
+
+### 8. Kết quả kỳ vọng
+- Về Kỹ thuật: Xây dựng thành công một hệ thống ôn luyện tiếng Anh hoạt động ổn định, có khả năng chịu lỗi (fault-tolerant) nhờ Multi-AZ và tự động mở rộng theo lượng truy cập. Quy trình triển khai được tự động hóa hoàn toàn từ lúc push code.
+- Về Sản phẩm: Người dùng có một nền tảng mượt mà để thực hành từ vựng qua Flashcard, làm bài tiếng anh, đọc bài viết và trao đổi học thuật thông qua hệ thống bình luận phân cấp.

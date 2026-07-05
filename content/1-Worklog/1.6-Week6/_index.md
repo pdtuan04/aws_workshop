@@ -1,57 +1,35 @@
 ---
 title: "Week 6 Worklog"
-date: 2024-01-01
-weight: 1
+date: 2026-05-28
+weight: 6
 chapter: false
 pre: " <b> 1.6. </b> "
 ---
-{{% notice warning %}} 
-⚠️ **Note:** The following information is for reference purposes only. Please **do not copy verbatim** for your own report, including this warning.
-{{% /notice %}}
-
 
 ### Week 6 Objectives:
 
-* Connect and get acquainted with members of First Cloud Journey.
-* Understand basic AWS services, how to use the console & CLI.
+* Fix outstanding bugs related to exams and S3 file storage.
+* Add basic user features: Account management and password reset.
+* Build the hierarchical comment feature.
+* Learn and apply Message Queue (RabbitMQ) combined with the Outbox Pattern to synchronize data between databases.
 
-### Tasks to be carried out this week:
-| Day | Task                                                                                                                                                                                                   | Start Date | Completion Date | Reference Material                        |
-| --- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ | ---------- | --------------- | ----------------------------------------- |
-| 2   | - Get acquainted with FCJ members <br> - Read and take note of internship unit rules and regulations                                                                                                   | 08/11/2025 | 08/11/2025      |
-| 3   | - Learn about AWS and its types of services <br>&emsp; + Compute <br>&emsp; + Storage <br>&emsp; + Networking <br>&emsp; + Database <br>&emsp; + ... <br>                                              | 08/12/2025 | 08/12/2025      | <https://cloudjourney.awsstudygroup.com/> |
-| 4   | - Create AWS Free Tier account <br> - Learn about AWS Console & AWS CLI <br> - **Practice:** <br>&emsp; + Create AWS account <br>&emsp; + Install & configure AWS CLI <br> &emsp; + How to use AWS CLI | 08/13/2025 | 08/13/2025      | <https://cloudjourney.awsstudygroup.com/> |
-| 5   | - Learn basic EC2: <br>&emsp; + Instance types <br>&emsp; + AMI <br>&emsp; + EBS <br>&emsp; + ... <br> - SSH connection methods to EC2 <br> - Learn about Elastic IP   <br>                            | 08/14/2025 | 08/15/2025      | <https://cloudjourney.awsstudygroup.com/> |
-| 6   | - **Practice:** <br>&emsp; + Launch an EC2 instance <br>&emsp; + Connect via SSH <br>&emsp; + Attach an EBS volume                                                                                     | 08/15/2025 | 08/15/2025      | <https://cloudjourney.awsstudygroup.com/> |
+### Tasks to be implemented this week:
 
+| Day | Task | Start Date | End Date | Resources |
+| --- | --- | --- | --- | --- |
+| Fri | - **Practice:** System Bug Fixing.<br>&emsp;+ Fix bugs in the exam creation function.<br>&emsp;+ Resolve errors occurring during file uploads to Amazon S3 to ensure a stable file flow. | 22/05/2026 | 22/05/2026 | |
+| Sat | - **Practice:** User Features.<br>&emsp;+ Build the account management API.<br>&emsp;+ Build the password reset feature for users (integrated with the email sending API from last week). | 23/05/2026 | 23/05/2026 | |
+| Sun | - Learn the theory of Message Brokers and RabbitMQ.<br> - Research the MassTransit library in .NET.<br> - Understand how the Outbox Pattern works in solving distributed data synchronization problems. | 24/05/2026 | 24/05/2026 | <https://masstransit.io/documentation/concepts> |
+| Mon | - **Practice:** Database Optimization & Queue Setup.<br>&emsp;+ Analyze and optimize the read database specifically for data reading tasks.<br>&emsp;+ Install RabbitMQ and configure MassTransit in the project. | 25/05/2026 | 25/05/2026 | |
+| Tue | - **Practice:** CQRS Data Synchronization.<br>&emsp;+ Configure the Outbox Pattern to safely store events.<br>&emsp;+ Use MassTransit and RabbitMQ to publish/consume messages, synchronizing data from the write database to the read database. <br>&emsp;+ Resynchronize cache data when changes occur. | 26/05/2026 | 26/05/2026 | <https://masstransit.io/documentation/patterns/outbox> |
+| Wed | - **Practice:** Comment Feature.<br>&emsp;+ Analyze and design the data table for hierarchical comments.<br>&emsp;+ Build basic APIs (add, edit, delete comments). | 27/05/2026 | 27/05/2026 | |
+| Thu | - **Practice:** Comment Feature & Testing.<br>&emsp;+ Complete the query flow to retrieve the hierarchical comment list.<br>&emsp;+ Retest the entire data synchronization flow via RabbitMQ and the newly built features. | 28/05/2026 | 28/05/2026 | |
 
 ### Week 6 Achievements:
 
-* Understood what AWS is and mastered the basic service groups: 
-  * Compute
-  * Storage
-  * Networking 
-  * Database
-  * ...
-
-* Successfully created and configured an AWS Free Tier account.
-
-* Became familiar with the AWS Management Console and learned how to find, access, and use services via the web interface.
-
-* Installed and configured AWS CLI on the computer, including:
-  * Access Key
-  * Secret Key
-  * Default Region
-  * ...
-
-* Used AWS CLI to perform basic operations such as:
-
-  * Check account & configuration information
-  * Retrieve the list of regions
-  * View EC2 service
-  * Create and manage key pairs
-  * Check information about running services
-  * ...
-
-* Acquired the ability to connect between the web interface and CLI to manage AWS resources in parallel.
-* ...
+* Successfully fixed bugs in the exam creation function and AWS S3 file upload, allowing the system to function.
+* Completed the account management API and the secure password reset flow via email.
+* Learned the basic concepts of Message Brokers (RabbitMQ) and the Outbox Pattern.
+* Re-optimized the read database.
+* Successfully took initial steps to configure MassTransit and RabbitMQ to synchronize data from the Write Database to the Read Database, minimizing the risk of data loss during system failures.
+* Designed and built the data structure and APIs for the hierarchical comment feature.

@@ -1,20 +1,19 @@
 ---
-title: "Các bài blogs đã chia sẽ"
-date: 2024-01-01
+title: "Các bài blogs đã đăng"
+date: 2026-07-01
 weight: 3
 chapter: false
 pre: " <b> 3. </b> "
 ---
 
-###  [Blog 1 - Getting started with healthcare data lakes: Using microservices](3.1-Blog1/)
-Blog này giới thiệu cách bắt đầu xây dựng data lake trong lĩnh vực y tế bằng cách áp dụng kiến trúc microservices. Bạn sẽ tìm hiểu vì sao data lake quan trọng trong việc lưu trữ và phân tích dữ liệu y tế đa dạng (hồ sơ bệnh án điện tử, dữ liệu xét nghiệm, thiết bị IoT y tế…), cách microservices giúp hệ thống linh hoạt, dễ mở rộng và dễ bảo trì hơn. Bài viết cũng hướng dẫn các bước khởi tạo môi trường, tổ chức pipeline xử lý dữ liệu, và đảm bảo tuân thủ các tiêu chuẩn bảo mật & quyền riêng tư như HIPAA.
-###  [Blog 2 - ...](3.2-Blog2/)
-Blog này giới thiệu cách bắt đầu xây dựng data lake trong lĩnh vực y tế bằng cách áp dụng kiến trúc microservices. Bạn sẽ tìm hiểu vì sao data lake quan trọng trong việc lưu trữ và phân tích dữ liệu y tế đa dạng (hồ sơ bệnh án điện tử, dữ liệu xét nghiệm, thiết bị IoT y tế…), cách microservices giúp hệ thống linh hoạt, dễ mở rộng và dễ bảo trì hơn. Bài viết cũng hướng dẫn các bước khởi tạo môi trường, tổ chức pipeline xử lý dữ liệu, và đảm bảo tuân thủ các tiêu chuẩn bảo mật & quyền riêng tư như HIPAA.
-###  [Blog 3 - ...](3.3-Blog3/)
-Blog này giới thiệu cách bắt đầu xây dựng data lake trong lĩnh vực y tế bằng cách áp dụng kiến trúc microservices. Bạn sẽ tìm hiểu vì sao data lake quan trọng trong việc lưu trữ và phân tích dữ liệu y tế đa dạng (hồ sơ bệnh án điện tử, dữ liệu xét nghiệm, thiết bị IoT y tế…), cách microservices giúp hệ thống linh hoạt, dễ mở rộng và dễ bảo trì hơn. Bài viết cũng hướng dẫn các bước khởi tạo môi trường, tổ chức pipeline xử lý dữ liệu, và đảm bảo tuân thủ các tiêu chuẩn bảo mật & quyền riêng tư như HIPAA.
-###  [Blog 4 - ...](3.4-Blog4/)
-Blog này giới thiệu cách bắt đầu xây dựng data lake trong lĩnh vực y tế bằng cách áp dụng kiến trúc microservices. Bạn sẽ tìm hiểu vì sao data lake quan trọng trong việc lưu trữ và phân tích dữ liệu y tế đa dạng (hồ sơ bệnh án điện tử, dữ liệu xét nghiệm, thiết bị IoT y tế…), cách microservices giúp hệ thống linh hoạt, dễ mở rộng và dễ bảo trì hơn. Bài viết cũng hướng dẫn các bước khởi tạo môi trường, tổ chức pipeline xử lý dữ liệu, và đảm bảo tuân thủ các tiêu chuẩn bảo mật & quyền riêng tư như HIPAA.
-###  [Blog 5 - ...](3.5-Blog5/)
-Blog này giới thiệu cách bắt đầu xây dựng data lake trong lĩnh vực y tế bằng cách áp dụng kiến trúc microservices. Bạn sẽ tìm hiểu vì sao data lake quan trọng trong việc lưu trữ và phân tích dữ liệu y tế đa dạng (hồ sơ bệnh án điện tử, dữ liệu xét nghiệm, thiết bị IoT y tế…), cách microservices giúp hệ thống linh hoạt, dễ mở rộng và dễ bảo trì hơn. Bài viết cũng hướng dẫn các bước khởi tạo môi trường, tổ chức pipeline xử lý dữ liệu, và đảm bảo tuân thủ các tiêu chuẩn bảo mật & quyền riêng tư như HIPAA.
-###  [Blog 6 - ...](3.6-Blog6/)
-Blog này giới thiệu cách bắt đầu xây dựng data lake trong lĩnh vực y tế bằng cách áp dụng kiến trúc microservices. Bạn sẽ tìm hiểu vì sao data lake quan trọng trong việc lưu trữ và phân tích dữ liệu y tế đa dạng (hồ sơ bệnh án điện tử, dữ liệu xét nghiệm, thiết bị IoT y tế…), cách microservices giúp hệ thống linh hoạt, dễ mở rộng và dễ bảo trì hơn. Bài viết cũng hướng dẫn các bước khởi tạo môi trường, tổ chức pipeline xử lý dữ liệu, và đảm bảo tuân thủ các tiêu chuẩn bảo mật & quyền riêng tư như HIPAA.
+### [Blog 1 - Tối Ưu Hóa Kiến Trúc Mạng Với Amazon VPC Regional NAT Gateway](3.1-Blog1/)
+
+Blog này giới thiệu giải pháp sử dụng một NAT Gateway chung cho toàn bộ hệ thống mạng VPC (Regional NAT Gateway) thay vì phải tạo nhiều NAT Gateway lẻ tẻ cho từng khu vực (Availability Zone). Đây là kiến trúc giúp đơn giản hóa mạng lưới, bảo mật tốt hơn khi không cần đưa tài nguyên ra public subnet, đồng thời tự động quản lý IP để chống cạn kiệt cổng kết nối và tối ưu chi phí vận hành.
+
+### [Blog 2 - Thêm HTTP Security Headers Bằng Amazon CloudFront](3.2-Blog2/)
+
+Blog này đề xuất cách bảo vệ ứng dụng web khỏi các cuộc tấn công phổ biến (như XSS) bằng cách gắn các mã bảo mật (HTTP security headers) ở ngay rìa mạng (Edge) thông qua CloudFront. Bài viết trình bày 3 phương pháp triển khai (Response Headers Policies, CloudFront Functions, Lambda@Edge) giúp tự động hóa lớp phòng thủ này mà không cần phải can thiệp sửa đổi mã nguồn trên máy chủ gốc.
+
+### [Blog 3 - Lợi Ích Khi Kết Hợp Amazon CloudFront với Application Load Balancer](3.3-Blog3/)
+
+Blog này phân tích những lợi ích vượt trội khi đặt mạng phân phối nội dung (CloudFront) làm lớp chắn phía trước bộ cân bằng tải (ALB), thay vì để người dùng truy cập thẳng vào máy chủ ứng dụng. Kiến trúc này giúp tăng tốc độ phản hồi đáng kể cho người dùng ở xa, dễ dàng tích hợp các lớp bảo mật (WAF, Shield) và tiết kiệm chi phí băng thông (Data Transfer Out) từ hệ thống gốc.

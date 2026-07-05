@@ -1,59 +1,32 @@
 ---
 title: "Worklog Tuần 8"
-date: 2024-01-01
-weight: 1
+date: 2026-06-11
+weight: 8
 chapter: false
 pre: " <b> 1.8. </b> "
 ---
-{{% notice warning %}}
-⚠️ **Lưu ý:** Các thông tin dưới đây chỉ nhằm mục đích tham khảo, vui lòng **không sao chép nguyên văn** cho bài báo cáo của bạn kể cả warning này.
-{{% /notice %}}
-
 
 ### Mục tiêu tuần 8:
 
-* Kết nối, làm quen với các thành viên trong First Cloud Journey.
-* Hiểu dịch vụ AWS cơ bản, cách dùng console & CLI.
+* Hoàn thiện bản vẽ sơ đồ kiến trúc AWS tổng thể cho hệ thống EngExam.
+* Phát triển tính năng tạo đề thi tùy chỉnh dựa trên lịch sử lỗi sai của người dùng.
+* Nghiên cứu và nâng cấp lại quy trình CI/CD từ việc dùng SSH thủ công sang ứng dụng AWS CodeDeploy và Docker Hub.
 
 ### Các công việc cần triển khai trong tuần này:
-| Thứ | Công việc                                                                                                                                                                                   | Ngày bắt đầu | Ngày hoàn thành | Nguồn tài liệu                            |
-| --- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | ------------ | --------------- | ----------------------------------------- |
-| 2   | - Làm quen với các thành viên FCJ <br> - Đọc và lưu ý các nội quy, quy định tại đơn vị thực tập                                                                                             | 11/08/2025   | 11/08/2025      |
-| 3   | - Tìm hiểu AWS và các loại dịch vụ <br>&emsp; + Compute <br>&emsp; + Storage <br>&emsp; + Networking <br>&emsp; + Database <br>&emsp; + ... <br>                                            | 12/08/2025   | 12/08/2025      | <https://cloudjourney.awsstudygroup.com/> |
-| 4   | - Tạo AWS Free Tier account <br> - Tìm hiểu AWS Console & AWS CLI <br> - **Thực hành:** <br>&emsp; + Tạo AWS account <br>&emsp; + Cài AWS CLI & cấu hình <br> &emsp; + Cách sử dụng AWS CLI | 13/08/2025   | 13/08/2025      | <https://cloudjourney.awsstudygroup.com/> |
-| 5   | - Tìm hiểu EC2 cơ bản: <br>&emsp; + Instance types <br>&emsp; + AMI <br>&emsp; + EBS <br>&emsp; + ... <br> - Các cách remote SSH vào EC2 <br> - Tìm hiểu Elastic IP   <br>                  | 14/08/2025   | 15/08/2025      | <https://cloudjourney.awsstudygroup.com/> |
-| 6   | - **Thực hành:** <br>&emsp; + Tạo EC2 instance <br>&emsp; + Kết nối SSH <br>&emsp; + Gắn EBS volume                                                                                         | 15/08/2025   | 15/08/2025      | <https://cloudjourney.awsstudygroup.com/> |
 
+| Thứ | Công việc | Ngày bắt đầu | Ngày hoàn thành | Nguồn tài liệu |
+| --- | --- | --- | --- | --- |
+| 6 | - **Thực hành:** Thiết kế kiến trúc AWS.<br>&emsp;+ Thiết kế và hoàn thiện luồng kiến trúc AWS tổng thể cho hệ thống EngExam.<br>&emsp;+ Xác định các thành phần và vẽ sơ đồ kiến trúc thể hiện cách thức tương tác giữa các dịch vụ (VPC, EC2, RDS, S3, ALB, ASG,...). | 05/06/2026 | 05/06/2026 | <https://youtu.be/l8isyDe-GwY> |
+| 7 | - Tìm hiểu lý thuyết về dịch vụ AWS CodeDeploy.<br> - Nghiên cứu cơ chế tự động triển khai ứng dụng của CodeDeploy khi có phiên bản code mới được đẩy lên repository. | 06/06/2026 | 06/06/2026 | <https://docs.aws.amazon.com/codedeploy/latest/userguide/welcome.html> |
+| CN | - **Thực hành:** Tính năng Đề thi (Phần 1).<br>&emsp;+ Phân tích logic và truy xuất dữ liệu các câu hỏi mà người dùng thường trả lời sai từ lịch sử làm bài. | 07/06/2026 | 07/06/2026 | |
+| 2 | - **Thực hành:** Tính năng Đề thi (Phần 2).<br>&emsp;+ Xây dựng hoàn chỉnh API tạo đề thi ôn tập tự động dựa trên các câu hỏi hỏng/sai của người dùng. | 08/06/2026 | 08/06/2026 | |
+| 3 | - **Thực hành:** Nâng cấp CI/CD (Phần 1).<br>&emsp;+ Cấu hình lại luồng pipeline (GitHub Actions) để tự động build ứng dụng ASP.NET Core.<br>&emsp;+ Tích hợp tự động push Docker image lên Docker Hub. | 09/06/2026 | 09/06/2026 | <https://docs.docker.com/build/ci/github-actions/> |
+| 4 | - **Thực hành:** Nâng cấp CI/CD (Phần 2).<br>&emsp;+ Tích hợp AWS CodeDeploy vào quy trình CI/CD.<br>&emsp;+ Loại bỏ phương pháp SSH đơn giản, thiết lập kịch bản (AppSpec) để CodeDeploy tự động pull image mới nhất và cập nhật ứng dụng trên EC2. | 10/06/2026 | 10/06/2026 | <https://docs.aws.amazon.com/codedeploy/latest/userguide/reference-appspec-file.html> |
+| 5 | - **Thực hành:** Kiểm thử hệ thống.<br>&emsp;+ Kiểm thử luồng CI/CD mới từ bước push code đến khi ứng dụng được tự động deploy thành công.<br>&emsp;+ Kiểm tra lại tính chính xác của chức năng sinh đề thi từ câu hỏi sai. | 11/06/2026 | 11/06/2026 |  |
 
 ### Kết quả đạt được tuần 8:
 
-* Hiểu AWS là gì và nắm được các nhóm dịch vụ cơ bản: 
-  * Compute
-  * Storage
-  * Networking 
-  * Database
-  * ...
-
-* Đã tạo và cấu hình AWS Free Tier account thành công.
-
-* Làm quen với AWS Management Console và biết cách tìm, truy cập, sử dụng dịch vụ từ giao diện web.
-
-* Cài đặt và cấu hình AWS CLI trên máy tính bao gồm:
-  * Access Key
-  * Secret Key
-  * Region mặc định
-  * ...
-
-* Sử dụng AWS CLI để thực hiện các thao tác cơ bản như:
-
-  * Kiểm tra thông tin tài khoản & cấu hình
-  * Lấy danh sách region
-  * Xem dịch vụ EC2
-  * Tạo và quản lý key pair
-  * Kiểm tra thông tin dịch vụ đang chạy
-  * ...
-
-* Có khả năng kết nối giữa giao diện web và CLI để quản lý tài nguyên AWS song song.
-* ...
-
-
+* Hoàn thiện và hệ thống hóa toàn bộ luồng kiến trúc hạ tầng AWS thông qua bản vẽ sơ đồ kiến trúc trực quan, rõ ràng.
+* Xây dựng thành công tính năng học tập thông minh: tự động tạo đề thi ôn luyện từ những câu hỏi người dùng hay sai, giúp tối ưu hóa trải nghiệm học tập trên hệ thống EngExam.
+* Nắm được cơ chế hoạt động của AWS CodeDeploy.
+* Nâng cấp thành công quy trình CI/CD: tự động hóa quá trình build, lưu trữ image trên Docker Hub và deploy ứng dụng mượt mà qua CodeDeploy, thay thế hoàn toàn cho thao tác SSH thủ công trước đây.

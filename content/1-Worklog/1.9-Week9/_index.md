@@ -1,57 +1,34 @@
 ---
 title: "Week 9 Worklog"
-date: 2024-01-01
-weight: 1
+date: 2026-06-18
+weight: 9
 chapter: false
 pre: " <b> 1.9. </b> "
 ---
-{{% notice warning %}} 
-⚠️ **Note:** The following information is for reference purposes only. Please **do not copy verbatim** for your own report, including this warning.
-{{% /notice %}}
-
 
 ### Week 9 Objectives:
 
-* Connect and get acquainted with members of First Cloud Journey.
-* Understand basic AWS services, how to use the console & CLI.
+* Learn about and configure the Amazon ElastiCache (Valkey) caching system.
+* Troubleshoot issues in the CI/CD pipeline with AWS CodeDeploy.
+* Deploy the In-Place Deployment mechanism and automatically fetch the latest version to run in the Auto Scaling Group.
+* Research theory and optimize network infrastructure costs with a Region NAT Gateway.
 
-### Tasks to be carried out this week:
-| Day | Task                                                                                                                                                                                                   | Start Date | Completion Date | Reference Material                        |
-| --- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ | ---------- | --------------- | ----------------------------------------- |
-| 2   | - Get acquainted with FCJ members <br> - Read and take note of internship unit rules and regulations                                                                                                   | 08/11/2025 | 08/11/2025      |
-| 3   | - Learn about AWS and its types of services <br>&emsp; + Compute <br>&emsp; + Storage <br>&emsp; + Networking <br>&emsp; + Database <br>&emsp; + ... <br>                                              | 08/12/2025 | 08/12/2025      | <https://cloudjourney.awsstudygroup.com/> |
-| 4   | - Create AWS Free Tier account <br> - Learn about AWS Console & AWS CLI <br> - **Practice:** <br>&emsp; + Create AWS account <br>&emsp; + Install & configure AWS CLI <br> &emsp; + How to use AWS CLI | 08/13/2025 | 08/13/2025      | <https://cloudjourney.awsstudygroup.com/> |
-| 5   | - Learn basic EC2: <br>&emsp; + Instance types <br>&emsp; + AMI <br>&emsp; + EBS <br>&emsp; + ... <br> - SSH connection methods to EC2 <br> - Learn about Elastic IP   <br>                            | 08/14/2025 | 08/15/2025      | <https://cloudjourney.awsstudygroup.com/> |
-| 6   | - **Practice:** <br>&emsp; + Launch an EC2 instance <br>&emsp; + Connect via SSH <br>&emsp; + Attach an EBS volume                                                                                     | 08/15/2025 | 08/15/2025      | <https://cloudjourney.awsstudygroup.com/> |
+### Tasks to be implemented this week:
 
+| Day | Task | Start Date | End Date | Resources |
+| --- | --- | --- | --- | --- |
+| Fri | - Learn the theory of Amazon ElastiCache.<br> - Research how to configure ElastiCache with the Valkey engine. | 12/06/2026 | 12/06/2026 | <https://aws.amazon.com/elasticache/valkey/> <https://docs.aws.amazon.com/AmazonElastiCache/latest/dg/WhatIs.html>|
+| Sat | - **Practice:** ElastiCache Configuration.<br>&emsp;+ Initialize and configure Amazon ElastiCache with Valkey on AWS. | 13/06/2026 | 13/06/2026 | <https://docs.aws.amazon.com/AmazonElastiCache/latest/dg/SubnetGroups.designing-cluster-pre.valkey.html> |
+| Sun | - **Practice:** CI/CD Troubleshooting.<br>&emsp;+ Inspect logs and fix errors occurring during the AWS CodeDeploy configuration for the CI/CD system. | 14/06/2026 | 14/06/2026 | |
+| Mon | - Learn the theory of the In-Place Deployment mechanism in AWS CodeDeploy.<br> - Research how the Auto Scaling Group works together with CodeDeploy. | 15/06/2026 | 15/06/2026 | <https://docs.aws.amazon.com/codedeploy/latest/userguide/integrations-aws-auto-scaling.html> <br> <https://docs.aws.amazon.com/codedeploy/latest/userguide/tutorials-auto-scaling-group.html>|
+| Tue | - **Practice:** In-Place Deployment Implementation.<br>&emsp;+ Create an Application and Deployment Group in CodeDeploy for the In-place flow.<br>&emsp;+ Proceed to fetch the latest update using the In-Place mechanism in the Auto Scaling Group. | 16/06/2026 | 16/06/2026 | <https://docs.aws.amazon.com/codedeploy/latest/userguide/deployment-groups.html> |
+| Wed | - Research NAT Gateway theory and architectural design strategies for cost optimization on AWS. | 17/06/2026 | 17/06/2026 | <https://docs.aws.amazon.com/vpc/latest/userguide/vpc-nat-gateway.html> |
+| Thu | - **Practice:** Network Cost Optimization.<br>&emsp;+ Migrate traditional NAT Gateways scattered across public subnets to use a single Region NAT Gateway. | 18/06/2026 | 18/06/2026 | |
 
 ### Week 9 Achievements:
 
-* Understood what AWS is and mastered the basic service groups: 
-  * Compute
-  * Storage
-  * Networking 
-  * Database
-  * ...
-
-* Successfully created and configured an AWS Free Tier account.
-
-* Became familiar with the AWS Management Console and learned how to find, access, and use services via the web interface.
-
-* Installed and configured AWS CLI on the computer, including:
-  * Access Key
-  * Secret Key
-  * Default Region
-  * ...
-
-* Used AWS CLI to perform basic operations such as:
-
-  * Check account & configuration information
-  * Retrieve the list of regions
-  * View EC2 service
-  * Create and manage key pairs
-  * Check information about running services
-  * ...
-
-* Acquired the ability to connect between the web interface and CLI to manage AWS resources in parallel.
-* ...
+* Successfully learned about and configured Amazon ElastiCache with the Valkey engine.
+* Fixed AWS CodeDeploy configuration errors, ensuring a stable CI/CD pipeline.
+* Grasped the In-Place Deployment mechanism, successfully created the Application and Deployment Group in CodeDeploy.
+* Successfully zipped the file and uploaded it to S3 so that all EC2 Instances in the Auto Scaling Group can get the new code.
+* Mastered the theoretical knowledge of NAT Gateways and successfully migrated to a Region NAT Gateway instead of having to create 2 NAT Gateways to optimize operational costs.

@@ -1,59 +1,34 @@
 ---
 title: "Worklog Tuần 9"
-date: 2024-01-01
-weight: 1
+date: 2026-06-18
+weight: 9
 chapter: false
 pre: " <b> 1.9. </b> "
 ---
-{{% notice warning %}}
-⚠️ **Lưu ý:** Các thông tin dưới đây chỉ nhằm mục đích tham khảo, vui lòng **không sao chép nguyên văn** cho bài báo cáo của bạn kể cả warning này.
-{{% /notice %}}
-
 
 ### Mục tiêu tuần 9:
 
-* Kết nối, làm quen với các thành viên trong First Cloud Journey.
-* Hiểu dịch vụ AWS cơ bản, cách dùng console & CLI.
+* Tìm hiểu và cấu hình bộ nhớ đệm Amazon ElastiCache (Valkey).
+* Khắc phục các vấn đề trong quy trình CI/CD với AWS CodeDeploy.
+* Triển khai cơ chế In-Place Deployment và tự động lấy bản mới nhất về chạy trong Auto Scaling Group.
+* Nghiên cứu lý thuyết và tối ưu hóa chi phí hạ tầng mạng với Region NAT Gateway.
 
 ### Các công việc cần triển khai trong tuần này:
-| Thứ | Công việc                                                                                                                                                                                   | Ngày bắt đầu | Ngày hoàn thành | Nguồn tài liệu                            |
-| --- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | ------------ | --------------- | ----------------------------------------- |
-| 2   | - Làm quen với các thành viên FCJ <br> - Đọc và lưu ý các nội quy, quy định tại đơn vị thực tập                                                                                             | 11/08/2025   | 11/08/2025      |
-| 3   | - Tìm hiểu AWS và các loại dịch vụ <br>&emsp; + Compute <br>&emsp; + Storage <br>&emsp; + Networking <br>&emsp; + Database <br>&emsp; + ... <br>                                            | 12/08/2025   | 12/08/2025      | <https://cloudjourney.awsstudygroup.com/> |
-| 4   | - Tạo AWS Free Tier account <br> - Tìm hiểu AWS Console & AWS CLI <br> - **Thực hành:** <br>&emsp; + Tạo AWS account <br>&emsp; + Cài AWS CLI & cấu hình <br> &emsp; + Cách sử dụng AWS CLI | 13/08/2025   | 13/08/2025      | <https://cloudjourney.awsstudygroup.com/> |
-| 5   | - Tìm hiểu EC2 cơ bản: <br>&emsp; + Instance types <br>&emsp; + AMI <br>&emsp; + EBS <br>&emsp; + ... <br> - Các cách remote SSH vào EC2 <br> - Tìm hiểu Elastic IP   <br>                  | 14/08/2025   | 15/08/2025      | <https://cloudjourney.awsstudygroup.com/> |
-| 6   | - **Thực hành:** <br>&emsp; + Tạo EC2 instance <br>&emsp; + Kết nối SSH <br>&emsp; + Gắn EBS volume                                                                                         | 15/08/2025   | 15/08/2025      | <https://cloudjourney.awsstudygroup.com/> |
 
+| Thứ | Công việc | Ngày bắt đầu | Ngày hoàn thành | Nguồn tài liệu |
+| --- | --- | --- | --- | --- |
+| 6 | - Tìm hiểu lý thuyết về Amazon ElastiCache.<br> - Nghiên cứu cách cấu hình ElastiCache với engine Valkey. | 12/06/2026 | 12/06/2026 | <https://aws.amazon.com/elasticache/valkey/> <https://docs.aws.amazon.com/AmazonElastiCache/latest/dg/WhatIs.html>|
+| 7 | - **Thực hành:** Cấu hình ElastiCache.<br>&emsp;+ Khởi tạo và cấu hình Amazon ElastiCache với Valkey trên AWS. | 13/06/2026 | 13/06/2026 | <https://docs.aws.amazon.com/AmazonElastiCache/latest/dg/SubnetGroups.designing-cluster-pre.valkey.html> |
+| CN | - **Thực hành:** Khắc phục lỗi CI/CD.<br>&emsp;+ Kiểm tra log và khắc phục các lỗi phát sinh trong quá trình cấu hình AWS CodeDeploy cho hệ thống CI/CD. | 14/06/2026 | 14/06/2026 | |
+| 2 | - Tìm hiểu lý thuyết về cơ chế triển khai In-Place Deployment của AWS CodeDeploy.<br> - Nghiên cứu cách Auto Scaling Group hoạt động chung với Codeploy ra sao. | 15/06/2026 | 15/06/2026 | <https://docs.aws.amazon.com/codedeploy/latest/userguide/integrations-aws-auto-scaling.html> <br> <https://docs.aws.amazon.com/codedeploy/latest/userguide/tutorials-auto-scaling-group.html>|
+| 3 | - **Thực hành:** Triển khai In-Place Deployment.<br>&emsp;+ Tạo Application và Deployment Group trên CodeDeploy cho luồng Inplace.<br>&emsp;+ Tiến hành lấy bản cập nhật mới nhất về theo cơ chế In-Place trong Auto Scaling Group. | 16/06/2026 | 16/06/2026 | <https://docs.aws.amazon.com/codedeploy/latest/userguide/deployment-groups.html> |
+| 4 | - Nghiên cứu lý thuyết về NAT Gateway và các phương án thiết kế kiến trúc mạng tối ưu chi phí trên AWS. | 17/06/2026 | 17/06/2026 | <https://docs.aws.amazon.com/vpc/latest/userguide/vpc-nat-gateway.html> |
+| 5 | - **Thực hành:** Tối ưu chi phí hạ tầng mạng.<br>&emsp;+ Chuyển đổi các NAT Gateway truyền thống đang phân tán trên các public subnet sang sử dụng chung một Region NAT Gateway. | 18/06/2026 | 18/06/2026 | |
 
 ### Kết quả đạt được tuần 9:
 
-* Hiểu AWS là gì và nắm được các nhóm dịch vụ cơ bản: 
-  * Compute
-  * Storage
-  * Networking 
-  * Database
-  * ...
-
-* Đã tạo và cấu hình AWS Free Tier account thành công.
-
-* Làm quen với AWS Management Console và biết cách tìm, truy cập, sử dụng dịch vụ từ giao diện web.
-
-* Cài đặt và cấu hình AWS CLI trên máy tính bao gồm:
-  * Access Key
-  * Secret Key
-  * Region mặc định
-  * ...
-
-* Sử dụng AWS CLI để thực hiện các thao tác cơ bản như:
-
-  * Kiểm tra thông tin tài khoản & cấu hình
-  * Lấy danh sách region
-  * Xem dịch vụ EC2
-  * Tạo và quản lý key pair
-  * Kiểm tra thông tin dịch vụ đang chạy
-  * ...
-
-* Có khả năng kết nối giữa giao diện web và CLI để quản lý tài nguyên AWS song song.
-* ...
-
-
+* Tìm hiểu và cấu hình thành công Amazon ElastiCache với engine Valkey.
+* Khắc phục các lỗi cấu hình AWS CodeDeploy, đảm bảo hệ thống CI/CD hoạt động ổn định.
+* Nắm được cơ chế In-Place Deployment, khởi tạo thành công Application và Deployment Group trên CodeDeploy.
+* Thực hiện zip file đưa lên S3 thành công để toàn bộ EC2 Instances trong Auto Scaling Group có thể có code mới.
+* Nắm kiến thức lý thuyết về NAT Gateway và thực hiện chuyển đổi thành công sang Region NAT Gateway thay vì phải tạo 2 NAT Gateway để tối ưu hóa chi phí vận hành.
