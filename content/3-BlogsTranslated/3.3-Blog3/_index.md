@@ -1,126 +1,34 @@
----
-title: "Blog 3"
-date: 2024-01-01
-weight: 1
-chapter: false
-pre: " <b> 3.3. </b> "
----
-{{% notice warning %}}
-⚠️ **Note:** The information below is for reference purposes only. Please **do not copy verbatim** for your report, including this warning.
-{{% /notice %}}
+# Optimizing Network Architecture with Amazon VPC Regional NAT Gateway
 
-# Getting Started with Healthcare Data Lakes: Using Microservices
+Previously, to ensure high availability, systems required creating separate NAT Gateways in public subnets for each Availability Zone (AZ). With the Regional NAT Gateway (RNAT) mode, AWS allows you to create a single NAT Gateway that operates at the entire Virtual Private Cloud (VPC) level. This system automatically scales out or in across AZs based on actual workloads, helping to simplify network architecture and reduce management overhead.
 
-Data lakes can help hospitals and healthcare facilities turn data into business insights, maintain business continuity, and protect patient privacy. A **data lake** is a centralized, managed, and secure repository to store all your data, both in its raw and processed forms for analysis. Data lakes allow you to break down data silos and combine different types of analytics to gain insights and make better business decisions.
+## 1. Core Benefits
 
-This blog post is part of a larger series on getting started with setting up a healthcare data lake. In my final post of the series, *“Getting Started with Healthcare Data Lakes: Diving into Amazon Cognito”*, I focused on the specifics of using Amazon Cognito and Attribute Based Access Control (ABAC) to authenticate and authorize users in the healthcare data lake solution. In this blog, I detail how the solution evolved at a foundational level, including the design decisions I made and the additional features used. You can access the code samples for the solution in this Git repo for reference.
+* Better network security: Organizations no longer need to create public subnets to host NAT Gateways. This completely eliminates the risk of accidentally deploying sensitive resources into public subnets and exposing them to the internet.
+* Automatic port exhaustion prevention: Each RNAT IP address supports up to 55,000 simultaneous connections to the same destination. With 2 scaling mechanisms:
+  * Automatic scale-out mechanism: When the number of connections exceeds the threshold of about 40,000, RNAT automatically adds new IPs within 5 minutes (up to 32 IPs per AZ).
+  * Automatic scale-in mechanism: When the number of connections drops below 20,000 and remains there for about 1 hour, the system automatically revokes the IP to save costs.
+* VPC IPAM integration: RNAT automatically retrieves IPs from IPAM pools that comply with organizational policies when needing to expand to a new AZ or when load increases.
+* Flexible control: Users can choose Automatic mode (AWS handles IP and AZ management) or Manual mode (users allocate Elastic IPs and select AZs themselves). Note in manual mode: if data is generated in an AZ that does not have RNAT enabled, traffic will randomly route to another AZ that has RNAT, which may incur cross-AZ transfer fees.
 
----
+## 2. Routing and Monitoring
 
-## Architecture Guidance
+* Flexible routing: RNAT comes with a default Route Table pointing to the Internet Gateway (IGW). This structure allows for the easy insertion of security inspection devices (like Firewalls) into the data flow.
+* Comprehensive monitoring: Supports monitoring via Amazon CloudWatch with metrics such as: resource ID, AZ ID, source/destination IP, source/destination Port, and protocol.
 
-The main change since the last presentation of the overall architecture is the decomposition of a single service into a set of smaller services to improve maintainability and flexibility. Integrating a large volume of diverse healthcare data often requires specialized connectors for each format; by keeping them encapsulated separately as microservices, we can add, remove, and modify each connector without affecting the others. The microservices are loosely coupled via publish/subscribe messaging centered in what I call the “pub/sub hub.”
+## 3. Common Deployment Models
 
-This solution represents what I would consider another reasonable sprint iteration from my last post. The scope is still limited to the ingestion and basic parsing of **HL7v2 messages** formatted in **Encoding Rules 7 (ER7)** through a REST interface.
+* VPC to Internet (Simplest): Traffic from internal subnets goes straight to RNAT, then to the Internet Gateway (IGW), and out to the network.
+* VPC to Internet with traffic inspection: Traffic from internal subnets is first routed through a Firewall (AWS Network Firewall or third-party appliance) for security inspection, then transmitted to RNAT and out to the Internet.
 
-**The solution architecture is now as follows:**
+## 4. Important Considerations
 
-> *Figure 1. Overall architecture; colored boxes represent distinct services.*
+* Application scope: RNAT is attached to the entire VPC, not bound to individual subnets. The Route Table of the RNAT cannot be associated with subnets or other RNATs.
+* AZ scaling time: In automatic mode, if you deploy resources in a new AZ, RNAT will take an average of 15 - 20 minutes (up to 60 minutes) to expand to that AZ.
+* Resource limits: Each VPC can configure a maximum of 5 RNATs.
+* Performance: Bandwidth supports from 5 Gbps and can automatically scale up to 100 Gbps per AZ (supporting TCP, UDP, ICMP protocols).
+* Current limitations: RNAT currently does not support fully private connectivity. For this requirement, AWS recommends still using the legacy Zonal NAT Gateway.
 
----
+<br>Group Post Link: <https://www.facebook.com/groups/660548818043427/user/100025022862424>
 
-While the term *microservices* has some inherent ambiguity, certain traits are common:  
-- Small, autonomous, loosely coupled  
-- Reusable, communicating through well-defined interfaces  
-- Specialized to do one thing well  
-- Often implemented in an **event-driven architecture**
-
-When determining where to draw boundaries between microservices, consider:  
-- **Intrinsic**: technology used, performance, reliability, scalability  
-- **Extrinsic**: dependent functionality, rate of change, reusability  
-- **Human**: team ownership, managing *cognitive load*
-
----
-
-## Technology Choices and Communication Scope
-
-| Communication scope                       | Technologies / patterns to consider                                                        |
-| ----------------------------------------- | ------------------------------------------------------------------------------------------ |
-| Within a single microservice              | Amazon Simple Queue Service (Amazon SQS), AWS Step Functions                               |
-| Between microservices in a single service | AWS CloudFormation cross-stack references, Amazon Simple Notification Service (Amazon SNS) |
-| Between services                          | Amazon EventBridge, AWS Cloud Map, Amazon API Gateway                                      |
-
----
-
-## The Pub/Sub Hub
-
-Using a **hub-and-spoke** architecture (or message broker) works well with a small number of tightly related microservices.  
-- Each microservice depends only on the *hub*  
-- Inter-microservice connections are limited to the contents of the published message  
-- Reduces the number of synchronous calls since pub/sub is a one-way asynchronous *push*
-
-Drawback: **coordination and monitoring** are needed to avoid microservices processing the wrong message.
-
----
-
-## Core Microservice
-
-Provides foundational data and communication layer, including:  
-- **Amazon S3** bucket for data  
-- **Amazon DynamoDB** for data catalog  
-- **AWS Lambda** to write messages into the data lake and catalog  
-- **Amazon SNS** topic as the *hub*  
-- **Amazon S3** bucket for artifacts such as Lambda code
-
-> Only allow indirect write access to the data lake through a Lambda function → ensures consistency.
-
----
-
-## Front Door Microservice
-
-- Provides an API Gateway for external REST interaction  
-- Authentication & authorization based on **OIDC** via **Amazon Cognito**  
-- Self-managed *deduplication* mechanism using DynamoDB instead of SNS FIFO because:  
-  1. SNS deduplication TTL is only 5 minutes  
-  2. SNS FIFO requires SQS FIFO  
-  3. Ability to proactively notify the sender that the message is a duplicate  
-
----
-
-## Staging ER7 Microservice
-
-- Lambda “trigger” subscribed to the pub/sub hub, filtering messages by attribute  
-- Step Functions Express Workflow to convert ER7 → JSON  
-- Two Lambdas:  
-  1. Fix ER7 formatting (newline, carriage return)  
-  2. Parsing logic  
-- Result or error is pushed back into the pub/sub hub  
-
----
-
-## New Features in the Solution
-
-### 1. AWS CloudFormation Cross-Stack References
-Example *outputs* in the core microservice:
-```yaml
-Outputs:
-  Bucket:
-    Value: !Ref Bucket
-    Export:
-      Name: !Sub ${AWS::StackName}-Bucket
-  ArtifactBucket:
-    Value: !Ref ArtifactBucket
-    Export:
-      Name: !Sub ${AWS::StackName}-ArtifactBucket
-  Topic:
-    Value: !Ref Topic
-    Export:
-      Name: !Sub ${AWS::StackName}-Topic
-  Catalog:
-    Value: !Ref Catalog
-    Export:
-      Name: !Sub ${AWS::StackName}-Catalog
-  CatalogArn:
-    Value: !GetAtt Catalog.Arn
-    Export:
-      Name: !Sub ${AWS::StackName}-CatalogArn
+> Reference: [Introducing Amazon VPC Regional NAT Gateway](https://aws.amazon.com/blogs/networking-and-content-delivery/introducing-amazon-vpc-regional-nat-gateway/)

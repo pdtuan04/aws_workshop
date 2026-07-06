@@ -1,126 +1,43 @@
 ---
 title: "Blog 2"
-date: 2024-01-01
+date: 2026-07-01
 weight: 1
 chapter: false
 pre: " <b> 3.2. </b> "
 ---
-{{% notice warning %}}
-⚠️ **Note:** The information below is for reference purposes only. Please **do not copy verbatim** for your report, including this warning.
-{{% /notice %}}
+# Adding HTTP Security Headers Using Amazon CloudFront
 
-# Getting Started with Healthcare Data Lakes: Using Microservices
+In the context of cybersecurity facing many risks, protecting users from common vulnerabilities such as XSS, clickjacking, and man-in-the-middle is extremely urgent. An important but often overlooked layer of defense is HTTP security headers. To solve this problem without complex interventions in the origin system, developers and DevOps engineers can deploy Amazon CloudFront to automate and optimize the addition of security headers.
 
-Data lakes can help hospitals and healthcare facilities turn data into business insights, maintain business continuity, and protect patient privacy. A **data lake** is a centralized, managed, and secure repository to store all your data, both in its raw and processed forms for analysis. Data lakes allow you to break down data silos and combine different types of analytics to gain insights and make better business decisions.
+An important component of the solution is header sets such as Strict-Transport-Security, Content-Security-Policy, or X-Frame-Options. Instead of having to adjust them at the application server, CloudFront provides 3 flexible methods to apply these policies right at the network edge.
 
-This blog post is part of a larger series on getting started with setting up a healthcare data lake. In my final post of the series, *“Getting Started with Healthcare Data Lakes: Diving into Amazon Cognito”*, I focused on the specifics of using Amazon Cognito and Attribute Based Access Control (ABAC) to authenticate and authorize users in the healthcare data lake solution. In this blog, I detail how the solution evolved at a foundational level, including the design decisions I made and the additional features used. You can access the code samples for the solution in this Git repo for reference.
+## 1. Benefits of offloading security configurations to CloudFront
 
----
+Initially, systems are often configured to attach security headers directly at the origin server. However, transferring this task to CloudFront brings many clear benefits.
 
-## Architecture Guidance
+This architecture helps solve the situation where you cannot interfere with the source code of the origin server (especially when using a third-party platform). Offloading this logic to CloudFront helps the origin server save computing resources, focusing only on serving core content. At the same time, it helps save bandwidth between CloudFront and the origin server, providing maximum flexibility when administrators need to quickly update defense layers.
 
-The main change since the last presentation of the overall architecture is the decomposition of a single service into a set of smaller services to improve maintainability and flexibility. Integrating a large volume of diverse healthcare data often requires specialized connectors for each format; by keeping them encapsulated separately as microservices, we can add, remove, and modify each connector without affecting the others. The microservices are loosely coupled via publish/subscribe messaging centered in what I call the “pub/sub hub.”
+## 2. Rapid deployment with CloudFront Response Headers Policies
 
-This solution represents what I would consider another reasonable sprint iteration from my last post. The scope is still limited to the ingestion and basic parsing of **HL7v2 messages** formatted in **Encoding Rules 7 (ER7)** through a REST interface.
+The simplest and most cost-optimized method (no fees incurred, no coding required) is to use CloudFront Response Headers Policies.
 
-**The solution architecture is now as follows:**
+The system provides Managed policies (policies configured by default by AWS) containing accurate security header sets for common scenarios. You just need to attach this policy to the Cache Behavior of CloudFront. If the application has its own specifics, you can absolutely create Custom policies to fine-tune each value like X-XSS-Protection or Referrer-Policy in detail. All traffic returned to the user will automatically be assigned these headers.
 
-> *Figure 1. Overall architecture; colored boxes represent distinct services.*
+## 3. Dynamic security customization with CloudFront Functions
 
----
+For scenarios requiring the system to react flexibly, static configuration methods are not enough.
 
-While the term *microservices* has some inherent ambiguity, certain traits are common:  
-- Small, autonomous, loosely coupled  
-- Reusable, communicating through well-defined interfaces  
-- Specialized to do one thing well  
-- Often implemented in an **event-driven architecture**
+If you need to change header values based on specific conditions (for example: only adding headers when a specific request header, cookie, or query string is detected), CloudFront Functions is a suitable solution. By executing extremely lightweight JavaScript code right at the edge locations, the system can analyze the request and insert security headers in real-time without increasing the latency of the website.
 
-When determining where to draw boundaries between microservices, consider:  
-- **Intrinsic**: technology used, performance, reliability, scalability  
-- **Extrinsic**: dependent functionality, rate of change, reusability  
-- **Human**: team ownership, managing *cognitive load*
+## 4. Handling complex security scenarios with Lambda@Edge
 
----
+When control requirements become more complex than what CloudFront Functions can handle, the system will need the power of Lambda@Edge (supporting Node.js and Python).
 
-## Technology Choices and Communication Scope
+In situations that require calling external APIs (network calls), using third-party security libraries, or needing deep access into the body of the request to decide whether to assign a security header or not, Lambda@Edge provides full programming control. This solution helps large systems (like medical portals or e-commerce platforms) meet the strictest data compliance standards.
 
-| Communication scope                       | Technologies / patterns to consider                                                        |
-| ----------------------------------------- | ------------------------------------------------------------------------------------------ |
-| Within a single microservice              | Amazon Simple Queue Service (Amazon SQS), AWS Step Functions                               |
-| Between microservices in a single service | AWS CloudFormation cross-stack references, Amazon Simple Notification Service (Amazon SNS) |
-| Between services                          | Amazon EventBridge, AWS Cloud Map, Amazon API Gateway                                      |
+## Conclusion
 
----
+By leveraging the Amazon CloudFront ecosystem including Response Headers Policies, CloudFront Functions, and Lambda@Edge, organizations can build a flexible and multi-layered security solution. This solution not only offloads the burden on the origin server but also makes it easy to apply modern web safety standards. By combining periodic testing with tools like Mozilla Observatory, the system can continuously improve its security score and maintain stability for legitimate users.
+<br>Group Post Link: <https://www.facebook.com/groups/660548818043427/user/100025022862424>
 
-## The Pub/Sub Hub
-
-Using a **hub-and-spoke** architecture (or message broker) works well with a small number of tightly related microservices.  
-- Each microservice depends only on the *hub*  
-- Inter-microservice connections are limited to the contents of the published message  
-- Reduces the number of synchronous calls since pub/sub is a one-way asynchronous *push*
-
-Drawback: **coordination and monitoring** are needed to avoid microservices processing the wrong message.
-
----
-
-## Core Microservice
-
-Provides foundational data and communication layer, including:  
-- **Amazon S3** bucket for data  
-- **Amazon DynamoDB** for data catalog  
-- **AWS Lambda** to write messages into the data lake and catalog  
-- **Amazon SNS** topic as the *hub*  
-- **Amazon S3** bucket for artifacts such as Lambda code
-
-> Only allow indirect write access to the data lake through a Lambda function → ensures consistency.
-
----
-
-## Front Door Microservice
-
-- Provides an API Gateway for external REST interaction  
-- Authentication & authorization based on **OIDC** via **Amazon Cognito**  
-- Self-managed *deduplication* mechanism using DynamoDB instead of SNS FIFO because:  
-  1. SNS deduplication TTL is only 5 minutes  
-  2. SNS FIFO requires SQS FIFO  
-  3. Ability to proactively notify the sender that the message is a duplicate  
-
----
-
-## Staging ER7 Microservice
-
-- Lambda “trigger” subscribed to the pub/sub hub, filtering messages by attribute  
-- Step Functions Express Workflow to convert ER7 → JSON  
-- Two Lambdas:  
-  1. Fix ER7 formatting (newline, carriage return)  
-  2. Parsing logic  
-- Result or error is pushed back into the pub/sub hub  
-
----
-
-## New Features in the Solution
-
-### 1. AWS CloudFormation Cross-Stack References
-Example *outputs* in the core microservice:
-```yaml
-Outputs:
-  Bucket:
-    Value: !Ref Bucket
-    Export:
-      Name: !Sub ${AWS::StackName}-Bucket
-  ArtifactBucket:
-    Value: !Ref ArtifactBucket
-    Export:
-      Name: !Sub ${AWS::StackName}-ArtifactBucket
-  Topic:
-    Value: !Ref Topic
-    Export:
-      Name: !Sub ${AWS::StackName}-Topic
-  Catalog:
-    Value: !Ref Catalog
-    Export:
-      Name: !Sub ${AWS::StackName}-Catalog
-  CatalogArn:
-    Value: !GetAtt Catalog.Arn
-    Export:
-      Name: !Sub ${AWS::StackName}-CatalogArn
+> Reference: [Add Http](https://aws.amazon.com/blogs/networking-and-content-delivery/adding-http-security-headers-using-amazon-cloudfront/)

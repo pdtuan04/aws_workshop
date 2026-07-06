@@ -6,28 +6,28 @@ chapter: false
 pre: " <b> 5. </b> "
 ---
 
-{{% notice warning %}}
-⚠️ **Lưu ý:** Các thông tin dưới đây chỉ nhằm mục đích tham khảo, vui lòng **không sao chép nguyên văn** cho bài báo cáo của bạn kể cả warning này.
-{{% /notice %}}
-
-
-# Đảm bảo truy cập Hybrid an toàn đến S3 bằng cách sử dụng VPC endpoint
+# Triển khai hệ thống Web Application có khả năng mở rộng và bảo mật trên AWS
 
 #### Tổng quan
+Trong các hệ thống web hiện đại, việc đảm bảo tính sẵn sàng (High Availability), khả năng mở rộng (Scalability) và bảo mật (Security) là những yêu cầu quan trọng. AWS cung cấp nhiều dịch vụ giúp xây dựng kiến trúc đáp ứng các yêu cầu này với chi phí tối ưu và khả năng tự động hóa cao.
 
-**AWS PrivateLink** cung cấp kết nối riêng tư đến các dịch vụ aws từ VPCs hoặc trung tâm dữ liệu (on-premise) mà không làm lộ lưu lượng truy cập ra ngoài public internet.
+Trong workshop này, chúng ta sẽ xây dựng một hệ thống triển khai website trên AWS theo mô hình nhiều tầng (Multi-tier Architecture). Hệ thống sử dụng CloudFront kết hợp AWS WAF để tăng tốc truy cập và bảo vệ ứng dụng khỏi các cuộc tấn công phổ biến. Lưu lượng truy cập sẽ được chuyển đến Application Load Balancer (ALB), sau đó phân phối đến các máy chủ EC2 nằm trong Auto Scaling Group để đảm bảo khả năng chịu tải và tự động mở rộng.
 
-Trong bài lab này, chúng ta sẽ học cách tạo, cấu hình, và kiểm tra VPC endpoints để cho phép workload của bạn tiếp cận các dịch vụ AWS mà không cần đi qua Internet công cộng.
+Dữ liệu của ứng dụng được lưu trữ trên Amazon RDS với mô hình Primary - Standby (Multi-AZ) nhằm đảm bảo tính sẵn sàng cao. Đồng thời, Amazon ElastiCache for Valkey/Redis được sử dụng để tăng tốc độ truy xuất dữ liệu và giảm tải cho cơ sở dữ liệu.
 
-Chúng ta sẽ tạo hai loại endpoints để truy cập đến Amazon S3: gateway vpc endpoint và interface vpc endpoint. Hai loại vpc endpoints này mang đến nhiều lợi ích tùy thuộc vào việc bạn truy cập đến S3 từ môi trường cloud hay từ trung tâm dữ liệu (on-premise).
-+ **Gateway** - Tạo gateway endpoint để gửi lưu lượng đến Amazon S3 hoặc DynamoDB using private IP addresses. Bạn điều hướng lưu lượng từ VPC của bạn đến gateway endpoint bằng các bảng định tuyến (route tables)
-+ **Interface** - Tạo interface endpoint để gửi lưu lượng đến các dịch vụ điểm cuối (endpoints) sử dụng Network Load Balancer để phân phối lưu lượng. Lưu lượng dành cho dịch vụ điểm cuối được resolved bằng DNS.
+Quá trình triển khai ứng dụng được tự động hóa thông qua GitHub Actions, DockerHub, Amazon S3 và AWS CodeDeploy, giúp rút ngắn thời gian phát hành phiên bản mới và giảm thiểu thao tác thủ công.
 
 #### Nội dung
 
-1. [Tổng quan về workshop](5.1-Workshop-overview/)
-2. [Chuẩn bị](5.2-Prerequiste/)
-3. [Truy cập đến S3 từ VPC](5.3-S3-vpc/)
-4. [Truy cập đến S3 từ TTDL On-premises](5.4-S3-onprem/)
-5. [VPC Endpoint Policies (làm thêm)](5.5-Policy/)
-6. [Dọn dẹp tài nguyên](5.6-Cleanup/)
+1. [Tổng quan kiến trúc hệ thống](5.1-Architecture/)
+2. [VPC ](5.2-vpc-networking/)
+3. [Triển khai VPC và Networking](5.3-Network/)
+4. [Triển khai EC2 và Auto Scaling Group](5.4-Compute/)
+5. [Cấu hình Application Load Balancer](5.5-ALB/)
+6. [Triển khai Amazon RDS Multi-AZ](5.6-RDS/)
+7. [Triển khai Amazon ElastiCache](5.7-ElastiCache/)
+8. [Cấu hình CloudFront và AWS WAF](5.8-CloudFront-WAF/)
+9. [Thiết lập CI/CD với GitHub Actions, DockerHub và CodeDeploy](5.9-CICD/)
+10. [Giám sát hệ thống với CloudWatch](5.10-Monitoring/)
+11. [Kiểm thử khả năng Scale và Deployment](5.11-Testing/)
+12. [Dọn dẹp tài nguyên](5.12-Cleanup/)

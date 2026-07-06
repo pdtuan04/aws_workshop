@@ -1,6 +1,6 @@
 ---
 title: "Blog 2"
-date: 2024-01-01
+date: 2026-07-01
 weight: 1
 chapter: false
 pre: " <b> 3.2. </b> "
@@ -38,5 +38,8 @@ Trong các tình huống cần gọi API ra bên ngoài (network calls), sử d�
 ## Kết luận
 
 Thông qua việc tận dụng hệ sinh thái Amazon CloudFront bao gồm Response Headers Policies, CloudFront Functions và Lambda@Edge, các tổ chức có thể xây dựng một giải pháp bảo mật linh hoạt và đa lớp. Giải pháp này không chỉ offload gánh nặng cho máy chủ gốc mà còn giúp dễ dàng áp dụng các tiêu chuẩn an toàn web hiện đại. Bằng cách kết hợp kiểm tra định kỳ với các công cụ như Mozilla Observatory, hệ thống có thể liên tục cải thiện điểm số bảo mật và duy trì tính ổn định cho người dùng hợp lệ.
+Nguồn tham khảo: 
 
-Nguồn tham khảo: https://aws.amazon.com/blogs/networking-and-content-delivery/adding-http-security-headers-using-amazon-cloudfront/
+<br>Link Bài Viết Trên Group: <https://www.facebook.com/groups/660548818043427/user/100025022862424>
+
+> Nguồn tham khảo: [Add Http](https://aws.amazon.com/blogs/networking-and-content-delivery/adding-http-security-headers-using-amazon-cloudfront/)

@@ -1,5 +1,5 @@
 ---
-title: "Blogs Posted"
+title: "Published Blogs"
 date: 2026-07-01
 weight: 3
 chapter: false
@@ -8,7 +8,7 @@ pre: " <b> 3. </b> "
 
 ### [Blog 1 - Optimizing Network Architecture with Amazon VPC Regional NAT Gateway](3.1-Blog1/)
 
-This blog introduces the solution of using a single, shared NAT Gateway for the entire VPC network (Regional NAT Gateway) instead of creating multiple scattered NAT Gateways for each Availability Zone. This architecture helps simplify the network, provides better security by eliminating the need to expose resources to public subnets, and automatically manages IPs to prevent port exhaustion and optimize operational costs.
+This blog introduces the solution of using a single, shared NAT Gateway for the entire VPC network (Regional NAT Gateway) instead of having to create multiple scattered NAT Gateways for each Availability Zone. This architecture helps simplify the network, provides better security by eliminating the need to expose resources to public subnets, and automatically manages IPs to prevent port exhaustion and optimize operational costs.
 
 ### [Blog 2 - Adding HTTP Security Headers with Amazon CloudFront](3.2-Blog2/)
 

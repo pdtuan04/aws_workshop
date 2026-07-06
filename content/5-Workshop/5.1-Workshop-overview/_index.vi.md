@@ -1,19 +1,31 @@
 ---
 title : "Giới thiệu"
-date : 2024-01-01 
+date : 2026-07-01
 weight : 1
 chapter : false
 pre : " <b> 5.1. </b> "
 ---
 
-#### Giới thiệu về VPC Endpoint
+#### Giới thiệu
 
-+ Điểm cuối VPC (endpoint) là thiết bị ảo. Chúng là các thành phần VPC có thể mở rộng theo chiều ngang, dự phòng và có tính sẵn sàng cao. Chúng cho phép giao tiếp giữa tài nguyên điện toán của bạn và dịch vụ AWS mà không gây ra rủi ro về tính sẵn sàng.
-+ Tài nguyên điện toán đang chạy trong VPC có thể truy cập Amazon S3 bằng cách sử dụng điểm cuối Gateway. Interface Endpoint  PrivateLink có thể được sử dụng bởi tài nguyên chạy trong VPC hoặc tại TTDL.
+Workshop này hướng dẫn triển khai một hệ thống Web Application trên AWS theo kiến trúc nhiều tầng (Multi-tier Architecture), đảm bảo khả năng mở rộng, tính sẵn sàng cao và bảo mật.
+
+Hệ thống sử dụng Amazon CloudFront kết hợp AWS WAF để tăng tốc truy cập và bảo vệ ứng dụng, Application Load Balancer để phân phối lưu lượng, Amazon EC2 trong Auto Scaling Group để tự động mở rộng theo tải, Amazon RDS Multi-AZ để đảm bảo an toàn dữ liệu và Amazon ElastiCache nhằm cải thiện hiệu năng truy xuất.
+
+Ngoài ra, workshop còn xây dựng quy trình CI/CD với GitHub Actions, DockerHub, Amazon S3 và AWS CodeDeploy, giúp tự động hóa quá trình build và triển khai ứng dụng.
 
 #### Tổng quan về workshop
-Trong workshop này, bạn sẽ sử dụng hai VPC.
-+ **"VPC Cloud"** dành cho các tài nguyên cloud như Gateway endpoint và EC2 instance để kiểm tra.
-+ **"VPC On-Prem"** mô phỏng môi trường truyền thống như nhà máy hoặc trung tâm dữ liệu của công ty. Một EC2 Instance chạy phần mềm StrongSwan VPN đã được triển khai trong "VPC On-prem" và được cấu hình tự động để thiết lập đường hầm VPN Site-to-Site với AWS Transit Gateway. VPN này mô phỏng kết nối từ một vị trí tại TTDL (on-prem) với AWS cloud. Để giảm thiểu chi phí, chỉ một phiên bản VPN được cung cấp để hỗ trợ workshop này. Khi lập kế hoạch kết nối VPN cho production workloads của bạn, AWS khuyên bạn nên sử dụng nhiều thiết bị VPN để có tính sẵn sàng cao.
 
-![overview](/images/5-Workshop/5.1-Workshop-overview/diagram1.png)
+Kiến trúc của workshop bao gồm các thành phần chính:
+
+- Amazon CloudFront phân phối nội dung đến người dùng với độ trễ thấp.
+- AWS WAF bảo vệ ứng dụng trước các cuộc tấn công web phổ biến.
+- Application Load Balancer (ALB) cân bằng tải giữa các EC2.
+- Amazon EC2 trong Auto Scaling Group xử lý yêu cầu và tự động mở rộng khi tải tăng.
+- Amazon RDS MySQL Multi-AZ lưu trữ dữ liệu với mô hình Primary - Standby.
+- Amazon ElastiCache tăng tốc truy xuất dữ liệu bằng cơ chế cache.
+- Amazon S3 lưu trữ các tệp media của ứng dụng và deployment artifact.
+- GitHub, GitHub Actions, DockerHub và AWS CodeDeploy xây dựng quy trình CI/CD tự động.
+- Amazon CloudWatch, CloudWatch Alarm và Amazon SNS giám sát hệ thống, gửi cảnh báo và hỗ trợ kích hoạt Auto Scaling.
+
+![overview](../../images/5-Workshop/5.1-Workshop-overview/architechture.drawio.png)
