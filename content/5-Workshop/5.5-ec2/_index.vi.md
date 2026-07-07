@@ -1,6 +1,6 @@
 ---
 title : "Triển khai EC2 để tạo AMI"
-date : 2024-01-01
+date : 2026-07-01
 weight : 5
 chapter : false
 pre : " <b> 5.5. </b> "

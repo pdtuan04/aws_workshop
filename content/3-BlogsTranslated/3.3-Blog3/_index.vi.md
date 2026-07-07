@@ -1,3 +1,10 @@
+---
+title: "Blog 3"
+date: 2026-07-01
+weight: 3
+chapter: false
+pre: " <b> 3.3. </b> "
+---
 # Tối Ưu Hóa Kiến Trúc Mạng Với Amazon VPC Regional NAT Gateway
 
 Trước đây, để đảm bảo tính sẵn sàng cao, hệ thống yêu cầu phải tạo các NAT Gateway riêng biệt tại các subnet công cộng (public subnet) cho từng Availability Zone (AZ). Với chế độ Regional NAT Gateway (RNAT), AWS cho phép bạn chỉ cần tạo một NAT Gateway duy nhất hoạt động ở cấp độ toàn bộ Virtual Private Cloud (VPC). Hệ thống này sẽ tự động mở rộng hoặc thu hẹp quy mô trên các AZ dựa trên khối lượng công việc thực tế, giúp đơn giản hóa kiến trúc mạng và giảm bớt gánh nặng quản lý.

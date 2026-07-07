@@ -1,6 +1,6 @@
 ---
 title: "Workshop"
-date: 2024-01-01
+date: 2026-07-01
 weight: 5
 chapter: false
 pre: " <b> 5. </b> "
@@ -19,15 +19,12 @@ Quá trình triển khai ứng dụng được tự động hóa thông qua GitH
 
 #### Nội dung
 
-1. [Tổng quan kiến trúc hệ thống](5.1-Architecture/)
-2. [VPC ](5.2-vpc-networking/)
-3. [Triển khai VPC và Networking](5.3-Network/)
-4. [Triển khai EC2 và Auto Scaling Group](5.4-Compute/)
-5. [Cấu hình Application Load Balancer](5.5-ALB/)
-6. [Triển khai Amazon RDS Multi-AZ](5.6-RDS/)
-7. [Triển khai Amazon ElastiCache](5.7-ElastiCache/)
-8. [Cấu hình CloudFront và AWS WAF](5.8-CloudFront-WAF/)
-9. [Thiết lập CI/CD với GitHub Actions, DockerHub và CodeDeploy](5.9-CICD/)
-10. [Giám sát hệ thống với CloudWatch](5.10-Monitoring/)
-11. [Kiểm thử khả năng Scale và Deployment](5.11-Testing/)
-12. [Dọn dẹp tài nguyên](5.12-Cleanup/)
+1. [Tổng quan kiến trúc hệ thống](5.1-Workshop-overview/)
+2. [Triển khai VPC và Networking](5.2-vpc-networking/)
+3. [Triển khai Amazon RDS](5.3-rds/)
+4. [Triển khai Amazon ElastiCache](5.4-elastic-cache/)
+5. [Triển khai EC2 để tạo AMI](5.5-ec2/)
+6. [Triển khai Auto Scaling Group](5.6-auto-scaling-group/)
+7. [Triển khai CI/CD với CodeDeploy](5.7-codedeploy/)
+8. [Triển khai CloudFront](5.8-cloudfont/)
+9. [Dọn dẹp tài nguyên](5.9-Cleanup/)

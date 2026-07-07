@@ -25,7 +25,7 @@ Giải pháp mang lại trải nghiệm học tập mượt mà, tốc độ t�
 ### 3. Kiến trúc giải pháp  
 Hệ thống vận hành hoàn toàn trong môi trường mạng an toàn Amazon VPC trải rộng trên nhiều Availability Zone nhằm đảm bảo tính sẵn sàng cao (High Availability).
 
-![EngExam Cloud & Deployment Architecture](../images/2-proposal/architechture.drawio.png)
+![EngExam Cloud & Deployment Architecture](../../images/2-proposal/architechture.drawio.png)
 
 *Luồng tương tác dữ liệu:*
 1. User gửi request tới hệ thống, đi qua Cloudfont 
@@ -98,7 +98,7 @@ Dự án được lên kế hoạch triển khai gói gọn trong 3 tháng thự
 - Amazon SNS: 0,00 USD/tháng (Gửi email cảnh báo tự động nằm trong Free Tier).
 - Docker Hub: 0,00 USD/tháng (Tài khoản Free Tier cho Public Repository).
 
-*Tổng*: 46,32 USD/tháng, 555,84 USD/12 tháng.
+*Tổng*: 46,32 USD/tháng.
 
 ### 7. Đánh giá rủi ro
 *Ma trận rủi ro*

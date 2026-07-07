@@ -1,43 +1,41 @@
 ---
-title : "Create an S3 Interface endpoint"
-date : 2024-01-01
+title : "Create ElastiCache (Valkey)"
+date : 2026-07-01
 weight : 2
 chapter : false
 pre : " <b> 5.4.2 </b> "
 ---
+1. Go to the ElastiCache console and click **Create cache**.
+![overview](../../../images/5-Workshop/5.4-elastic-cache/32.png)
 
-In this section you will create and test an S3 interface endpoint using the simulated on-premises environment deployed as part of this workshop.
+2. Configure ElastiCache:
+- Engine: Select **Valkey**.
+- Deployment option: Select **Node-based cluster**.
+- Creation method: Select **Cluster cache**.
+- Cluster mode: Select **Disabled**.     
+![overview](../../../images/5-Workshop/5.4-elastic-cache/33.png)
 
-1. Return to the Amazon VPC menu. In the navigation pane, choose Endpoints, then click Create Endpoint.
+3. Enter a name for the cluster.
+![overview](../../../images/5-Workshop/5.4-elastic-cache/34.png)
 
-2. In Create endpoint console:
-+ Name the interface endpoint
-+ In Service category, choose **aws services** 
+4. For the node type, select **cache.t4g.micro** to save credits.
+![overview](../../../images/5-Workshop/5.4-elastic-cache/35.png)
 
-![name](/images/5-Workshop/5.4-S3-onprem/s3-interface-endpoint1.png)
+5. Set the number of replicas to **1**.
+![overview](../../../images/5-Workshop/5.4-elastic-cache/36.png)
 
-3.  In the Search box, type S3 and press Enter. Select the endpoint named com.amazonaws.us-east-1.s3. Ensure that the Type column indicates Interface.
+6. Select the subnet group created in the previous step.
+![overview](../../../images/5-Workshop/5.4-elastic-cache/37.png)
 
-![service](/images/5-Workshop/5.4-S3-onprem/s3-interface-endpoint2.png)
+7. For Availability Zone placements, choose **Specify Availability Zones** and click next.
+![overview](../../../images/5-Workshop/5.4-elastic-cache/38.png)
 
-4. For VPC, select VPC Cloud from the drop-down.
-{{% notice warning %}}
-Make sure to choose "VPC Cloud" and not "VPC On-prem"
-{{% /notice %}}
-+ Expand **Additional settings** and ensure that Enable DNS name is *not* selected (we will use this in the next part of the workshop)
+8. Keep the default settings in the Advanced section, click next to review everything, and click **Create**.
+![overview](../../../images/5-Workshop/5.4-elastic-cache/39.png)
 
-![vpc](/images/5-Workshop/5.4-S3-onprem/s3-interface-endpoint3.png)
+9. Since the Security Group step was missed during initial creation, modify the newly created ElastiCache cluster:
+- Scroll down to the security groups section, select the Security Group previously created for ElastiCache in step 5.2.2, review the changes, and click save. 
+![overview](../../../images/5-Workshop/5.4-elastic-cache/40.png)
 
-5. Select 2 subnets in the following AZs: us-east-1a and us-east-1b
-
-![subnets](/images/5-Workshop/5.4-S3-onprem/s3-interface-endpoint4.png)
-
-6. For Security group, choose SGforS3Endpoint:
-
-![sg](/images/5-Workshop/5.4-S3-onprem/s3-interface-endpoint5.png)
-
-7. Keep the default policy - full access and click Create endpoint
-
-![success](/images/5-Workshop/5.4-S3-onprem/s3-interface-endpoint-success.png)
-
-Congratulation on successfully creating S3 interface endpoint. In the next step, we will test the interface endpoint.
+Following the steps above, the ElastiCache cluster has been successfully created and the primary endpoint is now available.
+![overview](../../../images/5-Workshop/5.4-elastic-cache/41.png)

@@ -1,6 +1,6 @@
 ---
 title : "Tạo VPC, Subnet Group, Regional Nat Gateway"
-date : 2024-01-01
+date : 2026-07-01
 weight : 2
 chapter : false
 pre : " <b> 5.2.1 </b> "
@@ -16,10 +16,10 @@ pre : " <b> 5.2.1 </b> "
 3. Cấu hình các thành phần trong VPC
 - Chọn 2 cho AZs
 - Public subnet mình chọn 2 mục đích chứa ALB cần nằm ở 2 Public Subnet.
-- Vì toàn bộ các thành phần chính mình đều đặt ở Private Subnet hết nên mình chọn 4 (vẫn còn thiếu 2 Private Subnet mình sẽ tự tay tạo sau) 
+- Vì toàn bộ các thành phần chính mình đều đặt ở Private Subnet hết nên mình chọn 4
 ![overview](../../../images/5-Workshop/5.2-vpc-networking/3.png)
 
-4. Chọn Regional Nat Gateway.
+1. Chọn Regional Nat Gateway.
 ![overview](../../../images/5-Workshop/5.2-vpc-networking/4.png)
 
 Sau đó ấn tạo mình sẽ có được 1 VPC

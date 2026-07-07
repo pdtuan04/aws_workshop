@@ -1,44 +1,54 @@
 ---
 title: "Chia sẻ, đóng góp ý kiến"
-date: 2024-01-01
+date: 2026-07-01
 weight: 7
 chapter: false
 pre: " <b> 7. </b> "
 ---
-{{% notice warning %}}
-⚠️ **Lưu ý:** Các thông tin dưới đây chỉ nhằm mục đích tham khảo, vui lòng **không sao chép nguyên văn** cho bài báo cáo của bạn kể cả warning này.
-{{% /notice %}}
-
->Tại đây bạn có thể tự do đóng góp ý kiến cá nhân về những trải nghiệm khi tham gia chương trình First Cloud Journey, giúp team FCJ cải thiện những vấn đề còn thiếu sót dựa trên các hạng mục sau:
-
 ### Đánh giá chung
 
 **1. Môi trường làm việc**  
-Môi trường làm việc rất thân thiện và cởi mở. Các thành viên trong FCJ luôn sẵn sàng hỗ trợ khi mình gặp khó khăn, kể cả ngoài giờ làm việc. Không gian làm việc gọn gàng, thoải mái, giúp mình tập trung tốt hơn. Tuy nhiên, mình nghĩ có thể bổ sung thêm một số buổi giao lưu hoặc team bonding để mọi người hiểu nhau hơn.
+Môi trường làm việc tại Công ty TNHH Amazon Web Services Viet Nam rất chuyên nghiệp, cởi mở và tạo điều kiện để thực tập sinh chủ động học tập. Công ty cung cấp đầy đủ tài nguyên thực hành như AWS Credits, tài liệu kỹ thuật và môi trường Cloud thực tế, giúp mình có thể triển khai và kiểm thử dự án một cách thuận lợi.
 
-**2. Sự hỗ trợ của mentor / team admin**  
-Mentor hướng dẫn rất chi tiết, giải thích rõ ràng khi mình chưa hiểu và luôn khuyến khích mình đặt câu hỏi. Team admin hỗ trợ các thủ tục, tài liệu và tạo điều kiện để mình làm việc thuận lợi. Mình đánh giá cao việc mentor cho phép mình thử và tự xử lý vấn đề thay vì chỉ đưa đáp án.
+**2. Sự hỗ trợ của anh chị mentor**  
+Anh chị mentor luôn sẵn sàng hỗ trợ khi mình gặp khó khăn, đồng thời khuyến khích mình tự nghiên cứu tài liệu và tìm ra hướng giải quyết trước khi đưa ra lời khuyên. Điều này giúp mình hình thành tư duy tự học và nâng cao khả năng giải quyết vấn đề. Bên cạnh đó, anh chị cũng hỗ trợ tốt trong việc cung cấp tài liệu và hướng dẫn các thủ tục cần thiết trong suốt quá trình thực tập.
 
 **3. Sự phù hợp giữa công việc và chuyên ngành học**  
-Công việc mình được giao phù hợp với kiến thức mình đã học ở trường, đồng thời mở rộng thêm những mảng mới mà mình chưa từng được tiếp cận. Nhờ vậy, mình vừa củng cố kiến thức nền tảng, vừa học thêm kỹ năng thực tế.
+Nội dung thực tập rất phù hợp với chuyên ngành Công nghệ thông tin. Dự án giúp mình vận dụng các kiến thức về lập trình Backend, cơ sở dữ liệu, mạng máy tính và đồng thời tiếp cận thêm các công nghệ điện toán đám mây, quy trình CI/CD và thiết kế hệ thống thực tế.
 
 **4. Cơ hội học hỏi & phát triển kỹ năng**  
-Trong quá trình thực tập, mình học được nhiều kỹ năng mới như sử dụng công cụ quản lý dự án, kỹ năng làm việc nhóm, và cả cách giao tiếp chuyên nghiệp trong môi trường công ty. Mentor cũng chia sẻ nhiều kinh nghiệm thực tế giúp mình định hướng tốt hơn cho sự nghiệp.
+Trong quá trình thực tập, mình có cơ hội nghiên cứu và sử dụng nhiều dịch vụ của AWS. Bên cạnh đó, mình cũng cải thiện đáng kể kỹ năng đọc tài liệu tiếng Anh, tự nghiên cứu công nghệ mới và xử lý các vấn đề phát sinh trong quá trình triển khai hệ thống.
 
 **5. Văn hóa & tinh thần đồng đội**  
-Văn hóa công ty rất tích cực: mọi người tôn trọng lẫn nhau, làm việc nghiêm túc nhưng vẫn vui vẻ. Khi có dự án gấp, mọi người cùng nhau cố gắng, hỗ trợ không phân biệt vị trí. Điều này giúp mình cảm thấy mình là một phần của tập thể, dù chỉ là thực tập sinh.
+Trong suốt thời gian thực tập, mình luôn cảm nhận được sự thân thiện và chuyên nghiệp của mọi người trong công ty. Các anh chị và mentor luôn sẵn sàng chia sẻ kinh nghiệm, hỗ trợ khi mình gặp khó khăn, tạo nên một môi trường làm việc tích cực và thoải mái.
 
 **6. Chính sách / phúc lợi cho thực tập sinh**  
-Công ty có hỗ trợ phụ cấp thực tập và tạo điều kiện về thời gian linh hoạt khi cần thiết. Ngoài ra, việc được tham gia các buổi đào tạo nội bộ là một điểm cộng lớn.
-
+Chương trình thực tập được tổ chức bài bản, cung cấp đầy đủ tài nguyên thực hành và cơ hội tiếp cận hệ sinh thái AWS. Ngoài ra, các buổi chia sẻ chuyên môn và hướng dẫn từ mentor giúp thực tập sinh có thêm nhiều kiến thức thực tế ngoài chương trình học ở trường.
 
 ### Một số câu hỏi khác
-- Điều bạn **hài lòng nhất** trong thời gian thực tập?  
-- Điều bạn nghĩ công ty **cần cải thiện** cho các thực tập sinh sau?  
-- Nếu giới thiệu cho bạn bè, bạn có **khuyên họ thực tập ở đây không**? Vì sao?  
 
+Điều bạn hài lòng nhất trong thời gian thực tập?
+
+- Điều mình hài lòng nhất là được trực tiếp xây dựng và triển khai một hệ thống Web Application hoàn chỉnh trên nền tảng AWS. Quá trình này giúp mình hiểu rõ hơn về kiến trúc hệ thống, quy trình CI/CD và cách vận hành một ứng dụng trong môi trường Cloud.
+
+Điều bạn nghĩ công ty cần cải thiện cho các thực tập sinh sau?
+
+- Theo mình, chương trình thực tập hiện tại đã được xây dựng rất tốt rồi nên không có gì cần cải thiện hết.
+
+Nếu giới thiệu cho bạn bè, bạn có khuyên họ thực tập ở đây không? Vì sao?
+
+- Chắc chắc là có. Đây là môi trường rất phù hợp cho sinh viên muốn phát triển về Cloud Computing và phát triển phần mềm. Thực tập sinh được tiếp cận công nghệ hiện đại, được thực hành trên môi trường thực tế và nhận được sự hỗ trợ tận tình từ mentor.
 
 ### Đề xuất & mong muốn
-- Bạn có đề xuất gì để cải thiện trải nghiệm trong kỳ thực tập?  
-- Bạn có muốn tiếp tục chương trình này trong tương lai?
-- Góp ý khác (tự do chia sẻ):
+
+Bạn có đề xuất gì để cải thiện trải nghiệm trong kỳ thực tập?
+
+- Mình không có nhiều đề xuất vì chương trình đã được tổ chức rất tốt.
+
+Bạn có muốn tiếp tục chương trình này trong tương lai?
+
+- Có. Mình mong muốn tiếp tục có cơ hội tham gia các chương trình đào tạo hoặc làm việc tại AWS để nâng cao kiến thức về Cloud Computing, DevOps và thiết kế hệ thống.
+
+Góp ý khác (tự do chia sẻ)
+
+- Em xin chân thành cảm ơn Công ty TNHH Amazon Web Services Viet Nam cùng các anh chị mentor đã tạo điều kiện để em được học tập và thực hành trong một môi trường chuyên nghiệp. Những kiến thức và kinh nghiệm tích lũy được trong suốt quá trình thực tập sẽ là nền tảng quan trọng giúp em tiếp tục phát triển trên con đường trở thành một Backend Developer có khả năng thiết kế và triển khai hệ thống trên nền tảng Cloud.

@@ -1,6 +1,6 @@
 ---
 title: "Báo cáo thực tập"
-date: 2024-01-01
+date: 2026-07-01
 weight: 1
 chapter: false
 ---
@@ -31,7 +31,7 @@ chapter: false
 
 1.  [Worklog](1-Worklog/)
 2.  [Proposal](2-Proposal/)
-3.  [Các bài blogs đã dịch](3-BlogsTranslated/)
+3.  [Các bài blogs đã đăng](3-BlogsTranslated/)
 4.  [Các events đã tham gia](4-EventParticipated/)
 5.  [Workshop](5-Workshop/)
 6.  [Tự đánh giá](6-Self-evaluation/)

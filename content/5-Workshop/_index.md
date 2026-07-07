@@ -1,31 +1,30 @@
 ---
 title: "Workshop"
-date: 2024-01-01
+date: 2026-07-01
 weight: 5
 chapter: false
 pre: " <b> 5. </b> "
 ---
-{{% notice warning %}}
-⚠️ **Note:** The information below is for reference purposes only. Please **do not copy verbatim** for your report, including this warning.
-{{% /notice %}}
 
-# Secure Hybrid Access to S3 using VPC Endpoints
+# Deploying a Scalable and Secure Web Application System on AWS
 
 #### Overview
+In modern web systems, ensuring High Availability, Scalability, and Security are critical requirements. AWS provides many services to build an architecture that meets these requirements with optimized cost and high automation capability.
 
-**AWS PrivateLink** provides private connectivity to AWS services from VPCs and your on-premises networks, without exposing your traffic to the Public Internet.
+In this workshop, we will build a website deployment system on AWS using a multi-tier architecture model. The system uses CloudFront combined with AWS WAF to accelerate access and protect the application from common attacks. Traffic will be routed to an Application Load Balancer (ALB), then distributed to EC2 servers in an Auto Scaling Group to ensure load tolerance and automatic scaling.
 
-In this lab, you will learn how to create, configure, and test VPC endpoints that enable your workloads to reach AWS services without traversing the Public Internet.
+Application data is stored on Amazon RDS with a Primary - Standby (Multi-AZ) model to ensure high availability. At the same time, Amazon ElastiCache for Valkey/Redis is used to speed up data retrieval and reduce database load.
 
-You will create two types of endpoints to access Amazon S3: a Gateway VPC endpoint, and an Interface VPC endpoint. These two types of VPC endpoints offer different benefits depending on if you are accessing Amazon S3 from the cloud or your on-premises location
-+ **Gateway** - Create a gateway endpoint to send traffic to Amazon S3 or DynamoDB using private IP addresses.You route traffic from your VPC to the gateway endpoint using route tables.
-+ **Interface** - Create an interface endpoint to send traffic to endpoint services that use a Network Load Balancer to distribute traffic. Traffic destined for the endpoint service is resolved using DNS.
+The application deployment process is automated through GitHub Actions, DockerHub, Amazon S3, and AWS CodeDeploy, helping shorten new release time and minimize manual operations.
 
-#### Content
+#### Contents
 
-1. [Workshop overview](5.1-Workshop-overview)
-2. [Prerequiste](5.2-Prerequiste/)
-3. [Access S3 from VPC](5.3-S3-vpc/)
-4. [Access S3 from On-premises](5.4-S3-onprem/)
-5. [VPC Endpoint Policies (Bonus)](5.5-Policy/)
-6. [Clean up](5.6-Cleanup/)
+1. [System architecture overview](5.1-Workshop-overview/)
+2. [Deploy VPC and Networking](5.2-vpc-networking/)
+3. [Deploy Amazon RDS](5.3-rds/)
+4. [Deploy Amazon ElastiCache](5.4-elastic-cache/)
+5. [Deploy EC2 to create AMI](5.5-ec2/)
+6. [Deploy Auto Scaling Group](5.6-auto-scaling-group/)
+7. [Deploy CI/CD with CodeDeploy](5.7-codedeploy/)
+8. [Deploy CloudFront](5.8-cloudfont/)
+9. [Clean up resources](5.9-Cleanup/)

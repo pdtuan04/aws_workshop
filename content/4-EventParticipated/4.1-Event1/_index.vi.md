@@ -1,31 +1,27 @@
 ---
 title: "Event 1"
-date: 2024-01-01
+date: 2026-05-23
 weight: 1
 chapter: false
 pre: " <b> 4.1. </b> "
 ---
 
 
-# Bài thu hoạch “FCAJ Community Day - Conference Call”
+# Bài thu hoạch “AWS First Cloud AI Journey Community Day 2026”
 
 ### Mục Đích Của Sự Kiện
-
-- Chia sẻ best practices trong thiết kế ứng dụng hiện đại
-- Giới thiệu phương pháp DDD và event-driven architecture
-- Hướng dẫn lựa chọn compute services phù hợp
-- Giới thiệu công cụ AI hỗ trợ development lifecycle
+Tham gia buổi gặp gỡ cộng đồng để kết nối với các chuyên gia Cloud, khám phá những ứng dụng mới của Cloud & Generative AI, cùng trải nghiệm các demo thực tế và mở rộng networking trong hệ sinh thái công nghệ.
 
 ### Danh Sách Diễn Giả
 
-- **VY LAM** - Senior Business Systems Analyst (VPBank)
-- **THAO NGUYEN** - GenAI Engineer (VIB)
-- **MAI NGUYEN** - GenAI Engineer (VIB)
-- **UYEN LE** - GenAI Engineer (VIB)
-- **ANH PHAM** - Cloud Consultant (G-AsiaPacific Vietnam)
-- **THINH NGUYEN** - Devops Engineer (FCAJ)
-- **TINH TRUONG** - Platform Enginner (GoTymeX)
-- **DUC DAO** - Solutions Architect (Cloud Kinetics)
+- VY LAM - Senior Business Systems Analyst (VPBank)
+- THAO NGUYEN - GenAI Engineer (VIB)
+- MAI NGUYEN - GenAI Engineer (VIB)
+- UYEN LE - GenAI Engineer (VIB)
+- ANH PHAM - Cloud Consultant (G-AsiaPacific Vietnam)
+- THINH NGUYEN - Devops Engineer (FCAJ)
+- TINH TRUONG - Platform Enginner (GoTymeX)
+- DUC DAO - Solutions Architect (Cloud Kinetics)
 ### Nội Dung Nổi Bật
 
 #### Context Ảnh Hưởng Đến Chất Lượng Câu Trả Lời Của AI
@@ -65,61 +61,34 @@ pre: " <b> 4.1. </b> "
 - Dùng nhiều lần chạy và bỏ phiếu đa số để tăng tính xác định, hoặc buộc định dạng có cấu trúc
 - Nên thiết kế ứng dụng cho biến thiên và thử temp=0.1 để tránh mô hình bị lặp.
 
-#### Amazon Q Developer
-
-- Nên dùng su
-
+#### Enterprise-Grade Multi-Agent System
+- Những case khi làm việc tại ngân hàng.
+- Đưa ra giải pháp đánh giá tín dụng tốt hơn.
+- Hệ thống giúp tối ưu hóa chi phí và thời gian so với quy trình đánh giá tín dụng startup truyền thống.
 ### Những Gì Học Được
 
-#### Tư Duy Thiết Kế
-
-- **Business-first approach**: Luôn bắt đầu từ business domain, không phải technology
-- **Ubiquitous language**: Importance của common vocabulary giữa business và tech teams
-- **Bounded contexts**: Cách identify và manage complexity trong large systems
-
-#### Kiến Trúc Kỹ Thuật
-
-- **Event storming technique**: Phương pháp thực tế để mô hình hóa quy trình kinh doanh
-- Sử dụng **Event-driven communication** thay vì synchronous calls
-- **Integration patterns**: Hiểu khi nào dùng sync, async, pub/sub, streaming
-- **Compute spectrum**: Criteria chọn từ VM → containers → serverless
-
-#### Chiến Lược Hiện Đại Hóa
-
-- **Phased approach**: Không rush, phải có roadmap rõ ràng
-- **7Rs framework**: Nhiều con đường khác nhau tùy thuộc vào đặc điểm của mỗi ứng dụng
-- **ROI measurement**: Cost reduction + business agility
+- Nắm được tầm quan trọng của việc xây dựng context phù hợp khi sử dụng AI nhằm nâng cao chất lượng kết quả.
+- Hiểu thêm về cách tối ưu hiệu năng, chi phí và bảo mật cho ứng dụng thông qua Amazon CloudFront với Free Tier.
+- Biết được quy trình phát triển sản phẩm trong thời gian ngắn, từ ý tưởng đến triển khai và trình diễn sản phẩm.
 
 ### Ứng Dụng Vào Công Việc
 
-- **Áp dụng ...** 
+- Áp dụng kiến thức về Amazon CloudFront vào dự án thực tập để tăng tốc độ truy cập, tối ưu hiệu năng và tích hợp AWS WAF nhằm tăng cường bảo mật.
+- Sử dụng AI hiệu quả hơn trong quá trình học tập và lập trình bằng cách xây dựng prompt và cung cấp context phù hợp.
+- Tham khảo các kinh nghiệm triển khai hệ thống thực tế.
 
 ### Trải nghiệm trong event
 
-Tham gia workshop **“GenAI-powered App-DB Modernization”** là một trải nghiệm rất bổ ích, giúp tôi có cái nhìn toàn diện về cách hiện đại hóa ứng dụng và cơ sở dữ liệu bằng các phương pháp và công cụ hiện đại. Một số trải nghiệm nổi bật:
-
 #### Học hỏi từ các diễn giả có chuyên môn cao
-- Các diễn giả đến từ AWS và các tổ chức công nghệ lớn đã chia sẻ **best practices** trong thiết kế ứng dụng hiện đại.
-- Qua các case study thực tế, tôi hiểu rõ hơn cách áp dụng **Domain-Driven Design (DDD)** và **Event-Driven Architecture** vào các project lớn.
 
-#### Trải nghiệm kỹ thuật thực tế
-- Tham gia các phiên trình bày về **event storming** giúp tôi hình dung cách **mô hình hóa quy trình kinh doanh** thành các domain events.
-- Học cách **phân tách microservices** và xác định **bounded contexts** để quản lý sự phức tạp của hệ thống lớn.
-- Hiểu rõ trade-offs giữa **synchronous và asynchronous communication** cũng như các pattern tích hợp như **pub/sub, point-to-point, streaming**.
-
-#### Ứng dụng công cụ hiện đại
-- Trực tiếp tìm hiểu về **Amazon Q Developer**, công cụ AI hỗ trợ SDLC từ lập kế hoạch đến maintenance.
-- Học cách **tự động hóa code transformation** và pilot serverless với **AWS Lambda**, từ đó nâng cao năng suất phát triển.
-
-#### Kết nối và trao đổi
-- Workshop tạo cơ hội trao đổi trực tiếp với các chuyên gia, đồng nghiệp và team business, giúp **nâng cao ngôn ngữ chung (ubiquitous language)** giữa business và tech.
-- Qua các ví dụ thực tế, tôi nhận ra tầm quan trọng của **business-first approach**, luôn bắt đầu từ nhu cầu kinh doanh thay vì chỉ tập trung vào công nghệ.
+Buổi sự kiện mang đến nhiều góc nhìn thực tế từ các diễn giả đang làm việc tại các doanh nghiệp và tổ chức công nghệ. Những chia sẻ không chỉ tập trung vào kiến thức kỹ thuật mà còn giúp mình hiểu hơn cách các công nghệ Cloud và AI được áp dụng để giải quyết các bài toán trong doanh nghiệp.
 
 #### Bài học rút ra
-- Việc áp dụng DDD và event-driven patterns giúp giảm **coupling**, tăng **scalability** và **resilience** cho hệ thống.
-- Chiến lược hiện đại hóa cần **phased approach** và đo lường **ROI**, không nên vội vàng chuyển đổi toàn bộ hệ thống.
-- Các công cụ AI như Amazon Q Developer có thể **boost productivity** nếu được tích hợp vào workflow phát triển hiện tại.
 
-#### Một số hình ảnh khi tham gia sự kiện
-* Thêm các hình ảnh của các bạn tại đây
-> Tổng thể, sự kiện không chỉ cung cấp kiến thức kỹ thuật mà còn giúp tôi thay đổi cách tư duy về thiết kế ứng dụng, hiện đại hóa hệ thống và phối hợp hiệu quả hơn giữa các team.
+- Luôn lựa chọn giải pháp phù hợp với yêu cầu thực tế thay vì chạy theo công nghệ mới.
+- Thiết kế hệ thống cần cân bằng giữa hiệu năng, chi phí và khả năng mở rộng.
+- AI là công cụ hỗ trợ rất hiệu quả nhưng cần biết cách đặt ngữ cảnh và kiểm chứng kết quả trước khi sử dụng.
+- Muốn phát triển trong lĩnh vực Cloud cần không ngừng cập nhật kiến thức và học hỏi từ những kinh nghiệm thực tế.
+
+#### Một số hình ảnh và video khi tham gia sự kiện
+![Security](../../images/4-events/event1.jpg)

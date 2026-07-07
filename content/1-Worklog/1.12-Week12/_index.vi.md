@@ -1,58 +1,27 @@
 ---
 title: "Worklog Tuần 12"
-date: 2024-01-01
-weight: 2
+date: 2026-07-03
+weight: 12
 chapter: false
 pre: " <b> 1.12 </b> "
 ---
-{{% notice warning %}}
-⚠️ **Lưu ý:** Các thông tin dưới đây chỉ nhằm mục đích tham khảo, vui lòng **không sao chép nguyên văn** cho bài báo cáo của bạn kể cả warning này.
-{{% /notice %}}
 
 ### Mục tiêu tuần 12:
-
-* Kết nối, làm quen với các thành viên trong First Cloud Journey.
-* Hiểu dịch vụ AWS cơ bản, cách dùng console & CLI.
+* Hoàn thiện cho xong workshop.
+* Hoàn thiện cuốn báo cáo cuối kỳ.
+* Chuẩn bị giấy tờ cần thiết để hoàn tất kỳ thực tập.
 
 ### Các công việc cần triển khai trong tuần này:
-| Thứ | Công việc                                                                                                                                                                                   | Ngày bắt đầu | Ngày hoàn thành | Nguồn tài liệu                            |
-| --- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | ------------ | --------------- | ----------------------------------------- |
-| 2   | - Làm quen với các thành viên FCJ <br> - Đọc và lưu ý các nội quy, quy định tại đơn vị thực tập                                                                                             | 11/08/2025   | 11/08/2025      |
-| 3   | - Tìm hiểu AWS và các loại dịch vụ <br>&emsp; + Compute <br>&emsp; + Storage <br>&emsp; + Networking <br>&emsp; + Database <br>&emsp; + ... <br>                                            | 12/08/2025   | 12/08/2025      | <https://cloudjourney.awsstudygroup.com/> |
-| 4   | - Tạo AWS Free Tier account <br> - Tìm hiểu AWS Console & AWS CLI <br> - **Thực hành:** <br>&emsp; + Tạo AWS account <br>&emsp; + Cài AWS CLI & cấu hình <br> &emsp; + Cách sử dụng AWS CLI | 13/08/2025   | 13/08/2025      | <https://cloudjourney.awsstudygroup.com/> |
-| 5   | - Tìm hiểu EC2 cơ bản: <br>&emsp; + Instance types <br>&emsp; + AMI <br>&emsp; + EBS <br>&emsp; + ... <br> - Các cách remote SSH vào EC2 <br> - Tìm hiểu Elastic IP   <br>                  | 14/08/2025   | 15/08/2025      | <https://cloudjourney.awsstudygroup.com/> |
-| 6   | - **Thực hành:** <br>&emsp; + Tạo EC2 instance <br>&emsp; + Kết nối SSH <br>&emsp; + Gắn EBS volume                                                                                         | 15/08/2025   | 15/08/2025      | <https://cloudjourney.awsstudygroup.com/> |
 
-
-### Kết quả đạt được tuần 12:
-
-* Hiểu AWS là gì và nắm được các nhóm dịch vụ cơ bản: 
-  * Compute
-  * Storage
-  * Networking 
-  * Database
-  * ...
-
-* Đã tạo và cấu hình AWS Free Tier account thành công.
-
-* Làm quen với AWS Management Console và biết cách tìm, truy cập, sử dụng dịch vụ từ giao diện web.
-
-* Cài đặt và cấu hình AWS CLI trên máy tính bao gồm:
-  * Access Key
-  * Secret Key
-  * Region mặc định
-  * ...
-
-* Sử dụng AWS CLI để thực hiện các thao tác cơ bản như:
-
-  * Kiểm tra thông tin tài khoản & cấu hình
-  * Lấy danh sách region
-  * Xem dịch vụ EC2
-  * Tạo và quản lý key pair
-  * Kiểm tra thông tin dịch vụ đang chạy
-  * ...
-
-* Có khả năng kết nối giữa giao diện web và CLI để quản lý tài nguyên AWS song song.
-* ...
-
-
+| Thứ | Công việc | Ngày bắt đầu | Ngày hoàn thành | Nguồn tài liệu |
+| --- | --- | --- | --- | --- |
+| 6 | - Hoàn thiện lại phần Proposal. | 26/06/2026 | 26/06/2026 | |
+| 7 | - Hoàn thiện phần tự đánh giá.<br>- Hoàn thiện phần chia sẻ và đóng góp ý kiến. | 27/06/2026 | 27/06/2026 | |
+| CN | - Đưa nội dung các bài Blogs đã đăng trong Group AWS Study Group VN vào workshop. | 28/06/2026 | 28/06/2026 | |
+| 2 | - Tiến hành viết cuốn báo cáo cho GVHD. | 29/06/2026 | 29/06/2026 | |
+| 3 | - Tiếp tục làm cuốn báo cáo.<br>- Chuẩn bị phiếu đánh giá của đơn vị thực tập.<br>- Chuẩn bị phiếu theo dõi tiến độ. | 30/06/2026 | 30/06/2026 | |
+| 4 | - Kiểm tra lại workshop và nộp lên cho anh chị chấm. | 01/07/2026 | 01/07/2026 | |
+### Kết quả đạt được:
+* Đã hoàn thiện \nội dung Workshop\.
+* Đã cơ bản hoàn thành nội dung cuốn báo cáo thực tập để gửi Giảng viên hướng dẫn (GVHD).
+* Đã chuẩn bị đầy đủ các hồ sơ, thủ tục hành chính (phiếu tự đánh giá, phiếu đánh giá của doanh nghiệp, phiếu theo dõi tiến độ) để chốt hồ sơ kết thúc kỳ thực tập.

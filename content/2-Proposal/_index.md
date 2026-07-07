@@ -100,7 +100,7 @@ The project is planned for deployment entirely within a 3-month internship with 
 - Amazon SNS: 0.00 USD/month (Automatic warning emails included in Free Tier).
 - Docker Hub: 0.00 USD/month (Free Tier account for Public Repository).
 
-*Total*: 46.32 USD/month, 555.84 USD/12 months.
+*Total*: 46.32 USD/month.
 
 ### 7. Risk Assessment
 *Risk Matrix*

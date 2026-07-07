@@ -1,43 +1,23 @@
 ---
-title : "Create an S3 Interface endpoint"
-date : 2024-01-01
+title : "Create Target Group"
+date : 2026-07-01 
 weight : 2
 chapter : false
-pre : " <b> 5.4.2 </b> "
+pre : " <b> 5.6.2 </b> "
 ---
-
-In this section you will create and test an S3 interface endpoint using the simulated on-premises environment deployed as part of this workshop.
-
-1. Return to the Amazon VPC menu. In the navigation pane, choose Endpoints, then click Create Endpoint.
-
-2. In Create endpoint console:
-+ Name the interface endpoint
-+ In Service category, choose **aws services** 
-
-![name](/images/5-Workshop/5.4-S3-onprem/s3-interface-endpoint1.png)
-
-3.  In the Search box, type S3 and press Enter. Select the endpoint named com.amazonaws.us-east-1.s3. Ensure that the Type column indicates Interface.
-
-![service](/images/5-Workshop/5.4-S3-onprem/s3-interface-endpoint2.png)
-
-4. For VPC, select VPC Cloud from the drop-down.
-{{% notice warning %}}
-Make sure to choose "VPC Cloud" and not "VPC On-prem"
-{{% /notice %}}
-+ Expand **Additional settings** and ensure that Enable DNS name is *not* selected (we will use this in the next part of the workshop)
-
-![vpc](/images/5-Workshop/5.4-S3-onprem/s3-interface-endpoint3.png)
-
-5. Select 2 subnets in the following AZs: us-east-1a and us-east-1b
-
-![subnets](/images/5-Workshop/5.4-S3-onprem/s3-interface-endpoint4.png)
-
-6. For Security group, choose SGforS3Endpoint:
-
-![sg](/images/5-Workshop/5.4-S3-onprem/s3-interface-endpoint5.png)
-
-7. Keep the default policy - full access and click Create endpoint
-
-![success](/images/5-Workshop/5.4-S3-onprem/s3-interface-endpoint-success.png)
-
-Congratulation on successfully creating S3 interface endpoint. In the next step, we will test the interface endpoint.
+1. Go to target group and click create.
+![overview](../../../images/5-Workshop/5.6-auto-scaling-group/76.png)
+2. For target type, I choose Instances.
+![overview](../../../images/5-Workshop/5.6-auto-scaling-group/77.png)
+3. Enter the name and set port 8082.
+![overview](../../../images/5-Workshop/5.6-auto-scaling-group/78.png)
+4. Choose my VPC.
+![overview](../../../images/5-Workshop/5.6-auto-scaling-group/80.png)
+5. Click next.
+![overview](../../../images/5-Workshop/5.6-auto-scaling-group/81.png)
+6. Here I do not check anything and click next.
+![overview](../../../images/5-Workshop/5.6-auto-scaling-group/82.png)
+![overview](../../../images/5-Workshop/5.6-auto-scaling-group/83.png)
+7. Review once again and then click create.
+![overview](../../../images/5-Workshop/5.6-auto-scaling-group/84.png)
+Through the steps above, I have successfully created the target group.

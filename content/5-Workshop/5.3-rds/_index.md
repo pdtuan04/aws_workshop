@@ -1,18 +1,18 @@
 ---
-title : "Access S3 from VPC"
-date : 2024-01-01
+title : "Deploy Amazon RDS"
+date : 2026-07-01
 weight : 3
 chapter : false
 pre : " <b> 5.3. </b> "
 ---
 
-#### Using Gateway endpoint
+#### Deploy Amazon RDS
 
-In this section, you will create **a Gateway eendpoint** to access **Amazon S3** from **an EC2 instance**. **The Gateway endpoint** will allow upload an object to S3 buckets without using **the Public Internet**. To create an endpoint, you must specify the VPC in which you want to create the endpoint, and the service (in this case, S3) to which you want to establish the connection.
+In this section, we will create an Amazon RDS SQL Server to store data for the application. The database will be deployed using a Multi-AZ configuration, which includes a Primary DB Instance and a Standby DB Instance across two different Availability Zones to ensure high availability and disaster recovery resilience.
 
-![overview](/images/5-Workshop/5.3-S3-vpc/diagram2.png)
+To enhance security, the RDS instance will be placed within Private Subnets using a DB Subnet Group, and access will be strictly restricted to traffic originating from the EC2 Security Group.
 
-#### Content
+#### Table of Contents
 
-- [Create gateway endpoint](3.1-create-gwe/)
-- [Test gateway endpoint](3.2-test-gwe/)
+- [Create DB Subnet Group](5.3.1-subnet-group/)
+- [Create Amazon RDS SQL Server Multi-AZ](5.3.2-create-rds/)

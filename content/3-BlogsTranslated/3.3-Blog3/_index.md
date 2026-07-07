@@ -1,3 +1,10 @@
+---
+title: "Blog 3"
+date: 2026-07-01
+weight: 3
+chapter: false
+pre: " <b> 3.3. </b> "
+---
 # Optimizing Network Architecture with Amazon VPC Regional NAT Gateway
 
 Previously, to ensure high availability, systems required creating separate NAT Gateways in public subnets for each Availability Zone (AZ). With the Regional NAT Gateway (RNAT) mode, AWS allows you to create a single NAT Gateway that operates at the entire Virtual Private Cloud (VPC) level. This system automatically scales out or in across AZs based on actual workloads, helping to simplify network architecture and reduce management overhead.

@@ -10,7 +10,7 @@ pre: " <b> 1.11. </b> "
 
 * Kiểm thử và khắc phục dứt điểm các lỗi của tính năng flashcard.
 * Chuẩn bị hồ sơ, tài liệu (worklog, proposal, event) cho báo cáo cuối kỳ thực tập.
-* Thực hiện dựng lại toàn bộ hệ thống từ đầu để quay video demo sản phẩm.
+* Thực hiện dựng lại toàn bộ hệ thống từ đầu để quay video triển khai sản phẩm (Để chụp lại ảnh triển khai dễ dàng hơn).
 * Hoàn thiện tài liệu hướng dẫn triển khai lên nền tảng Cloud trực quan và chi tiết.
 
 ### Các công việc cần triển khai trong tuần này:
@@ -23,7 +23,7 @@ pre: " <b> 1.11. </b> "
 | 2 | - **Thực hành:** Dựng lại hệ thống.<br>&emsp;+ Dọn dẹp (clean up) môi trường hiện tại.<br>&emsp;+ Tiến hành deploy và dựng lại toàn bộ hệ thống từ đầu để đảm bảo luồng chạy trơn tru. | 29/06/2026 | 29/06/2026 | |
 | 3 | - **Thực hành:** Quay video báo cáo.<br>&emsp;+ Chạy kịch bản test các chức năng chính của hệ thống theo luồng người dùng.<br>&emsp;+ Quay video demo toàn bộ hệ thống để làm tư liệu cho buổi báo cáo cuối kỳ. | 30/06/2026 | 30/06/2026 | |
 | 4 | - **Thực hành:** Viết tài liệu triển khai Cloud (Phần 1).<br>&emsp;+ Thực hiện lại các bước triển khai hệ thống lên AWS Cloud.<br>&emsp;+ Chụp màn hình (screenshot) cẩn thận từng bước cấu hình thực tế. | 01/07/2026 | 01/07/2026 | |
-| 5 | - **Thực hành:** Viết tài liệu triển khai Cloud (Phần 2).<br>&emsp;+ Soạn nội dung giải thích chi tiết và dễ hiểu cho từng ảnh chụp màn hình các bước triển khai.<br>&emsp;+ Kiểm tra lại toàn bộ tài liệu và đóng gói chuẩn bị nộp. | 02/07/2026 | 02/07/2026 | |
+| 5 | - **Thực hành:** Viết tài liệu triển khai Cloud (Phần 2).<br>&emsp;+ Soạn nội dung giải thích chi tiết và dễ hiểu cho từng ảnh chụp màn hình các bước triển khai.. | 02/07/2026 | 02/07/2026 | |
 
 ### Kết quả đạt được tuần 11:
 

@@ -1,39 +1,45 @@
 ---
 title: "Các events đã tham gia"
-date: 2024-01-01
+date: 2026-07-01
 weight: 4
 chapter: false
 pre: " <b> 4. </b> "
 ---
-> Trong phần này, các bạn cần liệt kê và mô tả chi tiết các sự kiện (event) mà mình đã tham gia trong suốt quá trình thực tập hoặc làm việc. 
-> 
-> Mỗi sự kiện nên được trình bày theo định dạng Event 1, Event 2, Event 3…, kèm theo các thông tin:
-> * Tên sự kiện
-> * Thời gian tổ chức
-> * Địa điểm (nếu có)
-> * Vai trò của bạn trong sự kiện (người tham dự, hỗ trợ tổ chức, diễn giả, v.v.)
-> * Mô tả ngắn gọn nội dung và hoạt động chính trong sự kiện
-> * Kết quả hoặc giá trị đạt được (bài học, kỹ năng mới, đóng góp cho nhóm/dự án)
-> * Việc liệt kê này giúp thể hiện rõ sự tham gia thực tế của bạn, cũng như các kỹ năng mềm và kinh nghiệm bạn đã tích lũy qua từng sự kiện.
-
-
-Trong quá trình thực tập, em đã tham gia 2 events, với mỗi event là một trải nghiệm đáng nhớ với những kiến thức mới, hay và bổ ích, cùng với đó là nhứng món quà và những khoảnh khắc rất tuyệt vời.
+Trong quá trình thực tập, em đã tham gia 3 events, với mỗi event là một trải nghiệm đáng nhớ với những kiến thức mới, hay và bổ ích, cùng với đó là những món quà và những khoảnh khắc rất tuyệt vời.
 
 ### [Event 1](4.1-Event1/)
-&emsp;**Tên sự kiện:** FCAJ Community Day - Conference Call
+&emsp;**Tên sự kiện:** AWS First Cloud AI Journey Community Day 2026
 
 &emsp;**Thời gian:** 09:00 ngày 23/05/2026
 
-&emsp;**Địa điểm:** Tầng 36, tòa nhà Bitexco, số 02 đường Hải Triều, phường Sài Gòn, thành phố Hồ Chí Minh
+&emsp;**Địa điểm:** Thành phố Hồ Chí Minh
 
 &emsp;**Vai trò trong sự kiện:** Người tham dự 
+
+&emsp;**Mô tả ngắn gọn:** Buổi gặp gỡ cộng đồng kết nối với các chuyên gia Cloud và GenAI đến từ các doanh nghiệp lớn. Nội dung tập trung vào cách tối ưu context cho AI, giải pháp tối ưu hiệu năng/chi phí/bảo mật hệ sinh thái ứng dụng qua Amazon CloudFront với Free Tier, tính xác định trong mô hình ngôn ngữ lớn (LLM) và hệ thống Multi-Agent đánh giá tín dụng trong ngân hàng.
+
+---
 
 ### [Event 2](4.2-Event2/)
-&emsp;**Tên sự kiện:** GenAI-powered App-DB Modernization workshop
+&emsp;**Tên sự kiện:** FCAJ Meetup 06/06/2026
 
-&emsp;**Thời gian:** 09:00 ngày 13/08/2025
+&emsp;**Thời gian:** 09:00 Ngày 06/06/2026
 
-&emsp;**Địa điểm:** Tầng 26, tòa nhà Bitexco, số 02 đường Hải Triều, phường Sài Gòn, thành phố Hồ Chí Minh
+&emsp;**Địa điểm:** Thành phố Hồ Chí Minh
 
-&emsp;**Vai trò trong sự kiện:** Người tham dự 
+&emsp;**Vai trò trong sự kiện:** Người tham dự
 
+&emsp;**Mô tả ngắn gọn:** Buổi meetup công nghệ chia sẻ các case-study thực tế về kỹ thuật hệ thống. Nội dung bao gồm kết nối Godot game clients với AWS WebSockets, kiến thức cốt lõi về Docker cùng cơ chế Layer Caching giúp tối ưu thời gian build image, giải pháp kết hợp AWS WAF và Học máy (ML) để phát hiện tấn công mạng. Đặc biệt là phần chia sẻ truyền cảm hứng về hành trình từ IT Helpdesk vươn lên vị trí Senior Sysadmin.
+
+---
+
+### [Event 3](4.3-Event3/)
+&emsp;**Tên sự kiện:** Khám phá kiến trúc điện toán đám mây và ứng dụng thực tiễn cùng Amazon Web Services (AWS)
+
+&emsp;**Thời gian:** 09:00 Ngày 04/07/2026
+
+&emsp;**Địa điểm:** Trường Đại học Công nghệ Swinburne
+
+&emsp;**Vai trò trong sự kiện:** Người tham dự
+
+&emsp;**Mô tả ngắn gọn:** Buổi sự kiện kết nối cùng các bạn sinh viên Swinburne và các chuyên gia đến từ AWS, Cloud Kinetics, Renova Cloud. Nội dung tập trung phân tích thực trạng thị trường tuyển dụng Cloud theo mô hình kim tự tháp (ưu tiên Seniors), sự khác biệt giữa dữ liệu giảng đường và thực tế doanh nghiệp, hành trình 5 năm làm Data Engineering và định hướng tư duy, thái độ chuẩn bị cho một "AI-Ready Fresher".

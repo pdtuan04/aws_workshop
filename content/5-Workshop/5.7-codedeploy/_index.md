@@ -1,18 +1,26 @@
 ---
-title : "Introduction"
-date : 2024-01-01 
-weight : 1 
+title : "Deploy CI/CD with CodeDeploy"
+date : 2026-07-01
+weight : 7
 chapter : false
-pre : " <b> 5.1. </b> "
+pre : " <b> 5.7. </b> "
 ---
 
-#### VPC endpoints
-+ **VPC endpoints** are virtual devices. They are horizontally scaled, redundant, and highly available VPC components. They allow communication between your compute resources and AWS services without imposing availability risks.
-+ Compute resources running in VPC can access  **Amazon S3**  using a Gateway endpoint. PrivateLink interface endpoints can be used by compute resources running in VPC or on-premises.
+#### Deploy CI/CD with CodeDeploy
 
-#### Workshop overview
-In this workshop, you will use two VPCs. 
-+ **"VPC Cloud"** is for cloud resources such as a  **Gateway endpoint** and an EC2 instance to test with. 
-+ **"VPC On-Prem"** simulates an on-premises environment such as a factory or corporate datacenter. An EC2 instance running strongSwan VPN software has been deployed in "VPC On-prem" and automatically configured to establish a Site-to-Site VPN tunnel with AWS Transit Gateway. This VPN simulates connectivity from an on-premises location to the AWS cloud. To minimize costs, only one VPN instance is provisioned to support this workshop. When planning VPN connectivity for your production workloads, AWS recommends using multiple VPN devices for high availability.
+In this section, I will build a CI/CD process to automatically deploy the application to EC2 instances in the Auto Scaling Group using AWS CodeDeploy.
 
-![overview](/images/5-Workshop/5.1-Workshop-overview/diagram1.png)
+First, I will create an Amazon S3 Bucket to store deployment artifacts for the deployment process.
+
+I will use AWS Systems Manager Parameter Store to store the application's environment variables. Instead of having to SSH into each EC2 to edit the `.env` file, the environment variables will be fetched automatically from Parameter Store during deployment, making configuration management more centralized, secure, and easier.
+
+Next, I will create a CodeDeploy Application and Deployment Group, and configure the In-place Deployment mechanism to update the new version directly on existing EC2 instances in the Auto Scaling Group.
+
+Finally, I will perform a test deployment to verify the entire CI/CD process, from fetching environment variables, downloading deployment artifacts, pulling the latest Docker image from Docker Hub, to restarting the application on EC2 instances.
+
+#### Contents
+- [Create S3 Bucket to store Deployment Artifact](5.7.1-create-s3/)
+- [Create Parameter Store](5.7.2-parameter-store/)
+- [Create Application & Deployment Group](5.7.3-codedeploy-application/)
+- [Configure GitHub Actions](5.7.4-github-actions/)
+- [Check Results](5.7.5-test-cicd/)

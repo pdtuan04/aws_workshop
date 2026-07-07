@@ -1,18 +1,22 @@
 ---
-title : "Introduction"
-date : 2024-01-01 
-weight : 1 
-chapter : false
-pre : " <b> 5.1. </b> "
+title: "Deploy VPC and Networking"
+date: 2026-07-01
+weight: 2
+chapter: false
+pre: " <b> 5.2. </b> "
 ---
 
-#### VPC endpoints
-+ **VPC endpoints** are virtual devices. They are horizontally scaled, redundant, and highly available VPC components. They allow communication between your compute resources and AWS services without imposing availability risks.
-+ Compute resources running in VPC can access  **Amazon S3**  using a Gateway endpoint. PrivateLink interface endpoints can be used by compute resources running in VPC or on-premises.
+# Deploy VPC and Networking
 
-#### Workshop overview
-In this workshop, you will use two VPCs. 
-+ **"VPC Cloud"** is for cloud resources such as a  **Gateway endpoint** and an EC2 instance to test with. 
-+ **"VPC On-Prem"** simulates an on-premises environment such as a factory or corporate datacenter. An EC2 instance running strongSwan VPN software has been deployed in "VPC On-prem" and automatically configured to establish a Site-to-Site VPN tunnel with AWS Transit Gateway. This VPN simulates connectivity from an on-premises location to the AWS cloud. To minimize costs, only one VPN instance is provisioned to support this workshop. When planning VPN connectivity for your production workloads, AWS recommends using multiple VPN devices for high availability.
+## Overview
 
-![overview](/images/5-Workshop/5.1-Workshop-overview/diagram1.png)
+In this section, we will construct the network infrastructure serving as the foundation for the entire Web Application system on AWS. The network architecture is designed using a Multi-tier model, isolating resources into Public and Private Subnets to enhance security and scalability.
+
+Components such as the Application Load Balancer and NAT Gateway will be deployed within the Public Subnets to accept incoming Internet traffic and provide outbound connectivity for internal resources. Meanwhile, Amazon EC2, Amazon RDS, and Amazon ElastiCache will be placed inside the Private Subnets to prevent direct access from the Internet.
+A Regional NAT Gateway is utilized for outbound Internet access instead of creating multiple NAT Gateways across different Availability Zones (AZs).
+Upon completing this section, you will have a network infrastructure fully prepared for deploying the system's services in the subsequent steps.
+
+## Table of Contents
+
+1. [Create VPC and Configure Networking](5.2.1-create-vpc-nat-subnet/)
+2. [Create Security Groups](5.2.2-create-security-group/)
