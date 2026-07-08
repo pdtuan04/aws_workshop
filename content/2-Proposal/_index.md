@@ -27,6 +27,7 @@ The system operates entirely within the secure Amazon VPC network environment sp
 
 ![EngExam Cloud & Deployment Architecture](../images/2-proposal/architechture.drawio.png)
 
+
 *Data interaction flow:*
 1. User sends a request to the system, passing through CloudFront.
 2. Through CloudFront, it checks the first AWS WAF rules defense layer to filter out common web attacks.
