@@ -6,7 +6,7 @@ chapter: false
 pre: " <b> 2. </b> "
 ---
 
-# English Learning & Exam Platform
+# English Learning Platform On AWS
 ## English Learning System Solution Deployed on AWS High Availability Architecture
 
 ### 1. Executive Summary
@@ -90,11 +90,11 @@ The project is planned for deployment entirely within a 3-month internship with 
 ### 6. Budget Estimation
 
 *Infrastructure Costs*
-- Amazon EC2: 9.42 USD/month (1 t3.small Instance applying 3-year Compute Savings Plans, No Upfront).
+- Amazon EC2: 9.42 USD/month (Instance t3.small).
 - Amazon RDS: 22.63 USD/month (1 db.t3.micro Instance, SQL Server Express Edition with free license).
-- Amazon ElastiCache: 14.02 USD/month (1 cache.t4g.micro Node, Valkey engine on On-Demand).
+- Amazon ElastiCache: 14.02 USD/month (Cache.t4g.micro Node, Valkey engine on On-Demand).
 - Amazon S3 Standard: 0.25 USD/month (Estimated storage of 10 GB of static resources at 0.025 USD/GB).
-- Amazon CloudFront & AWS WAF: 0.00 USD/month (Free Tier package including WAF supporting 5 rules, 1 million requests, 100 GB data).
+- Amazon CloudFront & AWS WAF: 0.00 USD/month (Free Tier package including WAF supporting 5 rules).
 - AWS CodeDeploy: 0.00 USD/month (Completely free when deploying source code to EC2/Auto Scaling Group).
 - Amazon CloudWatch: 0.00 USD/month (Basic EC2 performance monitoring included in Free Tier).
 - Amazon SNS: 0.00 USD/month (Automatic warning emails included in Free Tier).

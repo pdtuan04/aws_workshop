@@ -6,7 +6,7 @@ chapter: false
 pre: " <b> 2. </b> "
 ---
 
-# English Learning & Exam Platform
+# Hệ Thống Học Tiếng Anh Trên AWS
 ## Giải pháp Hệ thống Ôn luyện Tiếng Anh triển khai trên kiến trúc AWS High Availability
 
 ### 1. Tóm tắt điều hành
@@ -88,11 +88,11 @@ Dự án được lên kế hoạch triển khai gói gọn trong 3 tháng thự
 ### 6. Ước tính ngân sách
 
 *Chi phí hạ tầng*
-- Amazon EC2: 9,42 USD/tháng (1 Instance t3.small áp dụng Compute Savings Plans 3 năm, No Upfront).
+- Amazon EC2: 9,42 USD/tháng (Instance t3.small).
 - Amazon RDS: 22,63 USD/tháng (1 Instance db.t3.micro, SQL Server Express Edition miễn phí bản quyền).
-- Amazon ElastiCache: 14,02 USD/tháng (1 Node cache.t4g.micro, engine Valkey dạng On-Demand).
+- Amazon ElastiCache: 14,02 USD/tháng (Cache.t4g.micro, engine Valkey dạng On-Demand).
 - Amazon S3 Standard: 0,25 USD/tháng (Ước lượng lưu trữ 10 GB tài nguyên tĩnh với đơn giá 0,025 USD/GB).
-- Amazon CloudFront & AWS WAF: 0,00 USD/tháng (Gói Free Tier kèm WAF hỗ trợ 5 rule, 1 triệu request, 100 GB data).
+- Amazon CloudFront & AWS WAF: 0,00 USD/tháng (Gói Free Tier kèm WAF hỗ trợ rule cơ bản).
 - AWS CodeDeploy: 0,00 USD/tháng (Hoàn toàn miễn phí khi triển khai mã nguồn lên EC2/Auto Scaling Group).
 - Amazon CloudWatch: 0,00 USD/tháng (Giám sát hiệu năng EC2 cơ bản nằm trong Free Tier).
 - Amazon SNS: 0,00 USD/tháng (Gửi email cảnh báo tự động nằm trong Free Tier).

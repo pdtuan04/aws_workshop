@@ -1,13 +1,16 @@
 ---
-title: "Báo cáo thực tập"
+title: "Thông Tin Sinh Viên"
 date: 2026-07-01
-weight: 1
+weight: 8
 chapter: false
+pre: " <b> 8. </b> "
 ---
 
 # Báo cáo thực tập
 ### Thông tin sinh viên:
 &emsp; **Họ và tên:** Phan Đình Tuấn
+
+&emsp; **Mã Số Sinh Viên:** 2280603577
 
 &emsp; **Số điện thoại:** 0919955439
 
@@ -25,7 +28,7 @@ chapter: false
 
 &emsp; **Thời gian thực tập:** Từ ngày 17/04/2026 đến ngày 10/7/2026
 
-![Ảnh đại diện của bạn](./images/avatar.jpg)
+![Ảnh đại diện của bạn](../images/avatar.jpg)
 
 ### Nội dung báo cáo
 

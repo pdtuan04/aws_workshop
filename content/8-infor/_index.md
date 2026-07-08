@@ -1,8 +1,9 @@
 ---
-title: "Internship Report"
+title: "Student Information"
 date: 2026-07-01
-weight: 1
+weight: 8
 chapter: false
+pre: " <b> 8. </b> "
 ---
 
     
@@ -29,7 +30,7 @@ chapter: false
 
 &emsp; **Internship Duration:** From 17/04/2026 to 10/7/2026
 
-![Your profile picture](./images/avatar.jpg)
+![Your profile picture](../images/avatar.jpg)
 
 ### Report Content
 

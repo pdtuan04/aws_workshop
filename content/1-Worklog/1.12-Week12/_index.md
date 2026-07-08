@@ -17,8 +17,8 @@ pre: " <b> 1.12 </b> "
 | --- | --- | --- | --- | --- |
 | Fri | - Finalize and update the Proposal section. | 03/07/2026 | 03/07/2026 | |
 | Sat | - Complete the self-assessment section.<br>- Complete the feedback and contribution section. | 04/07/2026 | 04/07/2026 | |
-| Sun | - Integrate published blog contents from the AWS Study Group VN into the workshop. | 05/07/2026 | 05/07/2026 | |
-| Mon | - Proceed with writing the internship report for the instructor. | 06/07/2026 | 06/07/2026 | |
+| Sun |Day Off| 05/07/2026 | 05/07/2026 | |
+| Mon | - Integrate published blog contents from the AWS Study Group VN into the workshop. <br> - Proceed with writing the internship report for the instructor. | 06/07/2026 | 06/07/2026 | |
 | Tue | - Continue compiling the report.<br>- Prepare the internship host evaluation form.<br>- Prepare the progress tracking form. | 07/07/2026 | 07/07/2026 | |
 | Wed | - Review the completed workshop and submit it to the mentors for grading. | 08/07/2026 | 08/07/2026 | |
 

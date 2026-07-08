@@ -19,8 +19,8 @@ pre: " <b> 1.10. </b> "
 | --- | --- | --- | --- | --- |
 | Fri | - Learn the basic theory of AWS WAF (Web Application Firewall).<br> - Research how WAF works in conjunction with Amazon CloudFront to protect applications at edge locations. | 19/06/2026 | 19/06/2026 | <https://docs.aws.amazon.com/waf/latest/developerguide/cloudfront-features.html> |
 | Sat | - **Practice:** WAF Security Configuration.<br>&emsp;+ Initialize Web ACLs on the AWS WAF management console.<br>&emsp;+ Configure basic security rules and associate WAF directly with the project's CloudFront Distribution. | 20/06/2026 | 20/06/2026 | |
-| Sun | - **Practice:** System Retesting (Day 1).<br>&emsp;+ Retest all deployed features (exams, exam history, flashcards, account management).<br>&emsp;+ Log identified logic and UI issues. | 21/06/2026 | 21/06/2026 | |
-| Mon | - **Practice:** Bug Fixing (Day 2).<br>&emsp;+ Focus on fixing backend API and frontend UI bugs based on testing results.<br>&emsp;+ Ensure main functional workflows operate stably and smoothly. | 22/06/2026 | 22/06/2026 | |
+| Sun |Day Off| 21/06/2026 | 21/06/2026 | |
+| Mon | - **Practice:** System Retesting.<br>&emsp;+ Retest all deployed features (exams, exam history, flashcards, account management).<br>&emsp;+ Log identified logic and UI issues. <br> - **Practice:** Bug Fixing.<br>&emsp;+ Focus on fixing backend API and frontend UI bugs based on testing results.<br>&emsp;+ Ensure main functional workflows operate stably and smoothly. | 22/06/2026 | 22/06/2026 | |
 | Tue | - **Practice:** Blog Drafting (Post 1).<br>&emsp;+ Research documentation and complete the blog post: **Optimizing Network Architecture with Amazon VPC Regional NAT Gateway**. | 23/06/2026 | 23/06/2026 | |
 | Wed | - **Practice:** Blog Drafting (Post 2).<br>&emsp;+ Research documentation and complete the blog post: **Adding HTTP Security Headers with Amazon CloudFront**. | 24/06/2026 | 24/06/2026 | |
 | Thu | - **Practice:** Blog Drafting (Post 3).<br>&emsp;+ Research documentation and complete the blog post: **Benefits of Combining Amazon CloudFront with Application Load Balancer**. | 25/06/2026 | 25/06/2026 | |
