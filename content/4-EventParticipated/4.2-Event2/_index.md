@@ -64,4 +64,4 @@ Participating in the community meetup to listen to interesting presentations on 
 - When handling system incidents, it is crucial to stay calm and analyze the causes step-by-step instead of rushing to conclusions.
 - Participating in meetups is a great opportunity to expand knowledge, update technology trends, and learn from experiences of people working in the industry.
 #### Some images and videos when participating in the event
-**-- I forgot to take photos at the end of the session --**
+**-- I checked in, but I forgot to take a photo at the end of the event. --**

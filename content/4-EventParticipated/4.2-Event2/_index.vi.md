@@ -64,4 +64,4 @@ Tham gia buổi meetup cộng đồng để lắng nghe các bài chia sẻ thú
 - Khi xử lý sự cố hệ thống cần giữ bình tĩnh, phân tích nguyên nhân theo từng bước thay vì vội vàng đưa ra kết luận.
 - Việc tham gia các buổi meetup là cơ hội tốt để mở rộng kiến thức, cập nhật xu hướng công nghệ và học hỏi kinh nghiệm từ những người đang làm việc trong ngành.
 #### Một số hình ảnh và video khi tham gia sự kiện
-**-- Em đã quên chụp ảnh cuối buổi --**
+**-- Em đã check-in nhưng quên chụp ảnh cuối buổi --**
