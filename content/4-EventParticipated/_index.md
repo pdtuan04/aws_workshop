@@ -34,7 +34,7 @@ During my internship, I participated in 3 events. Each event was a memorable exp
 ---
 
 ### [Event 3](4.3-Event3/)
-&emsp;**Event Name:** Exploring Cloud Computing Architecture and Practical Applications with Amazon Web Services (AWS)
+&emsp;**Event Name:** Enterprise Cloud Architectures and Industry Applications at Amazon Web Services (AWS)
 
 &emsp;**Time:** 09:00 - July 04, 2026
 
