@@ -9,7 +9,7 @@ pre: " <b> 1.1. </b> "
 
 ### Week 1 Objectives:
 
-* Connect and get acquainted with new members in the First Cloud Journey.
+* Find new members.
 * Understand fundamental AWS services and how to use them.
 
 ### Tasks to be implemented this week:

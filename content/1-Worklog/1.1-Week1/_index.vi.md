@@ -9,7 +9,7 @@ pre: " <b> 1.1. </b> "
 
 ### Mục tiêu tuần 1:
 
-* Kết nối, làm quen với các thành viên mới trong First Cloud Journey.
+* Tìm kiếm thành viên mới.
 * Hiểu dịch vụ AWS cơ bản, cách dùng các dịch vụ cơ bản.
 
 ### Các công việc cần triển khai trong tuần này:
