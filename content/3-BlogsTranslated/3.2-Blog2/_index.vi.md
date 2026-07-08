@@ -42,4 +42,4 @@ Nguồn tham khảo:
 
 <br>Link Bài Viết Trên Group: <https://www.facebook.com/groups/660548818043427/user/100025022862424>
 
-> Nguồn tham khảo: [Add Http](https://aws.amazon.com/blogs/networking-and-content-delivery/adding-http-security-headers-using-amazon-cloudfront/)
+> Nguồn tham khảo: [Adding HTTP security headers using Amazon CloudFront](https://aws.amazon.com/blogs/networking-and-content-delivery/adding-http-security-headers-using-amazon-cloudfront/)

@@ -27,4 +27,3 @@ The application deployment process is automated through GitHub Actions, DockerHu
 6. [Deploy Auto Scaling Group](5.6-auto-scaling-group/)
 7. [Deploy CI/CD with CodeDeploy](5.7-codedeploy/)
 8. [Deploy CloudFront](5.8-cloudfont/)
-9. [Clean up resources](5.9-Cleanup/)

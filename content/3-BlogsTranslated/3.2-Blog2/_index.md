@@ -43,4 +43,4 @@ Reference Source:
 
 <br>Link to Group Post: <https://www.facebook.com/groups/660548818043427/user/100025022862424>
 
-> Reference Source: [Adding HTTP Security Headers Using Amazon CloudFront](https://aws.amazon.com/blogs/networking-and-content-delivery/adding-http-security-headers-using-amazon-cloudfront/)
+> Reference Source: [Adding HTTP security headers using Amazon CloudFront](https://aws.amazon.com/blogs/networking-and-content-delivery/adding-http-security-headers-using-amazon-cloudfront/)

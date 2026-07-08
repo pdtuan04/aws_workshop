@@ -84,7 +84,6 @@ The project is planned for deployment entirely within a 3-month internship with 
 
 * Month 3: Optimization, Testing, and Packaging
   * Finalize the CI/CD pipeline (AWS CodeDeploy), data synchronization (RabbitMQ), Cache configuration (Valkey), and security (WAF).
-  * Comprehensive testing and load testing evaluation (JMeter).
   * Thoroughly fix bugs, record a demo video, and complete final report documents.
 
 ### 6. Budget Estimation

@@ -14,8 +14,8 @@ After validating that the EC2 instance is fully prepared, we will generate an Am
 
 #### Table of Contents
 
-- [Create EC2 Instance](5.2.1-create-ec2/)
-- [Install Docker and Docker Compose](5.2.2-install-docker/)
-- [Deploy and Verify Application](5.2.3-test-application/)
-- [Install AWS CodeDeploy Agent](5.2.4-install-codedeploy-agent/)
-- [Create Amazon Machine Image (AMI)](5.2.5-create-ami/)
+- [Create EC2 Instance](5.5.1-create-ec2/)
+- [Install Docker and Docker Compose](5.5.2-install-docker/)
+- [Deploy and Verify Application](5.5.3-test-application/)
+- [Install AWS CodeDeploy Agent](5.5.4-install-codedeploy-agent/)
+- [Create Amazon Machine Image (AMI)](5.5.5-create-ami/)

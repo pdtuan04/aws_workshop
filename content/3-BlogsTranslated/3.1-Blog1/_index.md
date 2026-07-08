@@ -77,4 +77,4 @@ For systems serving users globally, deploying CloudFront in front of an ALB is a
 
 <br>Group Post Link: <https://www.facebook.com/groups/660548818043427/user/100025022862424>
 
-> Reference: [Optimizing Application Performance: The Strategic Benefits of Combining Amazon CloudFront with Application Load Balancers](https://aws.amazon.com/blogs/networking-and-content-delivery/optimizing-application-performance-the-strategic-benefits-of-combining-amazon-cloudfront-with-application-load-balancers/)
+> Reference: [Optimizing application performance: The strategic benefits of combining Amazon CloudFront with Application Load Balancers](https://aws.amazon.com/blogs/networking-and-content-delivery/optimizing-application-performance-the-strategic-benefits-of-combining-amazon-cloudfront-with-application-load-balancers/)

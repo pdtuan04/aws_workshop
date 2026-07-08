@@ -72,4 +72,4 @@ Bên cạnh đó, các tính năng như CloudFront VPC Origin, AWS WAF, AWS Shie
 Đối với các hệ thống phục vụ người dùng trên phạm vi toàn cầu, việc triển khai CloudFront phía trước ALB là một kiến trúc đáng cân nhắc nhằm cân bằng giữa hiệu suất, bảo mật và chi phí trong quá trình vận hành.
 <br>Link Bài Viết Trên Group: <https://www.facebook.com/groups/660548818043427/user/100025022862424>
 
-> Nguồn tham khảo: [Optimizing Application Performance: The Strategic Benefits of Combining Amazon CloudFront with Application Load Balancers](https://aws.amazon.com/blogs/networking-and-content-delivery/optimizing-application-performance-the-strategic-benefits-of-combining-amazon-cloudfront-with-application-load-balancers/)
+> Nguồn tham khảo: [Optimizing application performance: The strategic benefits of combining Amazon CloudFront with Application Load Balancers](https://aws.amazon.com/blogs/networking-and-content-delivery/optimizing-application-performance-the-strategic-benefits-of-combining-amazon-cloudfront-with-application-load-balancers/)

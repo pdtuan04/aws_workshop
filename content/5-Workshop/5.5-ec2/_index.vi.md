@@ -14,8 +14,8 @@ Sau khi xác nhận EC2 đã sẵn sàng, mình sẽ tạo một Amazon Machine 
 
 #### Nội dung
 
-- [Tạo EC2 Instance](5.2.1-create-ec2/)
-- [Cài đặt Docker và Docker Compose](5.2.2-install-docker/)
-- [Triển khai và kiểm tra ứng dụng](5.2.3-test-application/)
-- [Cài đặt AWS CodeDeploy Agent](5.2.4-install-codedeploy-agent/)
-- [Tạo Amazon Machine Image (AMI)](5.2.5-create-ami/)
+- [Tạo EC2 Instance](5.5.1-create-ec2/)
+- [Cài đặt Docker và Docker Compose](5.5.2-install-docker/)
+- [Triển khai và kiểm tra ứng dụng](5.5.3-test-application/)
+- [Cài đặt AWS CodeDeploy Agent](5.5.4-install-codedeploy-agent/)
+- [Tạo Amazon Machine Image (AMI)](5.5.5-create-ami/)

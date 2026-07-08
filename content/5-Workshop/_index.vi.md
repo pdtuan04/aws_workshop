@@ -27,4 +27,3 @@ Quá trình triển khai ứng dụng được tự động hóa thông qua GitH
 6. [Triển khai Auto Scaling Group](5.6-auto-scaling-group/)
 7. [Triển khai CI/CD với CodeDeploy](5.7-codedeploy/)
 8. [Triển khai CloudFront](5.8-cloudfont/)
-9. [Dọn dẹp tài nguyên](5.9-Cleanup/)

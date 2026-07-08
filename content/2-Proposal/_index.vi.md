@@ -82,7 +82,6 @@ Dự án được lên kế hoạch triển khai gói gọn trong 3 tháng thự
 
 * Tháng 3: Tối ưu, Kiểm thử và Đóng gói
   * Hoàn thiện quy trình CI/CD (AWS CodeDeploy), đồng bộ dữ liệu (RabbitMQ), cấu hình Cache (Valkey) và bảo mật (WAF).
-  * Kiểm thử toàn diện và đánh giá sức chịu tải (JMeter).
   * Khắc phục dứt điểm lỗi, quay video demo và hoàn tất tài liệu báo cáo cuối kỳ.
 
 ### 6. Ước tính ngân sách
