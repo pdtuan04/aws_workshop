@@ -6,7 +6,7 @@ chapter : false
 pre : " <b> 5.5.4 </b> "
 ---
 In this section, we will run the following commands to install the CodeDeploy agent.
-```bash
+```
 sudo yum update
 
 sudo yum install ruby
@@ -15,7 +15,7 @@ sudo yum install wget
 
 sudo cd /home/ssm-user
 
-sudo curl -O [https://aws-codedeploy-ap-southeast-1.s3.ap-southeast-1.amazonaws.com/latest/install](https://aws-codedeploy-ap-southeast-1.s3.ap-southeast-1.amazonaws.com/latest/install)
+sudo curl -O https://aws-codedeploy-ap-southeast-1.s3.ap-southeast-1.amazonaws.com/latest/install
 
 sudo chmod +x ./install
 
@@ -36,5 +36,7 @@ sudo dnf reinstall ca-certificates -y
 sudo update-ca-trust
 
 sudo systemctl restart codedeploy-agent
+
 ```
+![overview](../../../images/5-Workshop/5.5-ec2/59.png)
 After executing the installation commands, the CodeDeploy agent has been successfully installed.
