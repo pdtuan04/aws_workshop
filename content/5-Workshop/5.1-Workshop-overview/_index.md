@@ -8,7 +8,7 @@ pre: " <b> 5.1. </b> "
 
 #### Introduction
 
-This workshop guides you through deploying a Web Application system on AWS using a Multi-tier Architecture, ensuring scalability, high availability, and security.
+This workshop guides you through deploying a Web Application system on AWS, ensuring scalability, high availability, and security.
 
 The system utilizes Amazon CloudFront combined with AWS WAF to accelerate access and protect the application, an Application Load Balancer to distribute traffic, Amazon EC2 instances within an Auto Scaling Group to automatically scale based on load, Amazon RDS Multi-AZ to ensure data safety, and Amazon ElastiCache to improve data retrieval performance.
 
@@ -22,7 +22,7 @@ The architecture of this workshop consists of the following main components:
 - AWS WAF protects the application against common web attacks.
 - Application Load Balancer (ALB) balances traffic load across EC2 instances.
 - Amazon EC2 inside an Auto Scaling Group processes requests and automatically scales out when load increases.
-- Amazon RDS MySQL Multi-AZ stores data using a Primary - Standby model.
+- Amazon RDS SQL Server Multi-AZ stores data using a Primary - Standby model.
 - Amazon ElastiCache accelerates data retrieval using a caching mechanism.
 - Amazon S3 stores application media files and deployment artifacts.
 - GitHub, GitHub Actions, DockerHub, and AWS CodeDeploy construct an automated CI/CD pipeline.

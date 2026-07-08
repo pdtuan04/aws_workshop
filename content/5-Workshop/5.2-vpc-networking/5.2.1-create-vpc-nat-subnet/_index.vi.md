@@ -19,7 +19,7 @@ pre : " <b> 5.2.1 </b> "
 - Vì toàn bộ các thành phần chính mình đều đặt ở Private Subnet hết nên mình chọn 4
 ![overview](../../../images/5-Workshop/5.2-vpc-networking/3.png)
 
-1. Chọn Regional Nat Gateway.
+4. Chọn Regional Nat Gateway.
 ![overview](../../../images/5-Workshop/5.2-vpc-networking/4.png)
 
 Sau đó ấn tạo mình sẽ có được 1 VPC

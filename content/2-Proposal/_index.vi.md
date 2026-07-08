@@ -34,9 +34,9 @@ Hệ thống vận hành hoàn toàn trong môi trường mạng an toàn Amazon
 4. Các request động (API) được CloudFront điều hướng qua cổng Internet Gateway (IG) để đi vào VPC.
 5. Luồng traffic đi tới Application Load Balancer (ALB) để phân phối tải.
 6. ALB điều phối đều traffic đến các máy chủ EC2 nằm trong Auto Scaling Group thuộc các Private Subnet.
-7. Các EC2 Instance xử lý logic nghiệp vụ và tương tác với cơ sở dữ liệu Amazon RDS (SQL Server) cấu hình theo cụm Primary DB và Standby DB để tự động chuyển vùng khi có sự cố.
-8. Các dữ liệu truy vấn thường xuyên hoặc cấu hình đề thi được phân phối và lưu cache trực tiếp tại Amazon ElastiCache (Valkey) Replica Node & Primary Node để giảm tải cho RDS.
-9.  Khi các EC2 trong private subnet cần tải thư viện hoặc kết nối Internet (gửi mail, kết nối Docker Hub), luồng outbound sẽ truyền qua Regional NAT Gateway tập trung để tối ưu chi phí.
+7. Các dữ liệu truy vấn thường xuyên hoặc cấu hình đề thi được phân phối và lưu cache trực tiếp tại Amazon ElastiCache (Valkey) Replica Node & Primary Node để giảm tải cho RDS.
+8. Các EC2 Instance xử lý logic nghiệp vụ và tương tác với cơ sở dữ liệu Amazon RDS (SQL Server) cấu hình theo cụm Primary DB và Standby DB để tự động chuyển vùng khi có sự cố.
+9. Khi các EC2 trong private subnet cần tải thư viện hoặc kết nối Internet (gửi mail, kết nối Docker Hub), luồng outbound sẽ truyền qua Regional NAT Gateway tập trung để tối ưu chi phí.
 10. Từ Regional NAT Gateway, luồng traffic đi ra ngoài qua Internet Gateway.
 11. Amazon CloudWatch liên tục giám sát các chỉ số hiệu năng (CPU, Network) của các EC2 instance.
 12. Khi tải hệ thống vượt ngưỡng thiết lập, CloudWatch kích hoạt Alarm.
@@ -60,7 +60,7 @@ Hệ thống vận hành hoàn toàn trong môi trường mạng an toàn Amazon
 Dự án được thực hiện xuyên suốt trong kỳ thực tập, chia thành 3 giai đoạn chính nhằm đảm bảo tiến độ từ việc nắm bắt công nghệ đến khi hoàn thiện hệ thống:
 1. Nghiên cứu và làm quen dịch vụ nền tảng (Tháng 1): Tập trung nghiên cứu lý thuyết và thực hành các bài lab cơ bản trên AWS. Mục tiêu của giai đoạn này là làm quen thao tác và hiểu cơ chế hoạt động của các dịch vụ hạ tầng cốt lõi (như VPC, EC2, RDS, S3).
 2. Định hình kiến trúc và tính toán chi phí (Đầu Tháng 2): Tiến hành phác thảo và vẽ sơ đồ kiến trúc hệ thống tổng thể. Lập bảng ước tính chi phí hạ tầng (sử dụng AWS Pricing Calculator), từ đó đưa ra các quyết định điều chỉnh dịch vụ và kiến trúc nhằm tối ưu hóa ngân sách vận hành.
-3. Phát triển và tích hợp hệ thống (Giữa Tháng 2 - Đầu Tháng 3): Bắt tay vào quá trình xây dựng thực tế. Lập trình các tính năng cốt lõi (Backend & Frontend) và từng bước tích hợp, triển khai các dịch vụ nâng cao (Auto Scaling, ALB, ElastiCache, CI/CD, RabbitMQ, WAF) lên môi trường Cloud.
+3. Phát triển và tích hợp hệ thống (Giữa Tháng 2): Bắt tay vào quá trình xây dựng thực tế. Lập trình các tính năng cốt lõi (Backend & Frontend) và từng bước tích hợp, triển khai các dịch vụ nâng cao (Auto Scaling, ALB, ElastiCache, CI/CD, RabbitMQ, WAF) lên môi trường Cloud.
 4. Kiểm thử và hoàn thiện (Cuối Tháng 3): Rà soát lại toàn bộ dự án. Tiến hành kiểm thử các chức năng và khắc phục dứt điểm các lỗi phát sinh. Đóng gói môi trường và hoàn tất các tài liệu báo cáo cuối kỳ.
 
 *Yêu cầu kỹ thuật*

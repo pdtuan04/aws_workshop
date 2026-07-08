@@ -34,8 +34,8 @@ The system operates entirely within the secure Amazon VPC network environment sp
 4. Dynamic requests (APIs) are routed by CloudFront through the Internet Gateway (IG) to enter the VPC.
 5. The traffic flow goes to the Application Load Balancer (ALB) for load distribution.
 6. The ALB evenly distributes traffic to EC2 servers located within the Auto Scaling Group in the Private Subnets.
-7. The EC2 Instances handle business logic and interact with the Amazon RDS (SQL Server) database configured as a Primary DB and Standby DB cluster for automatic failover during incidents.
-8. Frequently queried data or exam configurations are distributed and cached directly at Amazon ElastiCache (Valkey) Replica Node & Primary Node to reduce the load on the RDS.
+7. Frequently queried data or exam configurations are distributed and cached directly at Amazon ElastiCache (Valkey) Replica Node & Primary Node to reduce the load on the RDS.
+8. The EC2 Instances handle business logic and interact with the Amazon RDS (SQL Server) database configured as a Primary DB and Standby DB cluster for automatic failover during incidents.
 9. When EC2s in the private subnet need to download libraries or connect to the Internet (send emails, connect to Docker Hub), outbound traffic goes through a centralized Regional NAT Gateway to optimize costs.
 10. From the Regional NAT Gateway, traffic goes out through the Internet Gateway.
 11. Amazon CloudWatch continuously monitors performance metrics (CPU, Network) of the EC2 instances.
@@ -61,7 +61,7 @@ The system operates entirely within the secure Amazon VPC network environment sp
 The project is carried out throughout the internship, divided into 3 main phases to ensure progress from grasping the technology to system completion:
 1. Research and familiarize with core services (Month 1): Focus on researching theory and practicing basic lab exercises on AWS. The goal of this phase is to get accustomed to the operations and understand the working mechanisms of core infrastructure services (such as VPC, EC2, RDS, S3).
 2. Define architecture and calculate costs (Early Month 2): Sketch and draw the overall system architecture diagram. Create an infrastructure cost estimation table (using AWS Pricing Calculator), thereby making decisions to adjust services and architecture to optimize the operational budget.
-3. Develop and integrate the system (Mid-Month 2 - Early Month 3): Start the actual building process. Program the core features (Backend & Frontend) and gradually integrate and deploy advanced services (Auto Scaling, ALB, ElastiCache, CI/CD, RabbitMQ, WAF) to the Cloud environment.
+3. Develop and integrate the system (Mid-Month 2): Start the actual building process. Program the core features (Backend & Frontend) and gradually integrate and deploy advanced services (Auto Scaling, ALB, ElastiCache, CI/CD, RabbitMQ, WAF) to the Cloud environment.
 4. Test and finalize (Late Month 3): Review the entire project. Conduct functional testing and completely resolve any arising bugs. Package the environment and complete the final report documents.
 
 *Technical Requirements*
