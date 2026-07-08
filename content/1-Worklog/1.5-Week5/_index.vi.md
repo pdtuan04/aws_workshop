@@ -19,7 +19,7 @@ pre: " <b> 1.5. </b> "
 | --- | --- | --- | --- | --- |
 | 6 | - Tìm hiểu lý thuyết cơ bản về dịch vụ lưu trữ Object Storage của AWS S3.<br> - Nghiên cứu cách hoạt động của mạng phân phối nội dung (CDN) CloudFront và cách kết hợp với S3. | 15/05/2026 | 15/05/2026 | <https://aws.amazon.com/blogs/networking-and-content-delivery/amazon-s3-amazon-cloudfront-a-match-made-in-the-cloud/> |
 | 7 | - **Thực hành:** Tích hợp S3 và CloudFront.<br>&emsp;+ Xây dựng API upload file tĩnh (hình ảnh, tài liệu) lên AWS S3.<br>&emsp;+ Cấu hình kết hợp CloudFront để người dùng truy cập qua đó mà không truy cập trực tiếp S3. | 16/05/2026 | 16/05/2026 | <https://000094.awsstudygroup.com/> |
-| CN || 17/05/2026 | 17/05/2026 | |
+| CN |Nghỉ| 17/05/2026 | 17/05/2026 | |
 | 2 | - **Thực hành:** Chức năng Email.<br>&emsp;+ Tìm hiểu các thư viện hỗ trợ gửi mail trong ứng dụng backend.<br>&emsp;+ Xây dựng API gửi mail (mail chào mừng, mail thông báo). <br> - **Thực hành:** Chức năng Flashcard.<br>&emsp;+ Thiết kế cấu trúc bảng và quan hệ dữ liệu cho tính năng flashcard.<br>&emsp;+ Xây dựng các API cơ bản (CRUD) để quản lý flashcard. | 18/05/2026 | 18/05/2026 |  |
 | 3 | - **Thực hành:** CI/CD và Container Registry.<br>&emsp;+ Triển khai quy trình CI/CD cho dự án để tự động hóa các bước build và test mã nguồn cơ bản bằng cách SSH vào EC2. | 19/05/2026 | 19/05/2026 | |
 | 4 | - **Thực hành:** Triển khai Database và sử dụng ECR.<br>&emsp;+ Kết nối ứng dụng với cơ sở dữ liệu đã được khởi tạo trên AWS RDS.<br>&emsp;+ Cấu hình chuỗi kết nối an toàn và chạy migration để cập nhật các bảng dữ liệu mới.<br>&emsp;+ Viết file Seed data cơ bản cho ứng dụng khi mới khởi tạo. <br>&emsp;+ Thực hiện build và push Docker image lên AWS ECR với AWS CLI.| 20/05/2026 | 20/05/2026 |  |

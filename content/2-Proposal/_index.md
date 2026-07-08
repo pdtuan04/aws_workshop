@@ -25,7 +25,7 @@ The solution provides a smooth, fast-loading, uninterrupted learning experience 
 ### 3. Solution Architecture  
 The system operates entirely within the secure Amazon VPC network environment spanning multiple Availability Zones to ensure High Availability.
 
-![EngExam Cloud & Deployment Architecture](../images/2-proposal/architechture.drawio.png)
+![EngExam Cloud & Deployment Architecture](../../images/2-proposal/architechture.drawio.png)
 
 *Data interaction flow:*
 1. User sends a request to the system, passing through CloudFront.
