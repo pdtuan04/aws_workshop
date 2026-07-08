@@ -6,7 +6,7 @@ chapter: false
 pre: " <b> 5. </b> "
 ---
 
-# Deploying a Scalable and Secure Web Application System on AWS
+# English Learning Platform On AWS
 
 #### Overview
 In modern web systems, ensuring High Availability, Scalability, and Security are critical requirements. AWS provides many services to build an architecture that meets these requirements with optimized cost and high automation capability.

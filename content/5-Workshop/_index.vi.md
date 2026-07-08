@@ -6,7 +6,7 @@ chapter: false
 pre: " <b> 5. </b> "
 ---
 
-# Triển khai hệ thống Web Application có khả năng mở rộng và bảo mật trên AWS
+# Hệ Thống Học Tiếng Anh Trên AWS
 
 #### Tổng quan
 Trong các hệ thống web hiện đại, việc đảm bảo tính sẵn sàng (High Availability), khả năng mở rộng (Scalability) và bảo mật (Security) là những yêu cầu quan trọng. AWS cung cấp nhiều dịch vụ giúp xây dựng kiến trúc đáp ứng các yêu cầu này với chi phí tối ưu và khả năng tự động hóa cao.
