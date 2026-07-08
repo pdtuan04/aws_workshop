@@ -25,7 +25,7 @@ Giải pháp mang lại trải nghiệm học tập mượt mà, tốc độ t�
 ### 3. Kiến trúc giải pháp  
 Hệ thống vận hành hoàn toàn trong môi trường mạng an toàn Amazon VPC trải rộng trên nhiều Availability Zone nhằm đảm bảo tính sẵn sàng cao (High Availability).
 
-![EngExam Cloud & Deployment Architecture](../images/2-Proposal/architechture.drawio.png)
+![EngExam Cloud & Deployment Architecture](../images/2-pro/architechture.drawio.png)
 
 *Luồng tương tác dữ liệu:*
 1. User gửi request tới hệ thống, đi qua Cloudfont 
