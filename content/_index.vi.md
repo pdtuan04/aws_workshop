@@ -9,6 +9,8 @@ chapter: false
 ### Thông tin sinh viên:
 &emsp; **Họ và tên:** Phan Đình Tuấn
 
+&emsp; **Mã Số Sinh Viên:** 2280603577
+
 &emsp; **Số điện thoại:** 0919955439
 
 &emsp; **Email:** pdtuan04@gmail.com
@@ -19,11 +21,11 @@ chapter: false
 
 &emsp; **Lớp:** 22DTHB5
 
-&emsp; **Công ty thực tập:** Công ty TNHH Amazon Web Services Vietnam
+&emsp; **Công ty thực tập:** Công ty TNHH Amazon Web Services Việt Nam
 
 &emsp; **Vị trí thực tập:** Workforce Bootcamp - First Cloud AI Journey
 
-&emsp; **Thời gian thực tập:** Từ ngày 17/04/2026 đến ngày 10/7/2026
+&emsp; **Thời gian thực tập:** Từ ngày 17/04/2026 đến ngày 30/7/2026
 
 ![Ảnh đại diện của bạn](./images/avatar.jpg)
 

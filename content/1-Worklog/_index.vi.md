@@ -29,3 +29,5 @@ pre: " <b> 1. </b> "
 **Tuần 11:** [Khắc phục lỗi, dựng lại hệ thống và hoàn thiện tài liệu Workshop](1.11-week11/)
 
 **Tuần 12:** [Hoàn thiện Workshop, báo cáo cuối kỳ và chuẩn bị hồ sơ kết thúc kỳ thực tập](1.12-week12/)
+
+**Tuần 13:** [Tiếp tục thêm 1 số tính năng mới cải thiện website.](1.13-week13/)

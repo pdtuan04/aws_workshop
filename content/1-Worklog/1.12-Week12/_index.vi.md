@@ -3,7 +3,7 @@ title: "Worklog Tuần 12"
 date: 2026-07-03
 weight: 12
 chapter: false
-pre: " <b> 1.12 </b> "
+pre: " <b> 1.12. </b> "
 ---
 
 ### Mục tiêu tuần 12:
@@ -21,6 +21,7 @@ pre: " <b> 1.12 </b> "
 | 2 | - Đưa nội dung các bài Blogs đã đăng trong Group AWS Study Group VN vào workshop. <br> - Tiến hành viết cuốn báo cáo cho GVHD. | 06/07/2026 | 06/07/2026 | |
 | 3 | - Tiếp tục làm cuốn báo cáo.<br>- Chuẩn bị phiếu đánh giá của đơn vị thực tập.<br>- Chuẩn bị phiếu theo dõi tiến độ. | 07/07/2026 | 07/07/2026 | |
 | 4 | - Kiểm tra lại workshop và nộp lên cho anh chị chấm. | 08/07/2026 | 08/07/2026 | |
+| 5 | - Tiếp tục thêm tính năng phát âm thanh cho những câu hỏi nghe và điền từ. | 09/07/2026 | 09/07/2026 | |
 
 ### Kết quả đạt được:
 * Đã hoàn thiện nội dung Workshop.
