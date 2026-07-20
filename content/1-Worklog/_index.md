@@ -28,5 +28,3 @@ pre: " <b> 1. </b> "
 **Week 11:** [Troubleshooting, rebuilding the system, and finalizing Workshop documentation](1.11-week11/)
 
 **Week 12:** [Finalizing Workshop, final report, and preparing internship completion documents](1.12-week12/)
-
-**Week 13:** [Continue implementing new features to improve the website.](1.13-week13/)

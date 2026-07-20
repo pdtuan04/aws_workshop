@@ -21,7 +21,6 @@ pre: " <b> 1.12. </b> "
 | Mon | - Integrate published blog contents from the AWS Study Group VN into the workshop. <br> - Proceed with writing the internship report for the instructor. | 06/07/2026 | 06/07/2026 | |
 | Tue | - Continue compiling the report.<br>- Prepare the internship host evaluation form.<br>- Prepare the progress tracking form. | 07/07/2026 | 07/07/2026 | |
 | Wed | - Review the completed workshop and submit it to the mentors for grading. | 08/07/2026 | 08/07/2026 | |
-| Thu | Continue implementing audio playback for listening and fill-in-the-blank questions. | 09/07/2026 | 09/07/2026 | |
 ### Key Achievements:
 * Successfully finalized the entire Workshop content.
 * Completed the fundamental core of the internship report ready to be sent to the supervising instructor.
